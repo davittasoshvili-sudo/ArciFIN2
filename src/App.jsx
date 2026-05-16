@@ -14,11 +14,11 @@ const LS_NOTES     = 'debtor_notes'
 const LS_DARK      = 'debtor_dark_mode'
 
 const DEFAULT_TEMPLATE =
-`Subject: Payment Reminder – [Unit] – Amount Due: $[Amount]
+`Subject: Payment Reminder – [Unit] – Amount Due: ₾[Amount]
 
 Dear [TenantName],
 
-This is a formal reminder that your payment of $[Amount] for unit [Unit] was due on [DueDate] and remains outstanding ([DaysOverdue] days past due).
+This is a formal reminder that your payment of ₾[Amount] for unit [Unit] was due on [DueDate] and remains outstanding ([DaysOverdue] days past due).
 
 Please arrange payment at your earliest convenience. If you have already settled this balance, please disregard this notice.
 
@@ -28,12 +28,14 @@ Best regards,
 Property Management Team`
 
 const COL_SIGNATURES = {
-  tenant:         ['ტენანტი', 'tenant', 'name', 'client', 'debtor'],
+  tenant:         ['ტენანტი', 'tenant name', 'tenant', 'name', 'client', 'debtor'],
   unit:           ['ფართის კოდი', 'unit', 'space code', 'property code', 'apartment'],
-  leaseAmount:    ['იჯარის თანხა', 'lease', 'rent', 'monthly amount'],
+  leaseAmount:    ['იჯარის თანხა', 'monthly rent', 'lease', 'rent', 'monthly amount'],
   paymentDate:    ['გადახდის დღე', 'payment day', 'due date', 'due'],
-  debt:           ['დავალიანება მიმდინარე', 'debt', 'outstanding', 'balance', 'overdue amount', 'owed'],
-  contractExpiry: ['ხელშეკრულების', 'contract', 'expiry', 'end date', 'lease end'],
+  debt:           ['დავალიანება მიმდინარე', 'overdue amount', 'debt', 'outstanding', 'balance', 'owed'],
+  daysOverdue:    ['days overdue', 'days past due', 'overdue days', 'days late'],
+  riskLevel:      ['risk level', 'risk', 'status level'],
+  contractExpiry: ['contract expiry', 'ხელშეკრულების', 'expiry', 'end date', 'lease end', 'contract'],
   advance:        ['ავანსი', 'advance', 'deposit'],
   phone:          ['მობილური', 'phone', 'mobile', 'telephone', 'tel'],
   email:          ['მეილი', 'email', 'e-mail', 'mail'],
@@ -50,7 +52,7 @@ const RISK_DOT = { Green: 'bg-emerald-500', Yellow: 'bg-amber-500', Red: 'bg-ros
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const fmt = (n) =>
-  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n)
+  '₾' + new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(n)
 
 const fmtDate = (d) => {
   if (!d) return '—'
@@ -80,7 +82,7 @@ function detectColumns(headerRow) {
 function parseExcelFile(buffer) {
   const wb = XLSX.read(new Uint8Array(buffer), { type: 'array', cellDates: true })
   const sheetName =
-    ['Overdues', 'Overdue', 'overdues(calc)'].find(n => wb.SheetNames.includes(n)) ||
+    ['Overdue Debtors', 'Overdues', 'Overdue', 'overdues(calc)'].find(n => wb.SheetNames.includes(n)) ||
     wb.SheetNames[0]
   const ws    = wb.Sheets[sheetName]
   const rows  = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: null })
@@ -114,8 +116,12 @@ function parseExcelFile(buffer) {
 
     if (debt < 0.01) return acc
 
-    const daysOverdue = leaseAmount > 0 ? Math.round(debt / leaseAmount * 30) : 30
-    const risk        = daysOverdue < 30 ? 'Green' : daysOverdue < 60 ? 'Yellow' : 'Red'
+    const rawDays    = colMap.daysOverdue != null ? parseInt(row[colMap.daysOverdue]) : NaN
+    const daysOverdue = !isNaN(rawDays) ? rawDays
+                      : leaseAmount > 0 ? Math.round(debt / leaseAmount * 30) : 30
+    const rawRisk    = colMap.riskLevel != null ? String(row[colMap.riskLevel] ?? '').trim() : ''
+    const risk       = ['Green', 'Yellow', 'Red'].includes(rawRisk) ? rawRisk
+                      : daysOverdue < 30 ? 'Green' : daysOverdue < 60 ? 'Yellow' : 'Red'
 
     acc.push({
       id: generateId(tenant, unit),
@@ -156,8 +162,8 @@ function doExport(rows, reminders) {
   const data = rows.map(d => ({
     'Tenant Name':          d.tenant,
     'Unit':                 d.unit,
-    'Overdue Amount ($)':   Math.round(d.debt),
-    'Monthly Rent ($)':     Math.round(d.leaseAmount),
+    'Overdue Amount (₾)':   Math.round(d.debt),
+    'Monthly Rent (₾)':     Math.round(d.leaseAmount),
     'Days Overdue':         d.daysOverdue,
     'Risk Level':           d.risk,
     'Contract Expiry':      fmtDate(d.contractExpiry),
@@ -406,7 +412,7 @@ function DebtChart({ debtors }) {
           <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
           <XAxis dataKey="name" tick={{ fontSize: 12, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
           <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false}
-            tickFormatter={v => v === 0 ? '0' : `$${(v / 1000).toFixed(0)}k`} />
+            tickFormatter={v => v === 0 ? '0' : `₾${(v / 1000).toFixed(0)}k`} />
           <Tooltip
             content={({ active, payload }) => {
               if (!active || !payload?.length) return null
@@ -448,7 +454,7 @@ function SortIcon({ col, sortBy }) {
 const TABLE_COLS = [
   { key: 'tenant',      label: 'Tenant Name' },
   { key: 'unit',        label: 'Unit' },
-  { key: 'debt',        label: 'Overdue ($)' },
+  { key: 'debt',        label: 'Overdue (₾)' },
   { key: 'leaseAmount', label: 'Monthly Rent' },
   { key: 'daysOverdue', label: 'Days Overdue' },
   { key: 'risk',        label: 'Risk' },
@@ -898,7 +904,7 @@ function TenantDetailModal({ debtor, notes, onClose, onSaveNote }) {
                   <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
                   <XAxis dataKey="month" tick={{ fontSize: 10, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fontSize: 10, fill: '#94a3b8' }} axisLine={false} tickLine={false}
-                    tickFormatter={v => `$${(v/1000).toFixed(0)}k`} />
+                    tickFormatter={v => `₾${(v/1000).toFixed(0)}k`} />
                   <Tooltip formatter={(v, n) => [fmt(v), n === 'paid' ? 'Paid' : 'Expected']} />
                   <Line type="monotone" dataKey="expected" stroke="#e2e8f0" strokeWidth={2} dot={false} strokeDasharray="4 4" />
                   <Line type="monotone" dataKey="paid"     stroke="#6366F1" strokeWidth={2.5} dot={{ r: 3, fill: '#6366F1' }} />
