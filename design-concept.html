@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real Estate Management Portal</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #22253a; --border: #2e3150;
+    --accent: #4f6ef7; --accent2: #7c5cf6; --green: #22c55e; --red: #ef4444;
+    --orange: #f97316; --yellow: #eab308; --text: #e2e8f0; --muted: #64748b; --sidebar-w: 230px;
+  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; }
+
+  /* SIDEBAR */
+  .sidebar { width: var(--sidebar-w); background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; position: fixed; height: 100vh; z-index: 100; }
+  .logo { padding: 22px 20px 18px; border-bottom: 1px solid var(--border); }
+  .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 8px; }
+  .logo h2 { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
+  .logo p { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  nav { padding: 16px 12px; flex: 1; }
+  nav a { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; color: var(--muted); text-decoration: none; font-size: 13.5px; font-weight: 500; margin-bottom: 4px; cursor: pointer; transition: all 0.15s; }
+  nav a:hover { background: var(--surface2); color: var(--text); }
+  nav a.active { background: linear-gradient(135deg, rgba(79,110,247,.18), rgba(124,92,246,.18)); color: var(--text); border: 1px solid rgba(79,110,247,.35); }
+  nav a .icon { font-size: 17px; width: 22px; text-align: center; }
+  .sidebar-footer { padding: 16px; border-top: 1px solid var(--border); font-size: 11.5px; color: var(--muted); }
+
+  /* MAIN */
+  .main { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; }
+  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 28px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; }
+  .topbar h1 { font-size: 18px; font-weight: 700; }
+  .topbar .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .topbar-right { display: flex; align-items: center; gap: 14px; }
+  .badge-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; display: inline-block; }
+  .avatar { width: 34px; height: 34px; background: linear-gradient(135deg,var(--accent),var(--accent2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; }
+  .content { padding: 28px; }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* CARDS */
+  .cards-row { display: grid; gap: 16px; }
+  .cards-4 { grid-template-columns: repeat(4, 1fr); }
+  .cards-3 { grid-template-columns: repeat(3, 1fr); }
+  .cards-2 { grid-template-columns: repeat(2, 1fr); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+  .card-label { font-size: 11.5px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .6px; }
+  .card-value { font-size: 26px; font-weight: 800; margin: 6px 0 6px; }
+  .card-icon { float: right; font-size: 26px; opacity: .7; margin-top: -4px; }
+  .cmp-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .cmp-tag { font-size: 11.5px; display: flex; align-items: center; gap: 4px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+
+  /* SECTION TITLE */
+  .section-title { font-size: 15px; font-weight: 700; margin-bottom: 14px; margin-top: 26px; display: flex; align-items: center; gap: 8px; }
+  .section-title span { font-size: 11px; color: var(--muted); font-weight: 400; }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead th { text-align: left; padding: 10px 14px; color: var(--muted); font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; border-bottom: 1px solid var(--border); }
+  tbody td { padding: 13px 14px; border-bottom: 1px solid rgba(46,49,80,.5); vertical-align: middle; }
+  tbody tr:hover td { background: rgba(255,255,255,.02); }
+  tbody tr:last-child td { border-bottom: none; }
+  .table-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+
+  /* PROJECT BADGE */
+  .proj-badge { display: inline-flex; align-items: center; gap: 7px; }
+  .proj-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .dot-a { background: var(--accent); }
+  .dot-b { background: var(--accent2); }
+  .dot-c { background: var(--green); }
+  .dot-d { background: var(--orange); }
+
+  /* PROGRESS BAR */
+  .prog-label { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--muted); margin-bottom: 5px; }
+  .prog-bar { height: 6px; background: var(--surface2); border-radius: 99px; overflow: hidden; }
+  .prog-fill { height: 100%; border-radius: 99px; }
+  .fill-accent { background: var(--accent); }
+  .fill-green { background: var(--green); }
+  .fill-orange { background: var(--orange); }
+  .fill-purple { background: var(--accent2); }
+
+  /* CHART */
+  .chart-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; margin-top: 26px; }
+  .chart-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+  .chart-card h3 { font-size: 13.5px; font-weight: 700; margin-bottom: 16px; }
+  .chart-full { margin-top: 26px; }
+  canvas { max-height: 240px; }
+  .canvas-tall { max-height: 280px !important; }
+
+  /* STAT BLOCK */
+  .stat-block { background: var(--surface2); border-radius: 10px; padding: 14px 16px; margin-top: 10px; }
+  .stat-block-row { display: flex; justify-content: space-between; align-items: center; }
+  .stat-block-label { font-size: 12.5px; color: var(--muted); }
+  .stat-block-val { font-size: 18px; font-weight: 800; }
+
+  /* PROPERTY CARDS */
+  .prop-section { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+  .prop-section h3 { font-size: 14px; font-weight: 700; margin-bottom: 18px; display: flex; align-items: center; gap: 9px; }
+  .prop-emoji { font-size: 20px; }
+  .prop-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+  .prop-stat { background: var(--surface2); border-radius: 10px; padding: 14px; text-align: center; }
+  .prop-stat .num { font-size: 28px; font-weight: 800; }
+  .prop-stat .lbl { font-size: 11px; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: .5px; }
+
+  /* CONTRACTORS CARD */
+  .contractors-card {
+    background: linear-gradient(135deg, rgba(79,110,247,.12), rgba(124,92,246,.08));
+    border: 1px solid rgba(79,110,247,.35); border-radius: 14px; padding: 24px;
+  }
+  .contractors-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+  .contractors-total { font-size: 36px; font-weight: 900; color: var(--accent); margin: 8px 0 18px; }
+  .contractors-breakdown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .cb-item { background: var(--surface); border-radius: 10px; padding: 14px; text-align: center; border: 1px solid var(--border); }
+  .cb-item .cb-val { font-size: 20px; font-weight: 800; }
+  .cb-item .cb-lbl { font-size: 11px; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: .4px; }
+
+  /* REV CHIP */
+  .rev-chip { font-size: 12px; font-weight: 700; color: var(--green); background: rgba(34,197,94,.1); padding: 2px 8px; border-radius: 6px; }
+
+  /* SUMMARY ROW */
+  .summary-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 22px; }
+  .sum-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; }
+  .sum-label { font-size: 11.5px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing:.5px; margin-bottom: 6px; }
+  .sum-value { font-size: 20px; font-weight: 800; }
+
+  /* FILTER / PILL BUTTONS */
+  .filter-bar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+  .filter-btn { padding: 7px 15px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all .15s; }
+  .filter-btn.active { background: rgba(79,110,247,.15); border-color: var(--accent); color: var(--text); }
+  .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+
+  /* DEBTOR TABLE */
+  .status-pill { display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 11px; font-weight: 600; }
+  .pill-due { background: rgba(234,179,8,.15); color: var(--yellow); }
+  .pill-overdue { background: rgba(239,68,68,.15); color: var(--red); }
+  .pill-upcoming { background: rgba(34,197,94,.12); color: var(--green); }
+  .type-pill { display: inline-block; padding: 2px 9px; border-radius: 6px; font-size: 11px; font-weight: 600; background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+  .amount-val { font-weight: 700; font-size: 14px; }
+
+  /* PROJECT REVENUE CARDS */
+  .proj-rev-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 26px; }
+  .proj-rev-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .proj-rev-card .prj-name { font-size: 12px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .proj-rev-card .prj-val { font-size: 22px; font-weight: 800; }
+  .proj-rev-card .prj-sub { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .mini-breakdown { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+  .mb-row { display: flex; justify-content: space-between; font-size: 11.5px; }
+  .mb-label { color: var(--muted); }
+  .mb-val { font-weight: 600; }
+
+  /* LEGEND */
+  .legend-row { display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
+  .legend-item { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; flex-shrink: 0; }
+  .legend-left { display: flex; align-items: center; }
+
+  .grid-stats-top { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-icon">🏢</div>
+    <h2>ESTATE PORTAL</h2>
+    <p>Management Dashboard</p>
+  </div>
+  <nav>
+    <a class="active" onclick="showPage('dashboard', this)"><span class="icon">📊</span> Dashboard</a>
+    <a onclick="showPage('statistics', this)"><span class="icon">🏘️</span> Statistics</a>
+    <a onclick="showPage('debtors', this)"><span class="icon">📋</span> Debtors</a>
+  </nav>
+  <div class="sidebar-footer">
+    <div><span class="badge-dot"></span> Live data · Updated now</div>
+    <div style="margin-top:6px">May 2026</div>
+  </div>
+</aside>
+
+<main class="main">
+
+<!-- ===== PAGE 1: DASHBOARD ===== -->
+<div class="page active" id="page-dashboard">
+  <div class="topbar">
+    <div>
+      <h1>Financial Dashboard</h1>
+      <div class="sub">All 4 projects · May 2026 — Revenue vs last month & last year</div>
+    </div>
+    <div class="topbar-right">
+      <span style="font-size:12px; color:var(--muted)">Q2 2026</span>
+      <div class="avatar">AD</div>
+    </div>
+  </div>
+  <div class="content">
+
+    <!-- KPI Cards — no costs -->
+    <div class="cards-row cards-4">
+      <div class="card">
+        <div class="card-icon">💰</div>
+        <div class="card-label">Revenue This Month</div>
+        <div class="card-value" style="color:var(--green)">€615K</div>
+        <div class="cmp-row">
+          <span class="cmp-tag up">▲ 25.5% <span style="color:var(--muted)">vs last month</span></span>
+          <span class="cmp-tag up">▲ 61.8% <span style="color:var(--muted)">vs last year</span></span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📅</div>
+        <div class="card-label">Revenue YTD (Jan–May)</div>
+        <div class="card-value">€2.51M</div>
+        <div class="cmp-row">
+          <span class="cmp-tag up">▲ 14.2% <span style="color:var(--muted)">vs same period last year</span></span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏷️</div>
+        <div class="card-label">Sales Revenue (Total)</div>
+        <div class="card-value" style="color:var(--accent)">€5.02M</div>
+        <div class="cmp-row">
+          <span class="cmp-tag" style="color:var(--muted)">All property sales · all projects</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔑</div>
+        <div class="card-label">Rental Income / Month</div>
+        <div class="card-value" style="color:var(--orange)">€96,400</div>
+        <div class="cmp-row">
+          <span class="cmp-tag up">▲ 2.1% <span style="color:var(--muted)">vs last month</span></span>
+          <span class="cmp-tag up">▲ 18.4% <span style="color:var(--muted)">vs last year</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3>Revenue by Project — This Month vs Last Month vs Last Year</h3>
+        <canvas id="revCompareChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Revenue Distribution (YTD)</h3>
+        <canvas id="pieChart"></canvas>
+        <div class="legend-row" style="margin-top:14px">
+          <div class="legend-item"><div class="legend-left"><div class="legend-dot" style="background:var(--accent)"></div>Samgori House</div><span class="rev-chip">€954K</span></div>
+          <div class="legend-item"><div class="legend-left"><div class="legend-dot" style="background:var(--accent2)"></div>Lisi House</div><span class="rev-chip">€708K</span></div>
+          <div class="legend-item"><div class="legend-left"><div class="legend-dot" style="background:var(--green)"></div>Uni House</div><span class="rev-chip">€526K</span></div>
+          <div class="legend-item"><div class="legend-left"><div class="legend-dot" style="background:var(--orange)"></div>Jei Property</div><span class="rev-chip">€317K</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Table — no costs column -->
+    <div class="section-title">Project Breakdown <span>All figures in EUR</span></div>
+    <div class="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>Revenue This Month</th>
+            <th>Last Month</th>
+            <th>Last Year (May)</th>
+            <th>vs Last Month</th>
+            <th>vs Last Year</th>
+            <th>YTD Revenue</th>
+            <th>Rental Income / Mo.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="proj-badge"><div class="proj-dot dot-a"></div><strong>Samgori House</strong></div></td>
+            <td style="color:var(--green); font-weight:700">€234,000</td>
+            <td>€185,000</td>
+            <td>€140,000</td>
+            <td><span class="rev-chip">▲ 26.5%</span></td>
+            <td><span class="rev-chip">▲ 67.1%</span></td>
+            <td>€954,000</td>
+            <td>€34,400</td>
+          </tr>
+          <tr>
+            <td><div class="proj-badge"><div class="proj-dot dot-b"></div><strong>Lisi House</strong></div></td>
+            <td style="color:var(--green); font-weight:700">€168,000</td>
+            <td>€140,000</td>
+            <td>€110,000</td>
+            <td><span class="rev-chip">▲ 20.0%</span></td>
+            <td><span class="rev-chip">▲ 52.7%</span></td>
+            <td>€708,000</td>
+            <td>€23,700</td>
+          </tr>
+          <tr>
+            <td><div class="proj-badge"><div class="proj-dot dot-c"></div><strong>Uni House</strong></div></td>
+            <td style="color:var(--green); font-weight:700">€121,000</td>
+            <td>€105,000</td>
+            <td>€80,000</td>
+            <td><span class="rev-chip">▲ 15.2%</span></td>
+            <td><span class="rev-chip">▲ 51.3%</span></td>
+            <td>€526,000</td>
+            <td>€23,800</td>
+          </tr>
+          <tr>
+            <td><div class="proj-badge"><div class="proj-dot dot-d"></div><strong>Jei Property</strong></div></td>
+            <td style="color:var(--green); font-weight:700">€92,000</td>
+            <td>€60,000</td>
+            <td>€50,000</td>
+            <td><span class="rev-chip">▲ 53.3%</span></td>
+            <td><span class="rev-chip">▲ 84.0%</span></td>
+            <td>€317,000</td>
+            <td>€14,500</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== PAGE 2: STATISTICS ===== -->
+<div class="page" id="page-statistics">
+  <div class="topbar">
+    <div>
+      <h1>Property Statistics</h1>
+      <div class="sub" id="stat-subtitle">Availability, sales, rentals and revenue · All Projects</div>
+    </div>
+    <div class="topbar-right"><div class="avatar">AD</div></div>
+  </div>
+  <div class="content">
+
+    <!-- Project Filter -->
+    <div class="filter-bar" id="proj-filter">
+      <button class="filter-btn active" onclick="filterProject('all', this)">All Projects</button>
+      <button class="filter-btn" onclick="filterProject('samgori', this)">Samgori House</button>
+      <button class="filter-btn" onclick="filterProject('lisi', this)">Lisi House</button>
+      <button class="filter-btn" onclick="filterProject('uni', this)">Uni House</button>
+      <button class="filter-btn" onclick="filterProject('jei', this)">Jei Property</button>
+    </div>
+
+    <!-- Top: Contractors Income + Summary -->
+    <div class="grid-stats-top">
+
+      <!-- Contractors Income Card -->
+      <div class="contractors-card">
+        <h3>🏗️ Contractors Income</h3>
+        <div style="font-size:11.5px; color:var(--muted); margin-bottom:4px">Revenue from property sales</div>
+        <div class="contractors-total" id="ci-total">€5,017,000</div>
+        <div class="contractors-breakdown">
+          <div class="cb-item">
+            <div class="cb-val" id="ci-houses" style="color:var(--green)">€3,660,000</div>
+            <div class="cb-lbl">🏠 Houses</div>
+          </div>
+          <div class="cb-item">
+            <div class="cb-val" id="ci-commercial" style="color:var(--accent)">€1,100,000</div>
+            <div class="cb-lbl">🏪 Commercial</div>
+          </div>
+          <div class="cb-item">
+            <div class="cb-val" id="ci-parking" style="color:var(--orange)">€257,000</div>
+            <div class="cb-lbl">🅿️ Parking</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Cards -->
+      <div style="display:grid; grid-template-columns: repeat(2,1fr); gap:14px; align-content:start;">
+        <div class="sum-card">
+          <div class="sum-label">Total Units</div>
+          <div class="sum-value" id="s-total">348</div>
+        </div>
+        <div class="sum-card">
+          <div class="sum-label">Sold</div>
+          <div class="sum-value" id="s-sold" style="color:var(--green)">214</div>
+        </div>
+        <div class="sum-card">
+          <div class="sum-label">Available</div>
+          <div class="sum-value" id="s-avail" style="color:var(--accent)">134</div>
+        </div>
+        <div class="sum-card">
+          <div class="sum-label">Monthly Rental Rev.</div>
+          <div class="sum-value" id="s-rental" style="color:var(--orange)">€96,400</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Property Cards -->
+    <div class="cards-row cards-3">
+
+      <div class="prop-section">
+        <h3><span class="prop-emoji">🏠</span> Residential Units</h3>
+        <div class="prop-stats">
+          <div class="prop-stat">
+            <div class="num" id="h-avail" style="color:var(--accent)">68</div>
+            <div class="lbl">Available</div>
+          </div>
+          <div class="prop-stat">
+            <div class="num" id="h-sold" style="color:var(--green)">142</div>
+            <div class="lbl">Sold</div>
+          </div>
+          <div class="prop-stat">
+            <div class="num" id="h-total">210</div>
+            <div class="lbl">Total</div>
+          </div>
+        </div>
+        <div class="prog-label"><span>Sold</span><span id="h-pct">67.6%</span></div>
+        <div class="prog-bar"><div class="prog-fill fill-green" id="h-bar" style="width:67.6%"></div></div>
+        <div style="margin-top:12px; font-size:12.5px; color:var(--muted)">Sale revenue</div>
+        <div style="font-size:20px; font-weight:800; color:var(--green); margin-top:4px" id="h-rev">€3,660,000</div>
+      </div>
+
+      <div class="prop-section">
+        <h3><span class="prop-emoji">🏪</span> Commercial Units</h3>
+        <div class="prop-stats">
+          <div class="prop-stat">
+            <div class="num" id="c-avail" style="color:var(--accent)">22</div>
+            <div class="lbl">Available</div>
+          </div>
+          <div class="prop-stat">
+            <div class="num" id="c-sold" style="color:var(--green)">38</div>
+            <div class="lbl">Sold</div>
+          </div>
+          <div class="prop-stat">
+            <div class="num" id="c-total">60</div>
+            <div class="lbl">Total</div>
+          </div>
+        </div>
+        <div class="prog-label"><span>Sold</span><span id="c-pct">63.3%</span></div>
+        <div class="prog-bar"><div class="prog-fill fill-accent" id="c-bar" style="width:63.3%"></div></div>
+        <div class="stat-block">
+          <div class="stat-block-row">
+            <span class="stat-block-label">Currently rented</span>
+            <span class="stat-block-val" id="c-rented" style="color:var(--orange)">29</span>
+          </div>
+          <div class="stat-block-row" style="margin-top:8px">
+            <span class="stat-block-label">Monthly rental revenue</span>
+            <span class="stat-block-val" id="c-rental" style="color:var(--green); font-size:16px">€61,400</span>
+          </div>
+          <div class="stat-block-row" style="margin-top:8px">
+            <span class="stat-block-label">Sale revenue (total)</span>
+            <span class="stat-block-val" id="c-rev" style="font-size:15px">€1,100,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="prop-section">
+        <h3><span class="prop-emoji">🅿️</span> Parking Spaces</h3>
+        <div class="prop-stats">
+          <div class="prop-stat">
+            <div class="num" id="p-avail" style="color:var(--accent)">44</div>
+            <div class="lbl">Available</div>
+          </div>
+          <div class="prop-stat">
+            <div class="num" id="p-sold" style="color:var(--green)">34</div>
+            <div class="lbl">Sold</div>
+          </div>
+          <div class="prop-stat">
+            <div class="num" id="p-total">78</div>
+            <div class="lbl">Total</div>
+          </div>
+        </div>
+        <div class="prog-label"><span>Sold</span><span id="p-pct">43.6%</span></div>
+        <div class="prog-bar"><div class="prog-fill fill-orange" id="p-bar" style="width:43.6%"></div></div>
+        <div class="stat-block">
+          <div class="stat-block-row">
+            <span class="stat-block-label">Currently rented</span>
+            <span class="stat-block-val" id="p-rented" style="color:var(--orange)">17</span>
+          </div>
+          <div class="stat-block-row" style="margin-top:8px">
+            <span class="stat-block-label">Monthly rental revenue</span>
+            <span class="stat-block-val" id="p-rental" style="color:var(--green); font-size:16px">€35,000</span>
+          </div>
+          <div class="stat-block-row" style="margin-top:8px">
+            <span class="stat-block-label">Sale revenue (total)</span>
+            <span class="stat-block-val" id="p-rev" style="font-size:15px">€257,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Revenue by Project -->
+    <div class="section-title">Revenue by Project</div>
+    <div class="proj-rev-grid" id="proj-rev-grid">
+      <div class="proj-rev-card">
+        <div class="prj-name"><div class="proj-dot dot-a"></div>Samgori House</div>
+        <div class="prj-val" style="color:var(--accent)">€1,925,000</div>
+        <div class="prj-sub">Total sales + rental revenue</div>
+        <div class="mini-breakdown">
+          <div class="mb-row"><span class="mb-label">🏠 Houses</span><span class="mb-val">€1,450,000</span></div>
+          <div class="mb-row"><span class="mb-label">🏪 Commercial</span><span class="mb-val">€380,000</span></div>
+          <div class="mb-row"><span class="mb-label">🅿️ Parking</span><span class="mb-val">€95,000</span></div>
+          <div class="mb-row" style="border-top:1px solid var(--border); padding-top:6px; margin-top:2px"><span class="mb-label">🔑 Rentals/mo</span><span class="mb-val" style="color:var(--orange)">€34,400</span></div>
+        </div>
+      </div>
+      <div class="proj-rev-card">
+        <div class="prj-name"><div class="proj-dot dot-b"></div>Lisi House</div>
+        <div class="prj-val" style="color:var(--accent2)">€1,332,000</div>
+        <div class="prj-sub">Total sales + rental revenue</div>
+        <div class="mini-breakdown">
+          <div class="mb-row"><span class="mb-label">🏠 Houses</span><span class="mb-val">€980,000</span></div>
+          <div class="mb-row"><span class="mb-label">🏪 Commercial</span><span class="mb-val">€280,000</span></div>
+          <div class="mb-row"><span class="mb-label">🅿️ Parking</span><span class="mb-val">€72,000</span></div>
+          <div class="mb-row" style="border-top:1px solid var(--border); padding-top:6px; margin-top:2px"><span class="mb-label">🔑 Rentals/mo</span><span class="mb-val" style="color:var(--orange)">€23,700</span></div>
+        </div>
+      </div>
+      <div class="proj-rev-card">
+        <div class="prj-name"><div class="proj-dot dot-c"></div>Uni House</div>
+        <div class="prj-val" style="color:var(--green)">€922,000</div>
+        <div class="prj-sub">Total sales + rental revenue</div>
+        <div class="mini-breakdown">
+          <div class="mb-row"><span class="mb-label">🏠 Houses</span><span class="mb-val">€610,000</span></div>
+          <div class="mb-row"><span class="mb-label">🏪 Commercial</span><span class="mb-val">€260,000</span></div>
+          <div class="mb-row"><span class="mb-label">🅿️ Parking</span><span class="mb-val">€52,000</span></div>
+          <div class="mb-row" style="border-top:1px solid var(--border); padding-top:6px; margin-top:2px"><span class="mb-label">🔑 Rentals/mo</span><span class="mb-val" style="color:var(--orange)">€23,800</span></div>
+        </div>
+      </div>
+      <div class="proj-rev-card">
+        <div class="prj-name"><div class="proj-dot dot-d"></div>Jei Property</div>
+        <div class="prj-val" style="color:var(--orange)">€838,000</div>
+        <div class="prj-sub">Total sales + rental revenue</div>
+        <div class="mini-breakdown">
+          <div class="mb-row"><span class="mb-label">🏠 Houses</span><span class="mb-val">€620,000</span></div>
+          <div class="mb-row"><span class="mb-label">🏪 Commercial</span><span class="mb-val">€180,000</span></div>
+          <div class="mb-row"><span class="mb-label">🅿️ Parking</span><span class="mb-val">€38,000</span></div>
+          <div class="mb-row" style="border-top:1px solid var(--border); padding-top:6px; margin-top:2px"><span class="mb-label">🔑 Rentals/mo</span><span class="mb-val" style="color:var(--orange)">€14,500</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monthly Income Chart (12 months) -->
+    <div class="chart-full">
+      <div class="chart-card">
+        <h3 id="monthly-chart-title">Monthly Income — Last 12 Months (Jun 2025 – May 2026)</h3>
+        <canvas id="monthlyChart" class="canvas-tall"></canvas>
+      </div>
+    </div>
+
+    <!-- Per-project breakdown table -->
+    <div class="section-title">Unit Breakdown by Project</div>
+    <div class="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>Houses Total / Sold / Avail.</th>
+            <th>Commercial Total / Sold / Avail.</th>
+            <th>Parking Total / Sold / Avail.</th>
+            <th>Active Rentals</th>
+            <th>Monthly Rent Rev.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="proj-badge"><div class="proj-dot dot-a"></div><strong>Samgori House</strong></div></td>
+            <td>72 / <span style="color:var(--green)">58</span> / <span style="color:var(--accent)">14</span></td>
+            <td>18 / <span style="color:var(--green)">12</span> / <span style="color:var(--accent)">6</span></td>
+            <td>24 / <span style="color:var(--green)">11</span> / <span style="color:var(--accent)">13</span></td>
+            <td><span style="color:var(--orange); font-weight:700">15</span></td>
+            <td style="color:var(--green); font-weight:700">€34,400</td>
+          </tr>
+          <tr>
+            <td><div class="proj-badge"><div class="proj-dot dot-b"></div><strong>Lisi House</strong></div></td>
+            <td>60 / <span style="color:var(--green)">42</span> / <span style="color:var(--accent)">18</span></td>
+            <td>14 / <span style="color:var(--green)">10</span> / <span style="color:var(--accent)">4</span></td>
+            <td>22 / <span style="color:var(--green)">9</span> / <span style="color:var(--accent)">13</span></td>
+            <td><span style="color:var(--orange); font-weight:700">9</span></td>
+            <td style="color:var(--green); font-weight:700">€23,700</td>
+          </tr>
+          <tr>
+            <td><div class="proj-badge"><div class="proj-dot dot-c"></div><strong>Uni House</strong></div></td>
+            <td>48 / <span style="color:var(--green)">28</span> / <span style="color:var(--accent)">20</span></td>
+            <td>18 / <span style="color:var(--green)">10</span> / <span style="color:var(--accent)">8</span></td>
+            <td>18 / <span style="color:var(--green)">8</span> / <span style="color:var(--accent)">10</span></td>
+            <td><span style="color:var(--orange); font-weight:700">13</span></td>
+            <td style="color:var(--green); font-weight:700">€23,800</td>
+          </tr>
+          <tr>
+            <td><div class="proj-badge"><div class="proj-dot dot-d"></div><strong>Jei Property</strong></div></td>
+            <td>30 / <span style="color:var(--green)">14</span> / <span style="color:var(--accent)">16</span></td>
+            <td>10 / <span style="color:var(--green)">6</span> / <span style="color:var(--accent)">4</span></td>
+            <td>14 / <span style="color:var(--green)">6</span> / <span style="color:var(--accent)">8</span></td>
+            <td><span style="color:var(--orange); font-weight:700">9</span></td>
+            <td style="color:var(--green); font-weight:700">€14,500</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== PAGE 3: DEBTORS ===== -->
+<div class="page" id="page-debtors">
+  <div class="topbar">
+    <div>
+      <h1>Debtors & Payments Due</h1>
+      <div class="sub">Payments due this month — May 2026</div>
+    </div>
+    <div class="topbar-right"><div class="avatar">AD</div></div>
+  </div>
+  <div class="content">
+
+    <div class="summary-row">
+      <div class="sum-card"><div class="sum-label">Total Due This Month</div><div class="sum-value" style="color:var(--yellow)">€148,600</div></div>
+      <div class="sum-card"><div class="sum-label">Overdue Payments</div><div class="sum-value" style="color:var(--red)">€34,200</div></div>
+      <div class="sum-card"><div class="sum-label">On-Time Due</div><div class="sum-value" style="color:var(--green)">€114,400</div></div>
+      <div class="sum-card"><div class="sum-label">Debtors This Month</div><div class="sum-value">14</div></div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active">All (14)</button>
+      <button class="filter-btn">Overdue (3)</button>
+      <button class="filter-btn">Due This Month (9)</button>
+      <button class="filter-btn">Buyers</button>
+      <button class="filter-btn">Renters</button>
+    </div>
+
+    <div class="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Property</th>
+            <th>Unit Type</th>
+            <th>Project</th>
+            <th>Due Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Marko Jovanović</strong><br><span style="font-size:11px;color:var(--muted)">Renter</span></td>
+            <td><span class="type-pill">🏪 Commercial</span></td>
+            <td>Unit C-04, Floor 1</td>
+            <td>Office Space · 85m²</td>
+            <td><div class="proj-badge"><div class="proj-dot dot-a"></div>Samgori House</div></td>
+            <td style="font-weight:600; color:var(--red)">May 01, 2026 <span style="font-size:10px">(15 days ago)</span></td>
+            <td class="amount-val" style="color:var(--red)">€2,800</td>
+            <td><span class="status-pill pill-overdue">Overdue</span></td>
+          </tr>
+          <tr>
+            <td><strong>Svetlana Petrović</strong><br><span style="font-size:11px;color:var(--muted)">Buyer</span></td>
+            <td><span class="type-pill">🏠 Residential</span></td>
+            <td>Apt 3B, Floor 3</td>
+            <td>2-Bedroom · 74m²</td>
+            <td><div class="proj-badge"><div class="proj-dot dot-a"></div>Samgori House</div></td>
+            <td style="font-weight:600; color:var(--yellow)">May 20, 2026</td>
+            <td class="amount-val">€18,500</td>
+            <td><span class="status-pill pill-due">Due Soon</span></td>
+          </tr>
+          <tr>
+            <td><strong>Dragan Milić</strong><br><span style="font-size:11px;color:var(--muted)">Renter</span></td>
+            <td><span class="type-pill">🅿️ Parking</span></td>
+            <td>Space P-12, Basement</td>
+            <td>Parking Spot</td>
+            <td><div class="proj-badge"><div class="proj-dot dot-b"></div>Lisi House</div></td>
+            <td style="font-weight:600; color:var(--green)">May 25, 2026</td>
+            <td class="amount-val">€120</td>
+            <td><span class="status-pill pill-upcoming">Upcoming</span></td>
+          </tr>
+          <tr>
+            <td><strong>Ana Nikolić</strong><br><span style="font-size:11px;color:var(--muted)">Buyer</span></td>
+            <td><span class="type-pill">🏪 Commercial</span></td>
+            <td>Unit C-08, Floor 2</td>
+            <td>Retail Space · 110m²</td>
+            <td><div class="proj-badge"><div class="proj-dot dot-c"></div>Uni House</div></td>
+            <td style="font-weight:600; color:var(--yellow)">May 18, 2026</td>
+            <td class="amount-val">€42,000</td>
+            <td><span class="status-pill pill-due">Due Soon</span></td>
+          </tr>
+          <tr>
+            <td><strong>Nemanja Đorđević</strong><br><span style="font-size:11px;color:var(--muted)">Renter</span></td>
+            <td><span class="type-pill">🏪 Commercial</span></td>
+            <td>Unit C-02, Floor 1</td>
+            <td>Restaurant Space · 200m²</td>
+            <td><div class="proj-badge"><div class="proj-dot dot-d"></div>Jei Property</div></td>
+            <td style="font-weight:600; color:var(--red)">May 03, 2026 <span style="font-size:10px">(13 days ago)</span></td>
+            <td class="amount-val" style="color:var(--red)">€5,200</td>
+            <td><span class="status-pill pill-overdue">Overdue</span></td>
+          </tr>
+          <tr>
+            <td><strong>Jelena Stanković</strong><br><span style="font-size:11px;color:var(--muted)">Buyer</span></td>
+            <td><span class="type-pill">🏠 Residential</span></td>
+            <td>Apt 7A, Floor 7</td>
+            <td>3-Bedroom · 96m²</td>
+            <td><div class="proj-badge"><div class="proj-dot dot-b"></div>Lisi House</div></td>
+            <td style="font-weight:600; color:var(--yellow)">May 22, 2026</td>
+            <td class="amount-val">€24,000</td>
+            <td><span class="status-pill pill-due">Due Soon</span></td>
+          </tr>
+          <tr>
+            <td><strong>Bojan Vasić</strong><br><span style="font-size:11px;color:var(--muted)">Renter</span></td>
+            <td><span class="type-pill">🅿️ Parking</span></td>
+            <td>Space P-07, Basement</td>
+            <td>Parking Spot</td>
+            <td><div class="proj-badge"><div class="proj-dot dot-a"></div>Samgori House</div></td>
+            <td style="font-weight:600; color:var(--green)">May 28, 2026</td>
+            <td class="amount-val">€95</td>
+            <td><span class="status-pill pill-upcoming">Upcoming</span></td>
+          </tr>
+          <tr>
+            <td><strong>Milica Lazarević</strong><br><span style="font-size:11px;color:var(--muted)">Buyer</span></td>
+            <td><span class="type-pill">🏠 Residential</span></td>
+            <td>Apt 2C, Floor 2</td>
+            <td>1-Bedroom · 48m²</td>
+            <td><div class="proj-badge"><div class="proj-dot dot-c"></div>Uni House</div></td>
+            <td style="font-weight:600; color:var(--red)">Apr 28, 2026 <span style="font-size:10px">(18 days ago)</span></td>
+            <td class="amount-val" style="color:var(--red)">€26,200</td>
+            <td><span class="status-pill pill-overdue">Overdue</span></td>
+          </tr>
+          <tr>
+            <td><strong>Stefan Kovačević</strong><br><span style="font-size:11px;color:var(--muted)">Renter</span></td>
+            <td><span class="type-pill">🏪 Commercial</span></td>
+            <td>Unit C-11, Floor 3</td>
+            <td>Office Space · 65m²</td>
+            <td><div class="proj-badge"><div class="proj-dot dot-d"></div>Jei Property</div></td>
+            <td style="font-weight:600; color:var(--green)">May 30, 2026</td>
+            <td class="amount-val">€1,800</td>
+            <td><span class="status-pill pill-upcoming">Upcoming</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
+const MONTHS = ['Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May'];
+
+const PD = {
+  samgori: {
+    name: 'Samgori House', color: '#4f6ef7',
+    houses:     { total:72, sold:58, avail:14, salesRev:1450000 },
+    commercial: { total:18, sold:12, avail:6,  rented:9, rentalRev:22400, salesRev:380000 },
+    parking:    { total:24, sold:11, avail:13, rented:6, rentalRev:12000, salesRev:95000 },
+    monthly: [140,160,175,145,195,180,210,155,180,200,185,234]
+  },
+  lisi: {
+    name: 'Lisi House', color: '#7c5cf6',
+    houses:     { total:60, sold:42, avail:18, salesRev:980000 },
+    commercial: { total:14, sold:10, avail:4,  rented:5, rentalRev:15200, salesRev:280000 },
+    parking:    { total:22, sold:9,  avail:13, rented:4, rentalRev:8500,  salesRev:72000 },
+    monthly: [110,120,135,110,145,140,155,115,135,150,140,168]
+  },
+  uni: {
+    name: 'Uni House', color: '#22c55e',
+    houses:     { total:48, sold:28, avail:20, salesRev:610000 },
+    commercial: { total:18, sold:10, avail:8,  rented:9, rentalRev:15800, salesRev:260000 },
+    parking:    { total:18, sold:8,  avail:10, rented:4, rentalRev:8000,  salesRev:52000 },
+    monthly: [80,90,95,80,110,100,120,90,100,110,105,121]
+  },
+  jei: {
+    name: 'Jei Property', color: '#f97316',
+    houses:     { total:30, sold:14, avail:16, salesRev:620000 },
+    commercial: { total:10, sold:6,  avail:4,  rented:6, rentalRev:8000,  salesRev:180000 },
+    parking:    { total:14, sold:6,  avail:8,  rented:3, rentalRev:6500,  salesRev:38000 },
+    monthly: [50,50,55,55,60,60,65,50,55,60,60,92]
+  }
+};
+
+function agg(keys, fn) {
+  return keys.reduce((s, k) => s + fn(PD[k]), 0);
+}
+
+function fmt(n) {
+  if (n >= 1000000) return '€' + (n/1000000).toFixed(2) + 'M';
+  if (n >= 1000)    return '€' + n.toLocaleString();
+  return '€' + n;
+}
+
+// ─── NAVIGATION ─────────────────────────────────────────────────────────────
+function showPage(name, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  el.classList.add('active');
+}
+
+// ─── STATISTICS FILTER ───────────────────────────────────────────────────────
+let monthlyChart = null;
+
+function filterProject(key, btn) {
+  document.querySelectorAll('#proj-filter .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const keys = key === 'all' ? ['samgori','lisi','uni','jei'] : [key];
+
+  // Summary values
+  const hTotal = agg(keys, d => d.houses.total);
+  const hSold  = agg(keys, d => d.houses.sold);
+  const hAvail = agg(keys, d => d.houses.avail);
+  const cTotal = agg(keys, d => d.commercial.total);
+  const cSold  = agg(keys, d => d.commercial.sold);
+  const cAvail = agg(keys, d => d.commercial.avail);
+  const cRent  = agg(keys, d => d.commercial.rented);
+  const cRenRev= agg(keys, d => d.commercial.rentalRev);
+  const cSalRev= agg(keys, d => d.commercial.salesRev);
+  const pTotal = agg(keys, d => d.parking.total);
+  const pSold  = agg(keys, d => d.parking.sold);
+  const pAvail = agg(keys, d => d.parking.avail);
+  const pRent  = agg(keys, d => d.parking.rented);
+  const pRenRev= agg(keys, d => d.parking.rentalRev);
+  const pSalRev= agg(keys, d => d.parking.salesRev);
+  const hSalRev= agg(keys, d => d.houses.salesRev);
+  const allTotal = hTotal + cTotal + pTotal;
+  const allSold  = hSold  + cSold  + pSold;
+  const allAvail = hAvail + cAvail + pAvail;
+  const allRental= cRenRev + pRenRev;
+
+  setText('s-total',  allTotal);
+  setText('s-sold',   allSold);
+  setText('s-avail',  allAvail);
+  setText('s-rental', fmt(allRental));
+
+  // Houses
+  setText('h-total', hTotal); setText('h-sold', hSold); setText('h-avail', hAvail);
+  const hPct = hTotal ? ((hSold/hTotal)*100).toFixed(1) : 0;
+  setText('h-pct', hPct + '%');
+  document.getElementById('h-bar').style.width = hPct + '%';
+  setText('h-rev', fmt(hSalRev));
+
+  // Commercial
+  setText('c-total', cTotal); setText('c-sold', cSold); setText('c-avail', cAvail);
+  const cPct = cTotal ? ((cSold/cTotal)*100).toFixed(1) : 0;
+  setText('c-pct', cPct + '%');
+  document.getElementById('c-bar').style.width = cPct + '%';
+  setText('c-rented', cRent);
+  setText('c-rental', fmt(cRenRev));
+  setText('c-rev', fmt(cSalRev));
+
+  // Parking
+  setText('p-total', pTotal); setText('p-sold', pSold); setText('p-avail', pAvail);
+  const pPct = pTotal ? ((pSold/pTotal)*100).toFixed(1) : 0;
+  setText('p-pct', pPct + '%');
+  document.getElementById('p-bar').style.width = pPct + '%';
+  setText('p-rented', pRent);
+  setText('p-rental', fmt(pRenRev));
+  setText('p-rev', fmt(pSalRev));
+
+  // Contractors Income
+  const ciH = hSalRev, ciC = cSalRev, ciP = pSalRev;
+  setText('ci-total', fmt(ciH + ciC + ciP));
+  setText('ci-houses', fmt(ciH));
+  setText('ci-commercial', fmt(ciC));
+  setText('ci-parking', fmt(ciP));
+
+  // Subtitle
+  const label = key === 'all' ? 'All Projects' : PD[key].name;
+  document.getElementById('stat-subtitle').textContent = 'Availability, sales, rentals and revenue · ' + label;
+
+  // Show/hide revenue-by-project cards
+  const grid = document.getElementById('proj-rev-grid');
+  const projCards = grid.querySelectorAll('.proj-rev-card');
+  const projOrder = ['samgori','lisi','uni','jei'];
+  projCards.forEach((card, i) => {
+    card.style.display = (key === 'all' || projOrder[i] === key) ? 'block' : 'none';
+  });
+
+  // Monthly chart
+  updateMonthlyChart(keys, key === 'all');
+}
+
+function setText(id, val) {
+  document.getElementById(id).textContent = val;
+}
+
+// ─── MONTHLY CHART ──────────────────────────────────────────────────────────
+function buildMonthlyDatasets(keys, showAll) {
+  if (!showAll && keys.length === 1) {
+    const k = keys[0];
+    return [{
+      label: PD[k].name,
+      data: PD[k].monthly,
+      borderColor: PD[k].color,
+      backgroundColor: PD[k].color + '22',
+      borderWidth: 2.5, tension: 0.4, fill: true, pointRadius: 4, pointHoverRadius: 6,
+    }];
+  }
+  // All projects — stacked lines
+  return keys.map(k => ({
+    label: PD[k].name,
+    data: PD[k].monthly,
+    borderColor: PD[k].color,
+    backgroundColor: PD[k].color + '18',
+    borderWidth: 2, tension: 0.4, fill: false, pointRadius: 3, pointHoverRadius: 5,
+  }));
+}
+
+function updateMonthlyChart(keys, showAll) {
+  if (monthlyChart) { monthlyChart.destroy(); monthlyChart = null; }
+  const ctx = document.getElementById('monthlyChart').getContext('2d');
+  monthlyChart = new Chart(ctx, {
+    type: 'line',
+    data: { labels: MONTHS, datasets: buildMonthlyDatasets(keys, showAll) },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { labels: { color: '#94a3b8', font: { size: 11 } } },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': €' + ctx.parsed.y + 'K' } }
+      },
+      scales: {
+        x: { ticks: { color: '#64748b', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,.04)' } },
+        y: { ticks: { color: '#64748b', font: { size: 11 }, callback: v => '€' + v + 'K' }, grid: { color: 'rgba(255,255,255,.06)' } }
+      }
+    }
+  });
+}
+
+// ─── DASHBOARD CHARTS ───────────────────────────────────────────────────────
+const PROJ_LABELS = ['Samgori House','Lisi House','Uni House','Jei Property'];
+const THIS_MONTH  = [234, 168, 121, 92];
+const LAST_MONTH  = [185, 140, 105, 60];
+const LAST_YEAR   = [140, 110,  80, 50];
+
+new Chart(document.getElementById('revCompareChart').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: PROJ_LABELS,
+    datasets: [
+      { label: 'This Month (May 26)', data: THIS_MONTH, backgroundColor: 'rgba(34,197,94,0.75)', borderRadius: 5 },
+      { label: 'Last Month (Apr 26)', data: LAST_MONTH, backgroundColor: 'rgba(79,110,247,0.65)', borderRadius: 5 },
+      { label: 'Last Year  (May 25)', data: LAST_YEAR,  backgroundColor: 'rgba(100,116,139,0.5)', borderRadius: 5 },
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { labels: { color: '#94a3b8', font: { size: 11 } } } },
+    scales: {
+      x: { ticks: { color: '#64748b', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,.04)' } },
+      y: { ticks: { color: '#64748b', font: { size: 11 }, callback: v => '€' + v + 'K' }, grid: { color: 'rgba(255,255,255,.06)' } }
+    }
+  }
+});
+
+new Chart(document.getElementById('pieChart').getContext('2d'), {
+  type: 'doughnut',
+  data: {
+    labels: PROJ_LABELS,
+    datasets: [{
+      data: [954, 708, 526, 317],
+      backgroundColor: ['rgba(79,110,247,.85)','rgba(124,92,246,.85)','rgba(34,197,94,.85)','rgba(249,115,22,.85)'],
+      borderWidth: 2, borderColor: '#1a1d27',
+    }]
+  },
+  options: { responsive: true, cutout: '68%', plugins: { legend: { display: false } } }
+});
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+updateMonthlyChart(['samgori','lisi','uni','jei'], true);
+
+// Generic filter-btn toggle (debtors page)
+document.querySelectorAll('#page-debtors .filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('#page-debtors .filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
