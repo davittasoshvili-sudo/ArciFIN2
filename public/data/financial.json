@@ -2,162 +2,162 @@
   "reportDate": "April 30, 2026",
   "projects": [
     {
-      "name": "Jikia",
+      "name": "Lemon Drizzle",
       "revenues": {
-        "total": 90835994.41,
-        "completed": 77273020.4
+        "total": 105023798.25,
+        "completed": 80039405.94
       },
       "commercial": {
-        "total": 1335384.92,
-        "completed": 254709.86
+        "total": 1498810.85,
+        "completed": 303402.37
       },
       "mansarda": {
-        "total": 5250689.49,
-        "completed": 6712278.98
+        "total": 4077146.96,
+        "completed": 7466182.32
       },
       "residential": {
-        "total": 45642597.46,
-        "completed": 47002116.3
+        "total": 37504511.93,
+        "completed": 38208078.76
       },
       "firstFloor": {
-        "total": 3304017.39,
-        "completed": 2965167.64
+        "total": 3635347.5,
+        "completed": 2668880.19
       },
       "office": {
-        "total": 7725329.65,
-        "completed": 6426540.02
+        "total": 8557687.99,
+        "completed": 5755374.45
       },
       "parking": {
-        "total": 1632683.39,
-        "completed": 1609925.73
+        "total": 1345767.95,
+        "completed": 1521781.3
       },
       "storerooms": {
-        "total": 181886.91,
-        "completed": 230817.95
+        "total": 178556.2,
+        "completed": 242349.21
       },
       "otherRevenues": {
-        "total": 901122.3,
-        "completed": 550763.94
+        "total": 878461.2,
+        "completed": 629515.48
       },
       "opex": {
-        "total": 43831240.07,
-        "completed": 55024650.9
+        "total": 45525316.89,
+        "completed": 48220029.15
       },
       "land": {
-        "total": 6852407.06,
-        "completed": 5207800.76
+        "total": 7980067.5,
+        "completed": 6433182.16
       },
       "construction": {
-        "total": 29996262.83,
-        "completed": 28914685.69
+        "total": 29202022.67,
+        "completed": 26345442.64
       },
       "marketing": {
-        "total": 483359.61,
-        "completed": 381891.61
+        "total": 494951.32,
+        "completed": 391968.08
       },
       "management": {
-        "total": 1954624.6,
-        "completed": 1643082.59
+        "total": 1515993.25,
+        "completed": 1572072.1
       },
       "interestExpenses": {
-        "total": 1982.14,
-        "completed": 2616.88
+        "total": 1813.26,
+        "completed": 3229.88
       },
       "vat": {
-        "total": 7159379.46,
-        "completed": 6362450.94
+        "total": 6575346.4,
+        "completed": 7061564.86
       },
       "ebt": {
-        "total": 31508567.38,
-        "completed": 24868963.32
+        "total": 36519118.66,
+        "completed": 26536890.47
       },
       "netIncome": {
         "total": null,
-        "completed": 32241354.84
+        "completed": 31274778.14
       },
-      "grossMarginPct": 40.2
+      "grossMarginPct": -1.8
     },
     {
-      "name": "Samgori",
+      "name": "Choco Fudge",
       "revenues": {
-        "total": 53258620.65,
-        "completed": 57376432
+        "total": 55425291.21,
+        "completed": 58972148.76
       },
       "mansarda": {
-        "total": 5621256.55,
-        "completed": 7394377.32
+        "total": 5917483.78,
+        "completed": 7106888.17
       },
       "residential": {
-        "total": 31997128.83,
-        "completed": 36313323.08
+        "total": 39964387.69,
+        "completed": 40491645.91
       },
       "commercial": {
-        "total": 4286146.47,
-        "completed": 3996337.31
+        "total": 4391628.15,
+        "completed": 4247244.27
       },
       "firstFloor": {
-        "total": 2406860.49,
-        "completed": 2519990.3
+        "total": 1968562.17,
+        "completed": 2598729.94
       },
       "parking": {
-        "total": 1780279.45,
-        "completed": 1991496.91
+        "total": 1737398.35,
+        "completed": 2257575.28
       },
       "otherRevenues": {
-        "total": 484132.52,
-        "completed": 586473.45
+        "total": 557051.79,
+        "completed": 636864.73
       },
       "opex": {
-        "total": 40486936.32,
-        "completed": 38957779.9
+        "total": 33160097.63,
+        "completed": 44947871.34
       },
       "land": {
-        "total": 6916585.69,
-        "completed": 6452825.45
+        "total": 7640999.91,
+        "completed": 7177233.29
       },
       "construction": {
-        "total": 29100222.97,
-        "completed": 27834893.47
+        "total": 23801312.1,
+        "completed": 21217747.67
       },
       "marketing": {
-        "total": 386578.76,
-        "completed": 434077.11
+        "total": 467385.93,
+        "completed": 522286.23
       },
       "management": {
-        "total": 1268315.29,
-        "completed": 1818020.63
+        "total": 1396799.31,
+        "completed": 1999265.53
       },
       "interestExpenses": {
         "total": 0,
         "completed": 0
       },
       "vat": {
-        "total": 3497981.24,
-        "completed": 3598648.43
+        "total": 4210107.41,
+        "completed": 3792990.48
       },
       "ebt": {
-        "total": 14089021.81,
-        "completed": 14639510.83
+        "total": 16222380.4,
+        "completed": 15341345.62
       },
       "netIncome": {
-        "total": 10895174.21,
-        "completed": 15908491.03
+        "total": 13062824.59,
+        "completed": 14462379.92
       },
-      "grossMarginPct": 27
+      "grossMarginPct": 43.5
     },
     {
-      "name": "University",
+      "name": "Strawberry Swirl",
       "revenues": {
-        "total": 43369059.72,
-        "completed": 47106905.72
+        "total": 47151402.11,
+        "completed": 55177726.52
       },
       "firstFloor": {
-        "total": 2153255.82,
-        "completed": 1652278.49
+        "total": 2468900.26,
+        "completed": 2063530.2
       },
       "residential": {
-        "total": 31648707.69,
-        "completed": 45606930.79
+        "total": 37264435,
+        "completed": 50805207.52
       },
       "commercial": {
         "total": 0,
@@ -168,142 +168,142 @@
         "completed": 0
       },
       "parking": {
-        "total": 284092.54,
-        "completed": 282888.25
+        "total": 286285.46,
+        "completed": 243878.86
       },
       "otherRevenues": {
-        "total": 194189.7,
-        "completed": 146945.74
+        "total": 192363.74,
+        "completed": 121677.38
       },
       "opex": {
-        "total": 42022451.34,
-        "completed": 55221554.85
+        "total": 34800655.19,
+        "completed": 64030886.9
       },
       "land": {
-        "total": 12034594.56,
-        "completed": 13182784.21
+        "total": 11059757.38,
+        "completed": 14630938.25
       },
       "construction": {
-        "total": 23671276.83,
-        "completed": 22431398.29
+        "total": 21794020.35,
+        "completed": 25877562.67
       },
       "marketing": {
-        "total": 413883.95,
-        "completed": 386056.96
+        "total": 315523.39,
+        "completed": 440647.59
       },
       "management": {
-        "total": 1324056.19,
-        "completed": 1129273.45
+        "total": 1527350.22,
+        "completed": 1261921.14
       },
       "interestExpenses": {
         "total": 0,
         "completed": 0
       },
       "vat": {
-        "total": 2201711.66,
-        "completed": 2065779.81
+        "total": 2631755.72,
+        "completed": 2279141.93
       },
       "ebt": {
-        "total": -2648239.13,
-        "completed": -2794047.79
+        "total": -2214334.83,
+        "completed": -2388928.68
       },
-      "grossMarginPct": 12.8
+      "grossMarginPct": 41.2
     },
     {
-      "name": "Lisi",
+      "name": "Vanilla Dream",
       "revenues": {
-        "total": 31690442.41,
-        "completed": 21141026.86
+        "total": 33513204.53,
+        "completed": 18251612.65
       },
       "firstFloor": {
-        "total": 1634139.05,
-        "completed": 1130314.73
+        "total": 1766790.05,
+        "completed": 1286161.97
       },
       "residential": {
-        "total": 25915712.22,
-        "completed": 27902216.8
+        "total": 21813563.22,
+        "completed": 28509558.91
       },
       "commercial": {
-        "total": 1224902.79,
-        "completed": 892951.08
+        "total": 1481769.66,
+        "completed": 829260.45
       },
       "storerooms": {
-        "total": 209489.24,
-        "completed": 227633.51
+        "total": 232159.92,
+        "completed": 212296.95
       },
       "parking": {
-        "total": 701619.59,
-        "completed": 690345.35
+        "total": 698532.39,
+        "completed": 820748.53
       },
       "otherRevenues": {
-        "total": 192158.37,
-        "completed": 234800.38
+        "total": 164653.78,
+        "completed": 180980.71
       },
       "opex": {
-        "total": 21402666.44,
-        "completed": 31765985.73
+        "total": 18813720.23,
+        "completed": 34792938.22
       },
       "land": {
-        "total": 2534087.7,
-        "completed": 3552349.98
+        "total": 2601893.87,
+        "completed": 2862985.95
       },
       "construction": {
-        "total": 15539591.32,
-        "completed": 14022774.27
+        "total": 16713467.17,
+        "completed": 11455797.61
       },
       "marketing": {
-        "total": 240482.8,
-        "completed": 218496.42
+        "total": 215549.55,
+        "completed": 166562.47
       },
       "management": {
-        "total": 647751.12,
-        "completed": 757973.12
+        "total": 685914.54,
+        "completed": 761479.22
       },
       "interestExpenses": {
         "total": 0,
         "completed": 0
       },
       "vat": {
-        "total": 945761.42,
-        "completed": 1014624.28
+        "total": 1158546.77,
+        "completed": 1081528.37
       },
       "ebt": {
-        "total": 340913.4,
-        "completed": 324253.62
+        "total": 418706.79,
+        "completed": 244079.75
       },
-      "grossMarginPct": -12.7
+      "grossMarginPct": 30.8
     }
   ],
   "salesByProject": {
-    "Samgori": {
-      "units": 218,
-      "value": 94966607,
-      "units2026": 42,
-      "value2026": 12148031
-    },
-    "Lisi": {
-      "units": 143,
-      "value": 88025260,
-      "units2026": 32,
-      "value2026": 1892245
-    },
-    "University": {
-      "units": 236,
-      "value": 10354880,
+    "Choco Fudge": {
+      "units": 331,
+      "value": 98726093,
       "units2026": 11,
-      "value2026": 1158702
+      "value2026": 15522962
     },
-    "Kikvidze": {
-      "units": 422,
-      "value": 64543195,
-      "units2026": 27,
-      "value2026": 9243481
+    "Vanilla Dream": {
+      "units": 304,
+      "value": 12661262,
+      "units2026": 48,
+      "value2026": 14481706
     },
-    "Jikia": {
-      "units": 510,
-      "value": 65460713,
-      "units2026": 9,
-      "value2026": 16416070
+    "Strawberry Swirl": {
+      "units": 428,
+      "value": 34614024,
+      "units2026": 66,
+      "value2026": 11523264
+    },
+    "Red Velvet": {
+      "units": 160,
+      "value": 97345379,
+      "units2026": 32,
+      "value2026": 12334176
+    },
+    "Lemon Drizzle": {
+      "units": 146,
+      "value": 75890417,
+      "units2026": 31,
+      "value2026": 5452730
     }
   }
 }
