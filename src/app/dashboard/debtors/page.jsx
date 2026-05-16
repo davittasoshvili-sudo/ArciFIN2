@@ -48,6 +48,20 @@ const RISK_BG     = {
 }
 const RISK_DOT = { Green: 'bg-emerald-500', Yellow: 'bg-amber-500', Red: 'bg-rose-500' }
 
+// ─── Pre-loaded data from 04.30.2026 Real Estate Report.xlsm ─────────────────
+
+const INITIAL_FILE = '04.30.2026 Real Estate Report.xlsm'
+const INITIAL_DEBTORS = [
+  { id: 'J-6-001_შპს__წიგნის_სივრცე_', tenant: 'შპს "წიგნის სივრცე"', unit: 'J-6-001', leaseAmount: 1800, debt: 4101.38, daysOverdue: 68, risk: 'Red', contractExpiry: '2026-03-31', advance: 0, phone: '599 37 32 11', email: 'ggvazava@projectz.ge', paymentDate: '2026-05-05' },
+  { id: 'J-10-1_შპს__ზოომარტი', tenant: 'შპს „ზოომარტი"', unit: 'J-10-1', leaseAmount: 1800, debt: 1799.98, daysOverdue: 30, risk: 'Yellow', contractExpiry: '2028-02-29', advance: 3350, phone: '591 709 269', email: 'Mikheil.Lasurashvili@zoomart.ge', paymentDate: '2026-05-05' },
+  { id: 'J-14a-001_შპს__შენი_კლინიკა_ჯი', tenant: 'შპს "შენი კლინიკა ჯიქიაზე"', unit: 'J-14a-001', leaseAmount: 1500, debt: 1498.87, daysOverdue: 30, risk: 'Yellow', contractExpiry: '2026-12-31', advance: 0, phone: '593 49 94 77', email: 'Ddatuna01@gmail.com', paymentDate: '2026-05-05' },
+  { id: 'J-1-003_დავით_გველესიანი', tenant: 'დავით გველესიანი', unit: 'J-1-003', leaseAmount: 1250, debt: 1249.11, daysOverdue: 30, risk: 'Yellow', contractExpiry: '2027-02-28', advance: 0, phone: '', email: '', paymentDate: '2026-05-05' },
+  { id: 'J-1-001_ი.მ._ნიკოლოზ_კარიაულ', tenant: 'ი.მ. ნიკოლოზ კარიაული', unit: 'J-1-001', leaseAmount: 500, debt: 504.74, daysOverdue: 30, risk: 'Yellow', contractExpiry: '2026-06-30', advance: 500, phone: '514 53 75 75', email: 'nikakariauli2@gmail.com', paymentDate: '2026-05-05' },
+  { id: 'J-1-004b_დაცვის_ჯიხური', tenant: 'დაცვის ჯიხური', unit: 'J-1-004b', leaseAmount: 183.51, debt: 179.94, daysOverdue: 29, risk: 'Green', contractExpiry: '2025-03-31', advance: 0, phone: '555 48 84 85', email: '', paymentDate: '2026-05-05' },
+  { id: 'J-14-001.1_შპს_წერტი_დიჯითალ', tenant: 'შპს წერტი დიჯითალ', unit: 'J-14-001.1', leaseAmount: 50, debt: 99.92, daysOverdue: 60, risk: 'Red', contractExpiry: '2026-12-01', advance: 50, phone: '', email: '', paymentDate: '2026-05-05' },
+  { id: 'J-9-003_შპს__ლეტერატო_', tenant: 'შპს "ლეტერატო"', unit: 'J-9-003', leaseAmount: 1150, debt: 7.73, daysOverdue: 0, risk: 'Green', contractExpiry: '2026-06-30', advance: 0, phone: '599 51 03 39', email: 'info@letterato.ge; trazmadze@letterato.ge', paymentDate: '2026-05-15' },
+]
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const fmt = (n) =>
@@ -912,8 +926,8 @@ function TenantDetailModal({ debtor, notes, onClose, onSaveNote }) {
 // ─── App ──────────────────────────────────────────────────────────────────────
 
 export default function DebtorsPage() {
-  const [debtors,        setDebtors]        = useState([])
-  const [fileName,       setFileName]       = useState(null)
+  const [debtors,        setDebtors]        = useState(INITIAL_DEBTORS)
+  const [fileName,       setFileName]       = useState(INITIAL_FILE)
   const [parseError,     setParseError]     = useState(null)
   const [reminders,      setReminders]      = useState({})
   const [plans,          setPlans]          = useState({})
