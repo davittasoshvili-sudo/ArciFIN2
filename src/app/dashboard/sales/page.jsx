@@ -7,11 +7,11 @@ import {
 import MetricCard from '@/components/dashboard/MetricCard';
 
 const COLORS = {
-  Lemon Drizzle: '#f59e0b',
-  Choco Fudge: '#3b82f6',
-  Strawberry Swirl: '#8b5cf6',
-  Vanilla Dream: '#10b981',
-  Red Velvet: '#ef4444',
+  'Lemon Drizzle': '#f59e0b',
+  'Choco Fudge': '#3b82f6',
+  'Strawberry Swirl': '#8b5cf6',
+  'Vanilla Dream': '#10b981',
+  'Red Velvet': '#ef4444',
 };
 
 const TYPE_COLORS = {

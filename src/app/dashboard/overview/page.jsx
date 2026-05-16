@@ -6,11 +6,11 @@ import {
 } from 'recharts';
 
 const COLORS = {
-  Lemon Drizzle: '#f59e0b',
-  Choco Fudge: '#3b82f6',
-  Strawberry Swirl: '#8b5cf6',
-  Vanilla Dream: '#10b981',
-  Red Velvet: '#ef4444',
+  'Lemon Drizzle': '#f59e0b',
+  'Choco Fudge': '#3b82f6',
+  'Strawberry Swirl': '#8b5cf6',
+  'Vanilla Dream': '#10b981',
+  'Red Velvet': '#ef4444',
 };
 
 function fmt(n) {
@@ -101,30 +101,30 @@ const monthlySales = [
 ];
 
 const avgPricePerM2 = [
-  { month: 'Jan-24', Choco Fudge: 1691, Vanilla Dream: 1849, Strawberry Swirl: 1164 },
-  { month: 'Feb-24', Choco Fudge: 1520, Vanilla Dream: 2046, Strawberry Swirl: 1957 },
-  { month: 'Mar-24', Choco Fudge: 2062, Vanilla Dream: 1586, Strawberry Swirl: 1987 },
-  { month: 'Apr-24', Choco Fudge: 1899, Vanilla Dream: 1833, Strawberry Swirl: 1608 },
-  { month: 'May-24', Choco Fudge: 1881, Vanilla Dream: 1389, Strawberry Swirl: 1252 },
-  { month: 'Jun-24', Choco Fudge: 1256, Vanilla Dream: 1696, Strawberry Swirl: 1793 },
-  { month: 'Jul-24', Choco Fudge: 1119, Vanilla Dream: 1442, Strawberry Swirl: 1623 },
-  { month: 'Aug-24', Choco Fudge: 905, Vanilla Dream: 835, Strawberry Swirl: 822 },
-  { month: 'Sep-24', Choco Fudge: 1492, Vanilla Dream: 1144, Strawberry Swirl: 1193 },
-  { month: 'Oct-24', Choco Fudge: 1888, Vanilla Dream: 1596, Strawberry Swirl: 1044 },
-  { month: 'Nov-24', Choco Fudge: 1316, Vanilla Dream: 855, Strawberry Swirl: 883 },
-  { month: 'Dec-24', Choco Fudge: 1761, Vanilla Dream: 1063, Strawberry Swirl: 1641 },
-  { month: 'Jan-25', Choco Fudge: 1535, Vanilla Dream: 2098, Strawberry Swirl: 920 },
-  { month: 'Feb-25', Choco Fudge: 1622, Vanilla Dream: 1318, Strawberry Swirl: 1309 },
-  { month: 'Mar-25', Choco Fudge: 1389, Vanilla Dream: 997, Strawberry Swirl: 948 },
-  { month: 'Apr-25', Choco Fudge: 1171, Vanilla Dream: 919, Strawberry Swirl: 1116 },
-  { month: 'May-25', Choco Fudge: 1428, Vanilla Dream: 1987, Strawberry Swirl: 2048 },
-  { month: 'Jun-25', Choco Fudge: 1431, Vanilla Dream: 1266, Strawberry Swirl: 952 },
-  { month: 'Jul-25', Choco Fudge: 1522, Vanilla Dream: 2080, Strawberry Swirl: 1537 },
-  { month: 'Aug-25', Choco Fudge: 1558, Vanilla Dream: 1482, Strawberry Swirl: 1604 },
-  { month: 'Sep-25', Choco Fudge: 1442, Vanilla Dream: 1474, Strawberry Swirl: 2028 },
-  { month: 'Oct-25', Choco Fudge: 1691, Vanilla Dream: 1172, Strawberry Swirl: 1884 },
-  { month: 'Nov-25', Choco Fudge: 1098, Vanilla Dream: 1877, Strawberry Swirl: 823 },
-  { month: 'Dec-25', Choco Fudge: 1184, Vanilla Dream: 1631, Strawberry Swirl: 1888 },
+  { month: 'Jan-24', 'Choco Fudge': 1691, 'Vanilla Dream': 1849, 'Strawberry Swirl': 1164 },
+  { month: 'Feb-24', 'Choco Fudge': 1520, 'Vanilla Dream': 2046, 'Strawberry Swirl': 1957 },
+  { month: 'Mar-24', 'Choco Fudge': 2062, 'Vanilla Dream': 1586, 'Strawberry Swirl': 1987 },
+  { month: 'Apr-24', 'Choco Fudge': 1899, 'Vanilla Dream': 1833, 'Strawberry Swirl': 1608 },
+  { month: 'May-24', 'Choco Fudge': 1881, 'Vanilla Dream': 1389, 'Strawberry Swirl': 1252 },
+  { month: 'Jun-24', 'Choco Fudge': 1256, 'Vanilla Dream': 1696, 'Strawberry Swirl': 1793 },
+  { month: 'Jul-24', 'Choco Fudge': 1119, 'Vanilla Dream': 1442, 'Strawberry Swirl': 1623 },
+  { month: 'Aug-24', 'Choco Fudge': 905, 'Vanilla Dream': 835, 'Strawberry Swirl': 822 },
+  { month: 'Sep-24', 'Choco Fudge': 1492, 'Vanilla Dream': 1144, 'Strawberry Swirl': 1193 },
+  { month: 'Oct-24', 'Choco Fudge': 1888, 'Vanilla Dream': 1596, 'Strawberry Swirl': 1044 },
+  { month: 'Nov-24', 'Choco Fudge': 1316, 'Vanilla Dream': 855, 'Strawberry Swirl': 883 },
+  { month: 'Dec-24', 'Choco Fudge': 1761, 'Vanilla Dream': 1063, 'Strawberry Swirl': 1641 },
+  { month: 'Jan-25', 'Choco Fudge': 1535, 'Vanilla Dream': 2098, 'Strawberry Swirl': 920 },
+  { month: 'Feb-25', 'Choco Fudge': 1622, 'Vanilla Dream': 1318, 'Strawberry Swirl': 1309 },
+  { month: 'Mar-25', 'Choco Fudge': 1389, 'Vanilla Dream': 997, 'Strawberry Swirl': 948 },
+  { month: 'Apr-25', 'Choco Fudge': 1171, 'Vanilla Dream': 919, 'Strawberry Swirl': 1116 },
+  { month: 'May-25', 'Choco Fudge': 1428, 'Vanilla Dream': 1987, 'Strawberry Swirl': 2048 },
+  { month: 'Jun-25', 'Choco Fudge': 1431, 'Vanilla Dream': 1266, 'Strawberry Swirl': 952 },
+  { month: 'Jul-25', 'Choco Fudge': 1522, 'Vanilla Dream': 2080, 'Strawberry Swirl': 1537 },
+  { month: 'Aug-25', 'Choco Fudge': 1558, 'Vanilla Dream': 1482, 'Strawberry Swirl': 1604 },
+  { month: 'Sep-25', 'Choco Fudge': 1442, 'Vanilla Dream': 1474, 'Strawberry Swirl': 2028 },
+  { month: 'Oct-25', 'Choco Fudge': 1691, 'Vanilla Dream': 1172, 'Strawberry Swirl': 1884 },
+  { month: 'Nov-25', 'Choco Fudge': 1098, 'Vanilla Dream': 1877, 'Strawberry Swirl': 823 },
+  { month: 'Dec-25', 'Choco Fudge': 1184, 'Vanilla Dream': 1631, 'Strawberry Swirl': 1888 },
 ];
 
 // ── Page ────────────────────────────────────────────────────────────────────
