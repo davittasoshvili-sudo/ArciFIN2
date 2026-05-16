@@ -13,21 +13,21 @@ const SUMMARY = {
 }
 
 const OVERDUE = [
-  { code: 'S-13-OP19', project: 'Choco Fudge', buyer: 'Eleanor Taylor',  priceUsd: 6109.35  totalPaidGel: 2903.78,   totalPaidUsd: 1039.14, overdueUsd: 7327.73, hasPlan: true,  comment: '' },
-  { code: 'L-9-OP2',   project: 'Vanilla Dream',    buyer: 'Natalie Mitchell',       priceUsd: 7912.74 totalPaidGel: 12001.87,  totalPaidUsd: 4057.82, overdueUsd: 1023.55, hasPlan: true,  comment: '' },
-  { code: 'L-6-OP16',  project: 'Vanilla Dream',    buyer: 'Hannah Moore',           priceUsd: 11176.36 totalPaidGel: 13435.78,  totalPaidUsd: 5528.86, overdueUsd: 14.71,   hasPlan: true,  comment: '' },
+  { code: 'S-13-OP19', project: 'Choco Fudge', buyer: 'Eleanor Taylor',  priceUsd: 6109.35,  totalPaidGel: 2903.78,   totalPaidUsd: 1039.14, overdueUsd: 7327.73, hasPlan: true,  comment: '' },
+  { code: 'L-9-OP2',   project: 'Vanilla Dream',    buyer: 'Natalie Mitchell',       priceUsd: 7912.74, totalPaidGel: 12001.87,  totalPaidUsd: 4057.82, overdueUsd: 1023.55, hasPlan: true,  comment: '' },
+  { code: 'L-6-OP16',  project: 'Vanilla Dream',    buyer: 'Hannah Moore',           priceUsd: 11176.36, totalPaidGel: 13435.78,  totalPaidUsd: 5528.86, overdueUsd: 14.71,   hasPlan: true,  comment: '' },
 ]
 
 const THIS_MONTH = [
   { code: 'L-12-1',   project: 'Vanilla Dream',    buyer: 'Sophia Turner',      amountDueUsd: 16549.35, paidThisMonthGel: 58440.95, paidThisMonthUsd: 21051.26, paymentDate: '2026-05-31', status: 'Paid',   overdueUsd: 0},
   { code: 'L-11-15',  project: 'Vanilla Dream',    buyer: 'Vincent Clarke',  amountDueUsd: 3914.35,  paidThisMonthGel: 14040.34, paidThisMonthUsd: 5178.91,  paymentDate: '2026-05-31', status: 'Paid',   overdueUsd: 0},
-  { code: 'L-6-OP1',  project: 'Vanilla Dream',    buyer: 'Eric Green',          amountDueUsd: 2626.38,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0},
-  { code: 'L-9-OP2',  project: 'Vanilla Dream',    buyer: 'Harrison Clarke',        amountDueUsd: 2188.08,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 993.21},
-  { code: 'L-6-OP16', project: 'Vanilla Dream',    buyer: 'Isabella Edwards',            amountDueUsd: 2447.43,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 11.96 },
-  { code: 'L-9-OP8',  project: 'Vanilla Dream',    buyer: 'Donna Owens',         amountDueUsd: 1335.95,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0},
-  { code: 'L-6-OP17', project: 'Vanilla Dream',    buyer: 'Eric Johnson',     amountDueUsd: 1686.31,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0},
-  { code: 'L-9-OP5',  project: 'Vanilla Dream',    buyer: 'Sophia Walker',        amountDueUsd: 1961.19,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0},
-  { code: 'L-9-S13',  project: 'Vanilla Dream',    buyer: 'Benjamin Walker',        amountDueUsd: 999.81,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0.44 },
+  { code: 'L-6-OP1',  project: 'Vanilla Dream',    buyer: 'Eric Green',          amountDueUsd: 2626.38,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0},
+  { code: 'L-9-OP2',  project: 'Vanilla Dream',    buyer: 'Harrison Clarke',        amountDueUsd: 2188.08,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 993.21},
+  { code: 'L-6-OP16', project: 'Vanilla Dream',    buyer: 'Isabella Edwards',            amountDueUsd: 2447.43,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 11.96 },
+  { code: 'L-9-OP8',  project: 'Vanilla Dream',    buyer: 'Donna Owens',         amountDueUsd: 1335.95,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0},
+  { code: 'L-6-OP17', project: 'Vanilla Dream',    buyer: 'Eric Johnson',     amountDueUsd: 1686.31,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0},
+  { code: 'L-9-OP5',  project: 'Vanilla Dream',    buyer: 'Sophia Walker',        amountDueUsd: 1961.19,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0},
+  { code: 'L-9-S13',  project: 'Vanilla Dream',    buyer: 'Benjamin Walker',        amountDueUsd: 999.81,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0.44 },
 ]
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
