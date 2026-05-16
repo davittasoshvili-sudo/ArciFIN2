@@ -5,29 +5,29 @@ import { useState } from 'react'
 // ─── Data (from debitors-lisi-and-samgori branch, May 2026) ──────────────────
 
 const SUMMARY = {
-  totalUnits: 1730,
-  lisiUnits: 384,
-  samgoriUnits: 1346,
-  totalOverdueUsd: 7905.87,
-  totalDueThisMonthUsd: 36325.44,
+  totalUnits: 1719,
+  vanillaDreamUnits: 448,
+  chocoFudgeUnits: 1352,
+  totalOverdueUsd: 8833.56,
+  totalDueThisMonthUsd: 22590.83,
 }
 
 const OVERDUE = [
-  { code: 'S-13-OP19', project: 'Samgori', buyer: 'Konstantine Ghlonti',  priceUsd: 8000,  totalPaidGel: 3000.00,   totalPaidUsd: 1107.95, overdueUsd: 6892.05, hasPlan: true,  comment: '' },
-  { code: 'L-9-OP2',   project: 'Lisi',    buyer: 'Shps Tur Lideri',       priceUsd: 10000, totalPaidGel: 10830.20,  totalPaidUsd: 4000.00, overdueUsd: 1000.00, hasPlan: true,  comment: '' },
-  { code: 'L-6-OP16',  project: 'Lisi',    buyer: 'Miad Ghaiem',           priceUsd: 10000, totalPaidGel: 16092.00,  totalPaidUsd: 5986.18, overdueUsd: 13.82,   hasPlan: true,  comment: '' },
+  { code: 'S-13-OP19', project: 'Choco Fudge', buyer: 'Eleanor Taylor',  priceUsd: 6109.35  totalPaidGel: 2903.78,   totalPaidUsd: 1039.14, overdueUsd: 7327.73, hasPlan: true,  comment: '' },
+  { code: 'L-9-OP2',   project: 'Vanilla Dream',    buyer: 'Natalie Mitchell',       priceUsd: 7912.74 totalPaidGel: 12001.87,  totalPaidUsd: 4057.82, overdueUsd: 1023.55, hasPlan: true,  comment: '' },
+  { code: 'L-6-OP16',  project: 'Vanilla Dream',    buyer: 'Hannah Moore',           priceUsd: 11176.36 totalPaidGel: 13435.78,  totalPaidUsd: 5528.86, overdueUsd: 14.71,   hasPlan: true,  comment: '' },
 ]
 
 const THIS_MONTH = [
-  { code: 'L-12-1',   project: 'Lisi',    buyer: 'Konstantin Strixa',      amountDueUsd: 18688.00, paidThisMonthGel: 50300.62, paidThisMonthUsd: 18688.00, paymentDate: '2026-05-31', status: 'Paid',   overdueUsd: 0 },
-  { code: 'L-11-15',  project: 'Lisi',    buyer: 'Viqtoriia Eliboshvili',  amountDueUsd: 4320.85,  paidThisMonthGel: 11627.00, paidThisMonthUsd: 4321.02,  paymentDate: '2026-05-31', status: 'Paid',   overdueUsd: 0 },
-  { code: 'L-6-OP1',  project: 'Lisi',    buyer: 'Givi Zumbadze',          amountDueUsd: 2500.00,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0 },
-  { code: 'L-9-OP2',  project: 'Lisi',    buyer: 'Shps Tur Lideri',        amountDueUsd: 2500.00,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 1000 },
-  { code: 'L-6-OP16', project: 'Lisi',    buyer: 'Miad Ghaiem',            amountDueUsd: 2000.00,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 13.82 },
-  { code: 'L-9-OP8',  project: 'Lisi',    buyer: 'Tamar Afaqidze',         amountDueUsd: 1667.00,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0 },
-  { code: 'L-6-OP17', project: 'Lisi',    buyer: 'Davit Goginashvili',     amountDueUsd: 1666.67,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0 },
-  { code: 'L-9-OP5',  project: 'Lisi',    buyer: 'Giorgi Afxazava',        amountDueUsd: 1666.67,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0 },
-  { code: 'L-9-S13',  project: 'Lisi',    buyer: 'Giorgi Afxazava',        amountDueUsd: 1316.25,  paidThisMonthGel: 0,         paidThisMonthUsd: 0,         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0.5 },
+  { code: 'L-12-1',   project: 'Vanilla Dream',    buyer: 'Sophia Turner',      amountDueUsd: 16549.35, paidThisMonthGel: 58440.95, paidThisMonthUsd: 21051.26, paymentDate: '2026-05-31', status: 'Paid',   overdueUsd: 0},
+  { code: 'L-11-15',  project: 'Vanilla Dream',    buyer: 'Vincent Clarke',  amountDueUsd: 3914.35,  paidThisMonthGel: 14040.34, paidThisMonthUsd: 5178.91,  paymentDate: '2026-05-31', status: 'Paid',   overdueUsd: 0},
+  { code: 'L-6-OP1',  project: 'Vanilla Dream',    buyer: 'Eric Green',          amountDueUsd: 2626.38,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0},
+  { code: 'L-9-OP2',  project: 'Vanilla Dream',    buyer: 'Harrison Clarke',        amountDueUsd: 2188.08,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 993.21},
+  { code: 'L-6-OP16', project: 'Vanilla Dream',    buyer: 'Isabella Edwards',            amountDueUsd: 2447.43,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 11.96 },
+  { code: 'L-9-OP8',  project: 'Vanilla Dream',    buyer: 'Donna Owens',         amountDueUsd: 1335.95,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0},
+  { code: 'L-6-OP17', project: 'Vanilla Dream',    buyer: 'Eric Johnson',     amountDueUsd: 1686.31,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0},
+  { code: 'L-9-OP5',  project: 'Vanilla Dream',    buyer: 'Sophia Walker',        amountDueUsd: 1961.19,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0},
+  { code: 'L-9-S13',  project: 'Vanilla Dream',    buyer: 'Benjamin Walker',        amountDueUsd: 999.81,  paidThisMonthGel: 0         paidThisMonthUsd: 0         paymentDate: '2026-05-25', status: 'Unpaid', overdueUsd: 0.44 },
 ]
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -39,8 +39,8 @@ const gel = (n) => '₾' + n.toLocaleString('en-US', { minimumFractionDigits: 2,
 
 function ProjectBadge({ project }) {
   const styles = {
-    Lisi:    { background: '#dbeafe', color: '#1d4ed8', border: '1px solid #bfdbfe' },
-    Samgori: { background: '#ede9fe', color: '#6d28d9', border: '1px solid #ddd6fe' },
+    'Vanilla Dream':    { background: '#dbeafe', color: '#1d4ed8', border: '1px solid #bfdbfe' },
+    'Choco Fudge': { background: '#ede9fe', color: '#6d28d9', border: '1px solid #ddd6fe' },
   }
   return (
     <span style={{
@@ -78,7 +78,7 @@ function KPICards() {
     {
       label: 'Total Units',
       value: SUMMARY.totalUnits.toLocaleString(),
-      sub: `Lisi ${SUMMARY.lisiUnits} · Samgori ${SUMMARY.samgoriUnits}`,
+      sub: `Vanilla Dream ${SUMMARY.vanillaDreamUnits} · Choco Fudge ${SUMMARY.chocoFudgeUnits}`,
       color: '#6366f1',
       icon: (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -280,7 +280,7 @@ export default function DebtorsResidentialPage() {
           </div>
           <div>
             <h1 style={{ fontSize: 20, fontWeight: 700, color: '#0f172a', margin: 0 }}>Debtors Residential</h1>
-            <p style={{ fontSize: 12, color: '#94a3b8', margin: 0 }}>Lisi &amp; Samgori · May 2026</p>
+            <p style={{ fontSize: 12, color: '#94a3b8', margin: 0 }}>Vanilla Dream &amp; Choco Fudge · May 2026</p>
           </div>
         </div>
       </div>
@@ -360,7 +360,7 @@ export default function DebtorsResidentialPage() {
 
         {/* Footer */}
         <div style={{ padding: '12px 20px', borderTop: '1px solid #f1f5f9', fontSize: 11, color: '#94a3b8' }}>
-          Data source: debitors-lisi-and-samgori branch · 1,730 total units (Lisi 384, Samgori 1,346)
+          Data source: debitors-lisi-and-samgori branch · 1,730 total units (Vanilla Dream 384, Choco Fudge 1,346)
         </div>
       </div>
     </div>
