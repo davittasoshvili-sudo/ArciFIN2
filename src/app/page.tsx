@@ -1,17 +1,12 @@
-import { Header } from "@/components/header";
-import { Hero } from "@/components/hero";
-import { SocialProof } from "@/components/social-proof";
-import { SectionHeader } from "@/components/section-header";
-import { FeatureCarousel } from "@/components/feature-carousel";
-import { Comparison } from "@/components/comparison";
-import { ShowcaseSection } from "@/components/showcase-section";
-import { Testimonials } from "@/components/testimonials";
-import { CtaSection } from "@/components/cta-section";
+import { DashboardHeader } from "@/components/dashboard-header";
+import { FinanceKPIs } from "@/components/finance-kpis";
+import { MonthlyChart } from "@/components/monthly-chart";
+import { ProjectBreakdown } from "@/components/project-breakdown";
+import { MarketingPanel } from "@/components/marketing-panel";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen">
-      {/* Gradient background */}
       <div
         className="fixed inset-0 z-0"
         style={{
@@ -20,32 +15,23 @@ export default function Home() {
         }}
       />
 
-      {/* Header */}
-      <Header />
+      <DashboardHeader />
 
-      {/* Dark section - Hero */}
       <div className="relative z-10">
-        <main className="relative">
-          <Hero />
-          <SocialProof />
-        </main>
+        <FinanceKPIs />
       </div>
 
-      {/* Light sections */}
       <div className="relative z-10">
-        <div id="features" className="bg-white">
-          <SectionHeader
-            badge="Why people switch"
-            heading={["You do less.", "It does the rest."]}
-            description="Describe how your product eliminates painful steps that competitors make users do manually. Focus on the outcome, not the features."
-          />
-          <FeatureCarousel />
-          <Comparison />
-        </div>
+        <MonthlyChart />
+        <ProjectBreakdown />
+        <MarketingPanel />
 
-        <ShowcaseSection />
-        <Testimonials />
-        <CtaSection />
+        <footer
+          className="bg-white py-8 text-center text-sm font-medium"
+          style={{ color: "rgba(0,0,0,0.35)" }}
+        >
+          ArciFIN Finance Dashboard · Data as of April 30, 2026
+        </footer>
       </div>
     </div>
   );
