@@ -1,238 +1,1029 @@
-'use client';
-import { useEffect, useState, useMemo } from 'react';
+"use client"
+
+import { useState, useCallback, useMemo, useRef, useEffect } from 'react'
+import * as XLSX from 'xlsx'
 import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, Cell,
-} from 'recharts';
-import MetricCard from '@/components/dashboard/MetricCard';
+  BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
+} from 'recharts'
 
-const COLORS = {
-  Jikia: '#f59e0b',
-  Samgori: '#3b82f6',
-  University: '#8b5cf6',
-  Lisi: '#10b981',
-  Kikvidze: '#ef4444',
-};
+// ─── Constants ────────────────────────────────────────────────────────────────
 
-function fmt(n) {
-  if (n == null || isNaN(n)) return '—';
-  const abs = Math.abs(n);
-  if (abs >= 1e6) return `$${(n / 1e6).toFixed(2)}M`;
-  if (abs >= 1e3) return `$${(n / 1e3).toFixed(1)}K`;
-  return `$${n.toFixed(0)}`;
+const LS_REMINDERS = 'debtor_reminder_history'
+const LS_PLANS     = 'debtor_payment_plans'
+const LS_TEMPLATE  = 'debtor_email_template'
+const LS_NOTES     = 'debtor_notes'
+
+const DEFAULT_TEMPLATE =
+`Subject: Payment Reminder – [Unit] – Amount Due: $[Amount]
+
+Dear [TenantName],
+
+This is a formal reminder that your payment of $[Amount] for unit [Unit] was due on [DueDate] and remains outstanding ([DaysOverdue] days past due).
+
+Please arrange payment at your earliest convenience. If you have already settled this balance, please disregard this notice.
+
+For payment arrangements or queries, please contact us directly.
+
+Best regards,
+Property Management Team`
+
+const COL_SIGNATURES = {
+  tenant:         ['ტენანტი', 'tenant', 'name', 'client', 'debtor'],
+  unit:           ['ფართის კოდი', 'unit', 'space code', 'property code', 'apartment'],
+  leaseAmount:    ['იჯარის თანხა', 'lease', 'rent', 'monthly amount'],
+  paymentDate:    ['გადახდის დღე', 'payment day', 'due date', 'due'],
+  debt:           ['დავალიანება მიმდინარე', 'debt', 'outstanding', 'balance', 'overdue amount', 'owed'],
+  contractExpiry: ['ხელშეკრულების', 'contract', 'expiry', 'end date', 'lease end'],
+  advance:        ['ავანსი', 'advance', 'deposit'],
+  phone:          ['მობილური', 'phone', 'mobile', 'telephone', 'tel'],
+  email:          ['მეილი', 'email', 'e-mail', 'mail'],
 }
 
-export default function Debtors() {
-  const [debtors, setDebtors] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [filterProject, setFilterProject] = useState('all');
-  const [filterStatus, setFilterStatus] = useState('all');
-  const [search, setSearch] = useState('');
+const RISK_COLORS = { Green: '#10b981', Yellow: '#f59e0b', Red: '#f43f5e' }
+const RISK_BG     = {
+  Green:  'bg-emerald-100 text-emerald-700',
+  Yellow: 'bg-amber-100  text-amber-700',
+  Red:    'bg-rose-100   text-rose-700',
+}
+const RISK_DOT = { Green: 'bg-emerald-500', Yellow: 'bg-amber-500', Red: 'bg-rose-500' }
 
-  useEffect(() => {
-    fetch('/data/debtors.json')
-      .then(r => r.json())
-      .then(d => setDebtors(d.debtors))
-      .catch(console.error)
-      .finally(() => setLoading(false));
-  }, []);
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
-  const allProjects = useMemo(() => {
-    if (!debtors) return [];
-    return [...new Set(debtors.map(d => d.project))].sort();
-  }, [debtors]);
+const fmt = (n) =>
+  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n)
 
-  const filtered = useMemo(() => {
-    if (!debtors) return [];
-    return debtors.filter(d => {
-      if (filterProject !== 'all' && d.project !== filterProject) return false;
-      if (filterStatus === 'outstanding' && d.status !== 'Outstanding') return false;
-      if (filterStatus === 'paid' && d.status !== 'Paid') return false;
-      if (search && !d.code.toLowerCase().includes(search.toLowerCase())) return false;
-      return true;
-    });
-  }, [debtors, filterProject, filterStatus, search]);
+const fmtDate = (d) => {
+  if (!d) return '—'
+  if (d instanceof Date) return d.toLocaleDateString('en-GB')
+  if (typeof d === 'string') return d.slice(0, 10)
+  return String(d)
+}
 
-  const summary = useMemo(() => {
-    if (!debtors) return {};
-    const all = filterProject === 'all' ? debtors : debtors.filter(d => d.project === filterProject);
-    return {
-      totalDue: all.reduce((s, d) => s + d.amountDue, 0),
-      totalPaid: all.reduce((s, d) => s + d.amountPaid, 0),
-      totalOverdue: all.filter(d => d.status === 'Outstanding').reduce((s, d) => s + Math.abs(d.overdue), 0),
-      countOutstanding: all.filter(d => d.status === 'Outstanding').length,
-      countTotal: all.length,
-    };
-  }, [debtors, filterProject]);
+function generateId(tenant, unit) {
+  return `${unit || ''}_${(tenant || '').slice(0, 20)}`.replace(/[\s"'«»„"]/g, '_')
+}
 
-  const projectChart = useMemo(() => {
-    if (!debtors) return [];
-    const map = {};
-    for (const d of debtors) {
-      if (!map[d.project]) map[d.project] = { project: d.project, outstanding: 0, paid: 0 };
-      if (d.status === 'Outstanding') map[d.project].outstanding += Math.abs(d.overdue);
-      else map[d.project].paid++;
+function detectColumns(headerRow) {
+  const result = {}
+  headerRow.forEach((cell, idx) => {
+    if (!cell) return
+    const val = String(cell).toLowerCase().trim()
+    for (const [key, sigs] of Object.entries(COL_SIGNATURES)) {
+      if (result[key] !== undefined) continue
+      if (sigs.some(sig => val.startsWith(sig.toLowerCase()) || val.includes(sig.toLowerCase())))
+        result[key] = idx
     }
-    return Object.values(map);
-  }, [debtors]);
+  })
+  return result
+}
 
-  if (loading) return <div style={{ padding: 40, color: '#64748b' }}>Loading...</div>;
-  if (!debtors) return <div style={{ padding: 40, color: '#ef4444' }}>Failed to load. Run extract-data.js first.</div>;
+function parseExcelFile(buffer) {
+  const wb = XLSX.read(new Uint8Array(buffer), { type: 'array', cellDates: true })
+  const sheetName =
+    ['Overdues', 'Overdue', 'overdues(calc)'].find(n => wb.SheetNames.includes(n)) ||
+    wb.SheetNames[0]
+  const ws    = wb.Sheets[sheetName]
+  const rows  = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: null })
+
+  let headerIdx = -1
+  for (let i = 0; i < Math.min(15, rows.length); i++) {
+    const sc = rows[i].filter(c => c !== null && typeof c === 'string' && c.trim().length > 1)
+    if (sc.length >= 3) { headerIdx = i; break }
+  }
+  if (headerIdx === -1) throw new Error('Could not find header row.')
+
+  const colMap = detectColumns(rows[headerIdx])
+  if (colMap.tenant === undefined) throw new Error('Could not detect tenant column.')
+  if (colMap.debt   === undefined) throw new Error('Could not detect debt column.')
+
+  return rows.slice(headerIdx + 1).reduce((acc, row) => {
+    const tenantRaw = row[colMap.tenant]
+    if (!tenantRaw || tenantRaw === 0) return acc
+    const tenant = String(tenantRaw).trim()
+    if (!tenant || tenant === '0') return acc
+
+    const unit         = colMap.unit         != null ? String(row[colMap.unit] ?? '').trim() : ''
+    const leaseAmount  = colMap.leaseAmount  != null ? Math.abs(parseFloat(row[colMap.leaseAmount]) || 0) : 0
+    const rawDebt      = colMap.debt         != null ? parseFloat(row[colMap.debt]) || 0 : 0
+    const debt         = Math.abs(rawDebt)
+    const contractExpiry = colMap.contractExpiry != null ? row[colMap.contractExpiry] : null
+    const advance      = colMap.advance      != null ? parseFloat(row[colMap.advance]) || 0 : 0
+    const phoneRaw     = colMap.phone        != null ? String(row[colMap.phone] ?? '').trim() : ''
+    const emailRaw     = colMap.email        != null ? String(row[colMap.email] ?? '').trim() : ''
+    const paymentDate  = colMap.paymentDate  != null ? row[colMap.paymentDate] : null
+
+    if (debt < 0.01) return acc
+
+    const daysOverdue = leaseAmount > 0 ? Math.round(debt / leaseAmount * 30) : 30
+    const risk        = daysOverdue < 30 ? 'Green' : daysOverdue < 60 ? 'Yellow' : 'Red'
+
+    acc.push({
+      id: generateId(tenant, unit),
+      tenant, unit, leaseAmount, debt, daysOverdue, risk,
+      contractExpiry, advance,
+      phone: phoneRaw !== '0' ? phoneRaw : '',
+      email: emailRaw.includes('@') ? emailRaw : '',
+      paymentDate,
+    })
+    return acc
+  }, [])
+}
+
+function fillTemplate(template, debtor) {
+  const lines = template.split('\n')
+  const subjLine = lines[0].startsWith('Subject:') ? lines[0].replace('Subject:', '').trim() : lines[0]
+  const subject  = subjLine
+    .replace(/\[Unit\]/g, debtor.unit)
+    .replace(/\[Amount\]/g, Math.round(debtor.debt).toString())
+    .replace(/\[TenantName\]/g, debtor.tenant)
+  const bodyLines = lines[0].startsWith('Subject:') ? lines.slice(2) : lines.slice(1)
+  const body = bodyLines.join('\n')
+    .replace(/\[TenantName\]/g, debtor.tenant)
+    .replace(/\[Unit\]/g, debtor.unit)
+    .replace(/\[Amount\]/g, Math.round(debtor.debt).toString())
+    .replace(/\[DueDate\]/g, fmtDate(debtor.paymentDate))
+    .replace(/\[DaysOverdue\]/g, String(debtor.daysOverdue))
+  return { subject, body }
+}
+
+function addMonths(date, n) {
+  const d = new Date(date)
+  d.setMonth(d.getMonth() + n)
+  return d
+}
+
+function doExport(rows, reminders) {
+  const data = rows.map(d => ({
+    'Tenant Name':          d.tenant,
+    'Unit':                 d.unit,
+    'Overdue Amount ($)':   Math.round(d.debt),
+    'Monthly Rent ($)':     Math.round(d.leaseAmount),
+    'Days Overdue':         d.daysOverdue,
+    'Risk Level':           d.risk,
+    'Contract Expiry':      fmtDate(d.contractExpiry),
+    'Phone':                d.phone,
+    'Email':                d.email,
+    'Last Reminded':        reminders[d.id]?.lastSent
+                              ? new Date(reminders[d.id].lastSent).toLocaleDateString('en-GB') : '',
+    'Total Reminders Sent': reminders[d.id]?.totalSent || 0,
+  }))
+  const ws    = XLSX.utils.json_to_sheet(data)
+  const wbOut = XLSX.utils.book_new()
+  XLSX.utils.book_append_sheet(wbOut, ws, 'Overdue Debtors')
+  XLSX.writeFile(wbOut, `overdue_debtors_${new Date().toISOString().slice(0, 10)}.xlsx`)
+}
+
+// generates synthetic 12-month payment history based on debt level
+function generatePaymentHistory(debtor) {
+  const now          = new Date()
+  const monthsMissed = Math.min(Math.ceil(debtor.daysOverdue / 30), 11)
+  return Array.from({ length: 12 }, (_, i) => {
+    const date  = new Date(now.getFullYear(), now.getMonth() - (11 - i), 1)
+    const label = date.toLocaleDateString('en-US', { month: 'short', year: '2-digit' })
+    const ago   = 11 - i
+    let status, daysLate
+    if (ago < monthsMissed)  { status = 'Missed'; daysLate = null }
+    else if (ago === monthsMissed) { status = 'Late'; daysLate = debtor.daysOverdue % 30 || 5 }
+    else                     { status = 'Paid';   daysLate = 0 }
+    return { label, status, amount: debtor.leaseAmount, daysLate }
+  })
+}
+
+function getReliabilityScore(history) {
+  const paid   = history.filter(h => h.status === 'Paid').length
+  const late   = history.filter(h => h.status === 'Late').length
+  const missed = history.filter(h => h.status === 'Missed').length
+  const score  = (paid + late * 0.5) / history.length
+  if (score >= 0.92) return { grade: 'A', label: 'Excellent', cls: 'text-emerald-500', bg: 'bg-emerald-50' }
+  if (score >= 0.75) return { grade: 'B', label: 'Good',      cls: 'text-blue-500',    bg: 'bg-blue-50' }
+  if (score >= 0.5)  return { grade: 'C', label: 'Fair',      cls: 'text-amber-500',   bg: 'bg-amber-50' }
+  return                    { grade: 'D', label: 'Poor',      cls: 'text-rose-500',    bg: 'bg-rose-50' }
+}
+
+// ─── FileUploadZone ───────────────────────────────────────────────────────────
+
+function FileUploadZone({ onLoad, error }) {
+  const [dragging, setDragging] = useState(false)
+  const [loading,  setLoading]  = useState(false)
+  const inputRef = useRef()
+
+  const processFile = useCallback(async (file) => {
+    if (!file) return
+    setLoading(true)
+    try { const buf = await file.arrayBuffer(); onLoad(buf, file.name) }
+    finally { setLoading(false) }
+  }, [onLoad])
 
   return (
-    <div style={{ padding: 32 }}>
-      <div style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 22, fontWeight: 700, color: '#0f172a' }}>Debtors</h2>
-        <p style={{ color: '#64748b', fontSize: 13, marginTop: 4 }}>
-          Customer payment status and outstanding balances
-        </p>
-      </div>
-
-      {/* KPIs */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 24 }}>
-        <MetricCard label="Total Due" value={fmt(summary.totalDue)} sub="Contracted amount" color="#3b82f6" />
-        <MetricCard label="Total Collected" value={fmt(summary.totalPaid)} sub="Payments received" color="#10b981" />
-        <MetricCard label="Outstanding Balance" value={fmt(summary.totalOverdue)} sub={`${summary.countOutstanding} units`} color="#ef4444" />
-        <MetricCard label="Collection Rate" value={summary.totalDue ? `${((summary.totalPaid / summary.totalDue) * 100).toFixed(1)}%` : '—'} sub={`${summary.countTotal} total properties`} color="#f59e0b" />
-      </div>
-
-      {/* Charts + filters */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 24 }}>
-        {/* Outstanding by project chart */}
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}>
-          <h4 style={{ fontSize: 14, fontWeight: 600, color: '#374151', marginBottom: 20 }}>Outstanding Balance by Project</h4>
-          <ResponsiveContainer width="100%" height={220}>
-            <BarChart data={projectChart} barCategoryGap="35%">
-              <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-              <XAxis dataKey="project" tick={{ fontSize: 12 }} />
-              <YAxis tickFormatter={v => `$${(v / 1e3).toFixed(0)}K`} tick={{ fontSize: 11 }} />
-              <Tooltip formatter={(v) => fmt(v)} />
-              <Bar dataKey="outstanding" radius={[4, 4, 0, 0]} name="Outstanding">
-                {projectChart.map(entry => (
-                  <Cell key={entry.project} fill={COLORS[entry.project] || '#6366f1'} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: 40 }}>
+      <div className="mb-8 text-center">
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4"
+          style={{ background: 'linear-gradient(135deg, #6366F1, #7C3AED)' }}>
+          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+              d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
         </div>
+        <h1 className="text-2xl font-bold mb-1 text-slate-800">
+          Debtor Management Dashboard
+        </h1>
+        <p className="text-slate-500 text-sm">Upload your Excel report to get started</p>
+      </div>
 
-        {/* Project summary table */}
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}>
-          <h4 style={{ fontSize: 14, fontWeight: 600, color: '#374151', marginBottom: 16 }}>Status by Project</h4>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
-            <thead>
-              <tr>
-                {['Project', 'Total', 'Outstanding', 'Paid'].map(h => (
-                  <th key={h} style={{ padding: '8px 12px', textAlign: h === 'Project' ? 'left' : 'right', color: '#64748b', fontWeight: 600, fontSize: 11, textTransform: 'uppercase', borderBottom: '2px solid #f1f5f9' }}>
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {projectChart.map(p => {
-                const total = debtors.filter(d => d.project === p.project).length;
-                const outstanding = debtors.filter(d => d.project === p.project && d.status === 'Outstanding').length;
-                return (
-                  <tr key={p.project} style={{ borderBottom: '1px solid #f8fafc' }}>
-                    <td style={{ padding: '10px 12px' }}>
-                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontWeight: 500 }}>
-                        <span style={{ width: 8, height: 8, borderRadius: '50%', background: COLORS[p.project] || '#6366f1', display: 'inline-block' }} />
-                        {p.project}
-                      </span>
-                    </td>
-                    <td style={{ padding: '10px 12px', textAlign: 'right', color: '#374151' }}>{total}</td>
-                    <td style={{ padding: '10px 12px', textAlign: 'right' }}>
-                      <span style={{ color: outstanding > 0 ? '#ef4444' : '#10b981', fontWeight: 600 }}>{outstanding}</span>
-                    </td>
-                    <td style={{ padding: '10px 12px', textAlign: 'right', color: '#10b981', fontWeight: 600 }}>{total - outstanding}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-          <p style={{ marginTop: 16, fontSize: 11, color: '#94a3b8' }}>
-            Note: Jikia debitor data not available in standard format.
+      <div
+        onDragOver={e => { e.preventDefault(); setDragging(true) }}
+        onDragLeave={() => setDragging(false)}
+        onDrop={e => { e.preventDefault(); setDragging(false); processFile(e.dataTransfer.files[0]) }}
+        onClick={() => inputRef.current?.click()}
+        style={{ width: '100%', maxWidth: 440, border: `2px dashed ${dragging ? '#6366f1' : '#cbd5e1'}`, borderRadius: 16, padding: 48, textAlign: 'center', cursor: 'pointer', background: dragging ? '#eef2ff' : '#fff', transition: 'all 0.2s' }}
+      >
+        <input ref={inputRef} type="file" accept=".xlsx,.xlsm,.xls" className="hidden"
+          onChange={e => processFile(e.target.files[0])} />
+        {loading ? (
+          <div className="flex flex-col items-center gap-3">
+            <div className="w-8 h-8 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+            <p className="text-sm text-slate-500">Parsing Excel file…</p>
+          </div>
+        ) : (
+          <>
+            <svg className="w-10 h-10 mx-auto mb-3 text-slate-300"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+            </svg>
+            <p className="text-sm font-medium text-slate-700">
+              Drop your Excel file here
+            </p>
+            <p className="text-xs text-slate-400 mt-1">.xlsx · .xlsm — or click to browse</p>
+          </>
+        )}
+      </div>
+
+      {error && (
+        <div className="mt-4 w-full max-w-md bg-rose-50 border border-rose-200 rounded-xl px-4 py-3 text-sm text-rose-700">
+          {error}
+        </div>
+      )}
+      <p className="mt-6 text-xs text-slate-400">Reads the "Overdues" sheet · data stays in your browser</p>
+    </div>
+  )
+}
+
+// ─── KPI Cards ────────────────────────────────────────────────────────────────
+
+function KPICards({ debtors, reminders }) {
+  const totalDebt = debtors.reduce((s, d) => s + d.debt, 0)
+  const redDebt   = debtors.filter(d => d.risk === 'Red').reduce((s, d) => s + d.debt, 0)
+  const now       = new Date()
+  const thisMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`
+  const remCount  = Object.values(reminders).filter(r => r.lastSent?.startsWith(thisMonth)).length
+
+  const cards = [
+    { label: 'Total Debtors', value: debtors.length, sub: 'active accounts',
+      grad: 'from-indigo-500 to-violet-600', light: 'text-indigo-600 bg-indigo-50',
+      path: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z' },
+    { label: 'Total Outstanding', value: fmt(totalDebt), sub: 'all debtors combined',
+      grad: 'from-rose-500 to-pink-600', light: 'text-rose-600 bg-rose-50',
+      path: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+    { label: 'Overdue >60 Days', value: fmt(redDebt),
+      sub: `${debtors.filter(d => d.risk === 'Red').length} high-risk tenants`,
+      grad: 'from-orange-500 to-rose-500', light: 'text-orange-600 bg-orange-50',
+      path: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' },
+    { label: 'Reminders This Month', value: remCount, sub: 'via email client',
+      grad: 'from-violet-500 to-purple-600', light: 'text-violet-600 bg-violet-50',
+      path: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
+  ]
+
+  return (
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      {cards.map(c => (
+        <div key={c.label}
+          className="bg-white rounded-xl border border-slate-100 shadow-md p-5">
+          <div className="flex items-start justify-between mb-3">
+            <p className="text-xs font-medium text-slate-500 leading-tight">{c.label}</p>
+            <span className={`p-1.5 rounded-xl ${c.light}`}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={c.path} />
+              </svg>
+            </span>
+          </div>
+          <p className={`text-2xl font-bold mb-1 bg-gradient-to-r ${c.grad} bg-clip-text text-transparent`}>
+            {c.value}
           </p>
+          <p className="text-xs text-slate-400">{c.sub}</p>
         </div>
+      ))}
+    </div>
+  )
+}
+
+// ─── Debt Chart ───────────────────────────────────────────────────────────────
+
+function DebtChart({ debtors }) {
+  const data = ['Green', 'Yellow', 'Red'].map(risk => ({
+    name:   risk === 'Green' ? '<30 days' : risk === 'Yellow' ? '30–60 days' : '>60 days',
+    risk,
+    amount: Math.round(debtors.filter(d => d.risk === risk).reduce((s, d) => s + d.debt, 0)),
+    count:  debtors.filter(d => d.risk === risk).length,
+  }))
+
+  return (
+    <div className="bg-white rounded-xl border border-slate-100 shadow-md p-5 mb-6">
+      <h2 className="text-sm font-semibold text-slate-700 mb-4">
+        Outstanding Debt by Risk Category
+      </h2>
+      <ResponsiveContainer width="100%" height={200}>
+        <BarChart data={data} barCategoryGap="40%">
+          <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
+          <XAxis dataKey="name" tick={{ fontSize: 12, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
+          <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false}
+            tickFormatter={v => v === 0 ? '0' : `$${(v / 1000).toFixed(0)}k`} />
+          <Tooltip
+            content={({ active, payload }) => {
+              if (!active || !payload?.length) return null
+              const d = payload[0].payload
+              return (
+                <div className="bg-white border border-slate-200 rounded-xl shadow-lg p-3 text-sm">
+                  <p className="font-semibold text-slate-700">{d.name}</p>
+                  <p className="text-slate-400 text-xs">{d.count} tenant{d.count !== 1 ? 's' : ''}</p>
+                  <p className="font-semibold" style={{ color: RISK_COLORS[d.risk] }}>{fmt(d.amount)}</p>
+                </div>
+              )
+            }}
+          />
+          <Bar dataKey="amount" radius={[8, 8, 0, 0]}>
+            {data.map(d => <Cell key={d.risk} fill={RISK_COLORS[d.risk]} />)}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  )
+}
+
+// ─── Debtors Table ────────────────────────────────────────────────────────────
+
+function RiskBadge({ risk, days }) {
+  return (
+    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold ${RISK_BG[risk]}`}>
+      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${RISK_DOT[risk]}`} />
+      {days}d
+    </span>
+  )
+}
+
+function SortIcon({ col, sortBy }) {
+  if (sortBy.col !== col) return <span className="text-slate-300 ml-0.5">↕</span>
+  return <span className="text-indigo-500 ml-0.5">{sortBy.dir === 'asc' ? '↑' : '↓'}</span>
+}
+
+const TABLE_COLS = [
+  { key: 'tenant',      label: 'Tenant Name' },
+  { key: 'unit',        label: 'Unit' },
+  { key: 'debt',        label: 'Overdue ($)' },
+  { key: 'leaseAmount', label: 'Monthly Rent' },
+  { key: 'daysOverdue', label: 'Days Overdue' },
+  { key: 'risk',        label: 'Risk' },
+]
+
+function DebtorsTable({ debtors, reminders, plans, search, setSearch, sortBy, onSort,
+  onSelectPlan, onSendReminder, onSendAll, onExport, onSelectTenant }) {
+
+  const filtered = useMemo(() => {
+    const q = search.toLowerCase()
+    return debtors
+      .filter(d => !q || d.tenant.toLowerCase().includes(q) || d.unit.toLowerCase().includes(q))
+      .sort((a, b) => {
+        let va = a[sortBy.col], vb = b[sortBy.col]
+        if (typeof va === 'string') va = va.toLowerCase()
+        if (typeof vb === 'string') vb = vb.toLowerCase()
+        if (va < vb) return sortBy.dir === 'asc' ? -1 : 1
+        if (va > vb) return sortBy.dir === 'asc' ?  1 : -1
+        return 0
+      })
+  }, [debtors, search, sortBy])
+
+  return (
+    <div className="bg-white rounded-xl border border-slate-100 shadow-md overflow-hidden">
+      {/* Toolbar */}
+      <div className="flex flex-wrap items-center gap-3 p-4 border-b border-slate-100">
+        <div className="flex-1 min-w-48 relative">
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input value={search} onChange={e => setSearch(e.target.value)}
+            placeholder="Search by name or unit…"
+            className="w-full pl-9 pr-4 py-2 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" />
+        </div>
+        <span className="text-xs text-slate-400">{filtered.length} / {debtors.length}</span>
+
+        <button onClick={onSendAll}
+          className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200 rounded-xl hover:bg-amber-100 transition-colors">
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          Send All
+        </button>
+        <button onClick={() => onExport(filtered)}
+          className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-xl hover:bg-emerald-100 transition-colors">
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Export
+        </button>
       </div>
 
-      {/* Filters */}
-      <div style={{ background: '#fff', borderRadius: 12, padding: '14px 20px', marginBottom: 16, boxShadow: '0 1px 3px rgba(0,0,0,0.08)', display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
-        <select
-          value={filterProject}
-          onChange={e => setFilterProject(e.target.value)}
-          style={{ padding: '6px 10px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: 13, color: '#374151' }}
-        >
-          <option value="all">All Projects</option>
-          {allProjects.map(p => <option key={p} value={p}>{p}</option>)}
-        </select>
-
-        <select
-          value={filterStatus}
-          onChange={e => setFilterStatus(e.target.value)}
-          style={{ padding: '6px 10px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: 13, color: '#374151' }}
-        >
-          <option value="all">All Statuses</option>
-          <option value="outstanding">Outstanding only</option>
-          <option value="paid">Paid only</option>
-        </select>
-
-        <input
-          placeholder="Search by unit code..."
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          style={{ padding: '6px 12px', borderRadius: 8, border: '1px solid #e2e8f0', fontSize: 13, color: '#374151', minWidth: 200 }}
-        />
-
-        <span style={{ marginLeft: 'auto', fontSize: 13, color: '#94a3b8' }}>{filtered.length.toLocaleString()} records</span>
-      </div>
-
-      {/* Debtors table */}
-      <div style={{ background: '#fff', borderRadius: 12, boxShadow: '0 1px 3px rgba(0,0,0,0.08)', overflow: 'hidden' }}>
-        <div style={{ overflowX: 'auto', maxHeight: 520, overflowY: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
-            <thead style={{ position: 'sticky', top: 0, background: '#f8fafc', zIndex: 1 }}>
+      {/* Table */}
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-slate-100">
+              {TABLE_COLS.map(c => (
+                <th key={c.key} onClick={() => onSort(c.key)}
+                  className="px-4 py-3 text-left text-xs font-semibold text-slate-500 cursor-pointer hover:text-indigo-600 select-none whitespace-nowrap transition-colors">
+                  {c.label}<SortIcon col={c.key} sortBy={sortBy} />
+                </th>
+              ))}
+              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 whitespace-nowrap">Contract Ends</th>
+              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 whitespace-nowrap">Last Reminded</th>
+              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500">Plan</th>
+              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.length === 0 ? (
               <tr>
-                {['Project', 'Unit Code', 'Amount Due', 'Amount Paid', 'Outstanding', 'Status'].map(h => (
-                  <th key={h} style={{ padding: '11px 16px', textAlign: ['Amount Due', 'Amount Paid', 'Outstanding'].includes(h) ? 'right' : 'left', color: '#64748b', fontWeight: 600, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.05em', borderBottom: '2px solid #e2e8f0' }}>
-                    {h}
-                  </th>
-                ))}
+                <td colSpan={10} className="px-4 py-10 text-center text-sm text-slate-400">
+                  No debtors match your search
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {filtered.map((d, i) => (
-                <tr key={i}
-                  style={{ borderBottom: '1px solid #f8fafc', background: d.status === 'Outstanding' ? '#fff7ed' : '#fff' }}
-                  onMouseEnter={e => e.currentTarget.style.background = '#f8fafc'}
-                  onMouseLeave={e => e.currentTarget.style.background = d.status === 'Outstanding' ? '#fff7ed' : '#fff'}>
-                  <td style={{ padding: '10px 16px' }}>
-                    <span style={{ display: 'inline-block', padding: '2px 8px', borderRadius: 12, fontSize: 11, fontWeight: 600, background: `${COLORS[d.project] || '#6366f1'}18`, color: COLORS[d.project] || '#6366f1' }}>
-                      {d.project}
+            ) : filtered.map((d, i) => {
+              const rem  = reminders[d.id]
+              const plan = plans[d.id]
+              const paid = plan?.payments?.filter(p => p.status === 'Paid').length ?? 0
+              return (
+                <tr key={d.id}
+                  className={`border-b border-slate-50 transition-colors cursor-pointer
+                    ${i % 2 !== 0
+                      ? 'bg-slate-50/60 hover:bg-indigo-50/50'
+                      : 'bg-white hover:bg-indigo-50/50'}`}
+                  onClick={() => onSelectTenant(d)}>
+                  <td className="px-4 py-3 font-semibold text-slate-800 max-w-52 truncate" title={d.tenant}>
+                    {d.tenant}
+                  </td>
+                  <td className="px-4 py-3 font-mono text-xs text-indigo-600 font-semibold">{d.unit}</td>
+                  <td className="px-4 py-3 font-bold text-rose-600">{fmt(d.debt)}</td>
+                  <td className="px-4 py-3 text-slate-500">{fmt(d.leaseAmount)}</td>
+                  <td className="px-4 py-3"><RiskBadge risk={d.risk} days={d.daysOverdue} /></td>
+                  <td className="px-4 py-3">
+                    <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-semibold ${RISK_BG[d.risk]}`}>
+                      {d.risk}
                     </span>
                   </td>
-                  <td style={{ padding: '10px 16px', fontFamily: 'monospace', color: '#374151', fontWeight: 500 }}>{d.code}</td>
-                  <td style={{ padding: '10px 16px', textAlign: 'right', color: '#0f172a' }}>{fmt(d.amountDue)}</td>
-                  <td style={{ padding: '10px 16px', textAlign: 'right', color: '#10b981', fontWeight: 500 }}>{fmt(d.amountPaid)}</td>
-                  <td style={{ padding: '10px 16px', textAlign: 'right', fontWeight: 600, color: d.status === 'Outstanding' ? '#ef4444' : '#10b981' }}>
-                    {d.status === 'Outstanding' ? fmt(Math.abs(d.overdue)) : '—'}
+                  <td className="px-4 py-3 text-xs text-slate-400 whitespace-nowrap">{fmtDate(d.contractExpiry)}</td>
+                  <td className="px-4 py-3 text-xs text-slate-400 whitespace-nowrap">
+                    {rem?.lastSent
+                      ? <span>{new Date(rem.lastSent).toLocaleDateString('en-GB')} <span className="text-slate-300">×{rem.totalSent}</span></span>
+                      : '—'}
                   </td>
-                  <td style={{ padding: '10px 16px' }}>
-                    <span style={{
-                      display: 'inline-block', padding: '3px 10px', borderRadius: 20, fontSize: 11, fontWeight: 600,
-                      background: d.status === 'Paid' ? '#dcfce7' : '#fee2e2',
-                      color: d.status === 'Paid' ? '#16a34a' : '#dc2626',
-                    }}>
-                      {d.status}
-                    </span>
+                  <td className="px-4 py-3" onClick={e => e.stopPropagation()}>
+                    {plan ? (
+                      <button onClick={() => onSelectPlan(d)}
+                        className="flex items-center gap-1 text-xs text-indigo-600 hover:text-indigo-800 font-semibold">
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        {paid}/{plan.payments.length}
+                      </button>
+                    ) : (
+                      <button onClick={() => onSelectPlan(d)}
+                        className="text-xs text-slate-400 hover:text-indigo-600 transition-colors">
+                        + Plan
+                      </button>
+                    )}
+                  </td>
+                  <td className="px-4 py-3" onClick={e => e.stopPropagation()}>
+                    <button onClick={() => onSendReminder(d)} title="Send Reminder"
+                      className="p-1.5 rounded-lg hover:bg-amber-50 text-slate-400 hover:text-amber-600 transition-colors">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </button>
                   </td>
                 </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
+
+// ─── Payment Schedule Modal ───────────────────────────────────────────────────
+
+const S_CYCLE  = ['Pending', 'Paid', 'Missed']
+const S_STYLES = {
+  Paid:    'bg-emerald-100 text-emerald-700',
+  Pending: 'bg-amber-100  text-amber-700',
+  Missed:  'bg-rose-100   text-rose-700',
+}
+
+function PaymentScheduleModal({ debtor, existing, onClose, onSave }) {
+  const [installments, setInstallments] = useState(existing?.installments ?? 3)
+  const [payments,     setPayments]     = useState([])
+
+  useEffect(() => {
+    if (existing?.installments === installments && existing?.payments?.length) {
+      setPayments(existing.payments)
+    } else {
+      const monthly = debtor.debt / installments
+      const base    = new Date()
+      setPayments(Array.from({ length: installments }, (_, i) => ({
+        dueDate: addMonths(base, i + 1).toISOString().slice(0, 10),
+        amount:  monthly,
+        status:  'Pending',
+      })))
+    }
+  }, [installments, debtor.debt, existing])
+
+  const cycleStatus = idx =>
+    setPayments(p => p.map((x, i) =>
+      i === idx ? { ...x, status: S_CYCLE[(S_CYCLE.indexOf(x.status) + 1) % 3] } : x))
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      onClick={e => e.target === e.currentTarget && onClose()}>
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+        <div className="flex items-center justify-between p-6 border-b border-slate-100">
+          <div>
+            <h2 className="font-bold text-slate-800">Payment Schedule</h2>
+            <p className="text-xs text-slate-400 mt-0.5">{debtor.tenant} · {debtor.unit}</p>
+          </div>
+          <button onClick={onClose}
+            className="p-2 rounded-xl hover:bg-slate-100 text-slate-400 transition-colors">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-5">
+            <div>
+              <p className="text-xs text-slate-500 mb-0.5">Total Outstanding</p>
+              <p className="text-2xl font-bold text-rose-500">{fmt(debtor.debt)}</p>
+            </div>
+            <div className="flex gap-2">
+              {[3, 6].map(n => (
+                <button key={n} onClick={() => setInstallments(n)}
+                  className={`px-4 py-2 text-sm font-semibold rounded-xl border transition-colors
+                    ${installments === n
+                      ? 'text-white border-transparent'
+                      : 'bg-white text-slate-600 border-slate-200 hover:border-indigo-400'}`}
+                  style={installments === n ? { background: 'linear-gradient(135deg, #6366F1, #7C3AED)', borderColor: 'transparent' } : {}}>
+                  {n} months
+                </button>
               ))}
-            </tbody>
-          </table>
+            </div>
+          </div>
+          <p className="text-xs text-slate-500 mb-4">
+            Monthly: <span className="font-bold text-slate-700">{fmt(debtor.debt / installments)}</span>
+          </p>
+          <div className="space-y-2">
+            {payments.map((p, i) => (
+              <div key={i} className="flex items-center gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50">
+                <div className="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center flex-shrink-0 text-indigo-700"
+                  style={{ background: 'linear-gradient(135deg, #e0e7ff, #ede9fe)' }}>
+                  {i + 1}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-slate-700">{fmt(p.amount)}</p>
+                  <p className="text-xs text-slate-400">
+                    {new Date(p.dueDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  </p>
+                </div>
+                <button onClick={() => cycleStatus(i)}
+                  className={`px-3 py-1 rounded-full text-xs font-semibold cursor-pointer hover:opacity-80 transition-opacity ${S_STYLES[p.status]}`}>
+                  {p.status}
+                </button>
+              </div>
+            ))}
+          </div>
+          <div className="flex gap-3 mt-6">
+            <button onClick={onClose}
+              className="flex-1 px-4 py-2.5 text-sm font-semibold text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
+              Cancel
+            </button>
+            <button onClick={() => onSave({ installments, payments })}
+              className="flex-1 px-4 py-2.5 text-sm font-semibold text-white rounded-xl transition-colors"
+              style={{ background: 'linear-gradient(135deg, #6366F1, #7C3AED)' }}>
+              Save Plan
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  );
+  )
+}
+
+// ─── Reminder Modal ───────────────────────────────────────────────────────────
+
+function ReminderModal({ debtor, template, onClose, onSend, onTemplateChange }) {
+  const { subject, body } = useMemo(() => fillTemplate(template, debtor), [template, debtor])
+  const [editing, setEditing] = useState(false)
+  const [copied,  setCopied]  = useState(false)
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(`Subject: ${subject}\n\n${body}`)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  const handleMailto = () => {
+    const emails = debtor.email.split(';').map(e => e.trim()).filter(Boolean)
+    if (!emails.length) { alert('No email address on file for this tenant.'); return }
+    window.open(`mailto:${emails[0]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`)
+    onSend()
+  }
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      onClick={e => e.target === e.currentTarget && onClose()}>
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+        <div className="flex items-center justify-between p-6 border-b border-slate-100">
+          <div>
+            <h2 className="font-bold text-slate-800">Send Payment Reminder</h2>
+            <p className="text-xs text-slate-400 mt-0.5">{debtor.tenant} · {debtor.unit}</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <button onClick={() => setEditing(e => !e)}
+              className={`px-3 py-1.5 text-xs font-semibold rounded-xl border transition-colors
+                ${editing
+                  ? 'bg-indigo-50 border-indigo-200 text-indigo-600'
+                  : 'border-slate-200 text-slate-500 hover:border-indigo-300'}`}>
+              {editing ? 'Preview' : 'Edit Template'}
+            </button>
+            <button onClick={onClose}
+              className="p-2 rounded-xl hover:bg-slate-100 text-slate-400 transition-colors">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="p-6">
+          <div className="flex gap-4 mb-4 p-3 bg-slate-50 rounded-xl text-sm">
+            <div className="flex-1 min-w-0">
+              <span className="text-xs text-slate-400">To: </span>
+              {debtor.email
+                ? <span className="text-slate-700">{debtor.email}</span>
+                : <em className="text-slate-400">No email on file</em>}
+            </div>
+            <div className="flex-shrink-0">
+              <span className="text-xs text-slate-400">Amount: </span>
+              <span className="font-bold text-rose-500">{fmt(debtor.debt)}</span>
+            </div>
+          </div>
+
+          {editing ? (
+            <div>
+              <p className="text-xs text-slate-500 mb-2">
+                Placeholders: [TenantName] [Unit] [Amount] [DueDate] [DaysOverdue]
+              </p>
+              <textarea value={template} onChange={e => onTemplateChange(e.target.value)} rows={12}
+                className="w-full text-sm font-mono border border-slate-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none" />
+            </div>
+          ) : (
+            <div className="border border-slate-200 rounded-xl overflow-hidden">
+              <div className="px-4 py-3 bg-slate-50 border-b border-slate-200">
+                <p className="text-xs text-slate-400 mb-0.5">Subject</p>
+                <p className="text-sm font-semibold text-slate-800">{subject}</p>
+              </div>
+              <div className="px-4 py-4">
+                <pre className="text-sm text-slate-700 whitespace-pre-wrap font-sans leading-relaxed">{body}</pre>
+              </div>
+            </div>
+          )}
+
+          <div className="flex flex-wrap gap-3 mt-6">
+            <button onClick={onClose}
+              className="px-4 py-2.5 text-sm font-semibold text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
+              Close
+            </button>
+            <button onClick={handleCopy}
+              className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border rounded-xl transition-colors
+                ${copied
+                  ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
+                  : 'border-slate-200 text-slate-600 hover:bg-slate-50'}`}>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d={copied ? 'M5 13l4 4L19 7' : 'M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3'} />
+              </svg>
+              {copied ? 'Copied!' : 'Copy'}
+            </button>
+            <button onClick={handleMailto}
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white rounded-xl transition-opacity hover:opacity-90"
+              style={{ background: 'linear-gradient(135deg, #6366F1, #7C3AED)' }}>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Open in Email Client
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ─── Tenant Detail Modal ──────────────────────────────────────────────────────
+
+const STATUS_COLOR = { Paid: '#10b981', Late: '#f59e0b', Missed: '#f43f5e' }
+const STATUS_BG    = {
+  Paid:   'bg-emerald-100 text-emerald-700',
+  Late:   'bg-amber-100  text-amber-700',
+  Missed: 'bg-rose-100   text-rose-700',
+}
+
+function TenantDetailModal({ debtor, notes, onClose, onSaveNote }) {
+  const [note, setNote] = useState(notes[debtor.id] || '')
+  const history = useMemo(() => generatePaymentHistory(debtor), [debtor])
+  const score   = useMemo(() => getReliabilityScore(history), [history])
+
+  const paid   = history.filter(h => h.status === 'Paid').length
+  const late   = history.filter(h => h.status === 'Late').length
+  const missed = history.filter(h => h.status === 'Missed').length
+  const avgDaysLate = history.filter(h => h.daysLate > 0).reduce((s, h) => s + h.daysLate, 0) /
+                      Math.max(1, history.filter(h => h.daysLate > 0).length)
+  const totalPaid   = paid * debtor.leaseAmount
+
+  const trendData   = history.slice(-6).map(h => ({
+    month: h.label,
+    paid:  h.status === 'Paid' ? Math.round(debtor.leaseAmount) : h.status === 'Late' ? Math.round(debtor.leaseAmount * 0.7) : 0,
+    expected: Math.round(debtor.leaseAmount),
+  }))
+
+  const donutData = [
+    { name: 'On Time', value: paid,   color: '#10b981' },
+    { name: 'Late',    value: late,   color: '#f59e0b' },
+    { name: 'Missed',  value: missed, color: '#f43f5e' },
+  ].filter(d => d.value > 0)
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-end sm:items-center justify-center z-50 p-0 sm:p-4"
+      onClick={e => e.target === e.currentTarget && onClose()}>
+      <div className="bg-white w-full sm:rounded-2xl shadow-2xl sm:max-w-3xl max-h-[95vh] overflow-y-auto">
+        {/* Header */}
+        <div className="flex items-center justify-between p-6 border-b border-slate-100 sticky top-0 bg-white z-10">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-2xl flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+              style={{ background: 'linear-gradient(135deg, #6366F1, #7C3AED)' }}>
+              {debtor.tenant.charAt(0).toUpperCase()}
+            </div>
+            <div>
+              <h2 className="font-bold text-slate-800 leading-tight">{debtor.tenant}</h2>
+              <p className="text-xs text-slate-400 mt-0.5">{debtor.unit} · {fmt(debtor.leaseAmount)}/mo</p>
+            </div>
+            <div className={`ml-2 px-3 py-1.5 rounded-xl text-center ${score.bg}`}>
+              <p className={`text-2xl font-black ${score.cls}`}>{score.grade}</p>
+              <p className={`text-xs font-semibold ${score.cls} opacity-80`}>{score.label}</p>
+            </div>
+          </div>
+          <button onClick={onClose}
+            className="p-2 rounded-xl hover:bg-slate-100 text-slate-400 transition-colors">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="p-6 space-y-6">
+          {/* Stats row */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { label: 'Total Paid (est.)', value: fmt(totalPaid), cls: 'text-emerald-600' },
+              { label: 'Currently Owed',    value: fmt(debtor.debt), cls: 'text-rose-600' },
+              { label: 'Avg Days Late',     value: avgDaysLate > 0 ? `${Math.round(avgDaysLate)}d` : '0d', cls: 'text-amber-600' },
+              { label: 'On-Time Rate',      value: `${Math.round((paid / history.length) * 100)}%`, cls: 'text-indigo-600' },
+            ].map(s => (
+              <div key={s.label} className="bg-slate-50 rounded-xl p-3 text-center">
+                <p className={`text-xl font-bold ${s.cls}`}>{s.value}</p>
+                <p className="text-xs text-slate-400 mt-0.5">{s.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Charts row */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            {/* Line chart - payment trend */}
+            <div className="bg-slate-50 rounded-xl p-4">
+              <p className="text-xs font-semibold text-slate-600 mb-3">6-Month Payment Trend</p>
+              <ResponsiveContainer width="100%" height={150}>
+                <LineChart data={trendData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
+                  <XAxis dataKey="month" tick={{ fontSize: 10, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
+                  <YAxis tick={{ fontSize: 10, fill: '#94a3b8' }} axisLine={false} tickLine={false}
+                    tickFormatter={v => `$${(v/1000).toFixed(0)}k`} />
+                  <Tooltip formatter={(v, n) => [fmt(v), n === 'paid' ? 'Paid' : 'Expected']} />
+                  <Line type="monotone" dataKey="expected" stroke="#e2e8f0" strokeWidth={2} dot={false} strokeDasharray="4 4" />
+                  <Line type="monotone" dataKey="paid"     stroke="#6366F1" strokeWidth={2.5} dot={{ r: 3, fill: '#6366F1' }} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+
+            {/* Donut chart - payment ratio */}
+            <div className="bg-slate-50 rounded-xl p-4">
+              <p className="text-xs font-semibold text-slate-600 mb-3">Payment Distribution</p>
+              <div className="flex items-center gap-4">
+                <ResponsiveContainer width={130} height={130}>
+                  <PieChart>
+                    <Pie data={donutData} cx="50%" cy="50%" innerRadius={35} outerRadius={55}
+                      dataKey="value" paddingAngle={3}>
+                      {donutData.map((e, i) => <Cell key={i} fill={e.color} />)}
+                    </Pie>
+                    <Tooltip formatter={(v, n) => [`${v} month${v !== 1 ? 's' : ''}`, n]} />
+                  </PieChart>
+                </ResponsiveContainer>
+                <div className="flex flex-col gap-2 text-xs">
+                  {donutData.map(d => (
+                    <div key={d.name} className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: d.color }} />
+                      <span className="text-slate-600">{d.name}</span>
+                      <span className="font-bold text-slate-700 ml-auto pl-2">{d.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Payment history timeline */}
+          <div>
+            <p className="text-xs font-semibold text-slate-600 mb-3">Payment History (Last 12 Months)</p>
+            <div className="flex gap-1.5 flex-wrap">
+              {history.map((h, i) => (
+                <div key={i} title={`${h.label}: ${h.status}${h.daysLate ? ` (${h.daysLate}d late)` : ''}`}
+                  className="group relative flex flex-col items-center gap-1 cursor-default">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold transition-transform group-hover:scale-110"
+                    style={{ background: STATUS_COLOR[h.status] + '20', color: STATUS_COLOR[h.status] }}>
+                    {h.status === 'Paid' ? '✓' : h.status === 'Late' ? '!' : '✗'}
+                  </div>
+                  <span className="text-slate-400" style={{ fontSize: '9px' }}>{h.label.split(' ')[0]}</span>
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-4 mt-2">
+              {[['Paid','#10b981'],['Late','#f59e0b'],['Missed','#f43f5e']].map(([l,c]) => (
+                <div key={l} className="flex items-center gap-1 text-xs text-slate-400">
+                  <span className="w-2 h-2 rounded-sm" style={{ background: c }} />{l}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Notes */}
+          <div>
+            <p className="text-xs font-semibold text-slate-600 mb-2">Notes</p>
+            <textarea value={note} onChange={e => setNote(e.target.value)}
+              placeholder="Add private notes about this tenant…"
+              rows={3}
+              className="w-full text-sm border border-slate-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none transition-all" />
+            <div className="flex justify-end mt-2">
+              <button onClick={() => onSaveNote(debtor.id, note)}
+                className="px-4 py-2 text-xs font-semibold text-white rounded-xl transition-opacity hover:opacity-90"
+                style={{ background: 'linear-gradient(135deg, #6366F1, #7C3AED)' }}>
+                Save Note
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ─── App ──────────────────────────────────────────────────────────────────────
+
+export default function DebtorsPage() {
+  const [debtors,        setDebtors]        = useState([])
+  const [fileName,       setFileName]       = useState(null)
+  const [parseError,     setParseError]     = useState(null)
+  const [reminders,      setReminders]      = useState({})
+  const [plans,          setPlans]          = useState({})
+  const [notes,          setNotes]          = useState({})
+  const [template,       setTemplate]       = useState(DEFAULT_TEMPLATE)
+  const [search,         setSearch]         = useState('')
+  const [sortBy,         setSortBy]         = useState({ col: 'debt', dir: 'desc' })
+  const [planDebtor,     setPlanDebtor]     = useState(null)
+  const [reminderDebtor, setReminderDebtor] = useState(null)
+  const [tenantDebtor,   setTenantDebtor]   = useState(null)
+  const [bulkQueue,      setBulkQueue]      = useState(null)
+
+  // Load persisted state client-side only (avoid SSR issues)
+  useEffect(() => {
+    try {
+      setReminders(JSON.parse(localStorage.getItem(LS_REMINDERS) || '{}'))
+      setPlans(JSON.parse(localStorage.getItem(LS_PLANS) || '{}'))
+      setNotes(JSON.parse(localStorage.getItem(LS_NOTES) || '{}'))
+      setTemplate(localStorage.getItem(LS_TEMPLATE) || DEFAULT_TEMPLATE)
+    } catch (_) {}
+  }, [])
+
+  const persist = useCallback((key, val) => {
+    try { localStorage.setItem(key, JSON.stringify(val)) } catch (_) {}
+  }, [])
+
+  const handleFileLoad = useCallback((buffer, name) => {
+    try {
+      const rows = parseExcelFile(buffer)
+      if (!rows.length) throw new Error('No debtor rows found. Ensure the file has data in the "Overdues" sheet.')
+      setDebtors(rows); setFileName(name); setParseError(null)
+    } catch (e) { setParseError(e.message) }
+  }, [])
+
+  const handleSort = useCallback(col => {
+    setSortBy(prev => ({ col, dir: prev.col === col && prev.dir === 'asc' ? 'desc' : 'asc' }))
+  }, [])
+
+  const handleSavePlan = useCallback(plan => {
+    if (!planDebtor) return
+    const updated = { ...plans, [planDebtor.id]: plan }
+    setPlans(updated); persist(LS_PLANS, updated); setPlanDebtor(null)
+  }, [planDebtor, plans, persist])
+
+  const recordReminder = useCallback(debtor => {
+    const updated = { ...reminders, [debtor.id]: { lastSent: new Date().toISOString(), totalSent: (reminders[debtor.id]?.totalSent || 0) + 1 } }
+    setReminders(updated); persist(LS_REMINDERS, updated)
+  }, [reminders, persist])
+
+  const handleReminderSent = useCallback(() => {
+    if (!reminderDebtor) return
+    recordReminder(reminderDebtor)
+    if (bulkQueue?.length > 0) {
+      const [next, ...rest] = bulkQueue
+      setBulkQueue(rest); setReminderDebtor(next)
+    } else { setReminderDebtor(null); setBulkQueue(null) }
+  }, [reminderDebtor, bulkQueue, recordReminder])
+
+  const handleSendAll = useCallback(() => {
+    const withEmail = debtors.filter(d => d.email)
+    if (!withEmail.length) { alert('No debtors have email addresses on file.'); return }
+    const [first, ...rest] = withEmail
+    setBulkQueue(rest); setReminderDebtor(first)
+  }, [debtors])
+
+  const handleSaveNote = useCallback((id, text) => {
+    const updated = { ...notes, [id]: text }
+    setNotes(updated); persist(LS_NOTES, updated)
+  }, [notes, persist])
+
+  if (!debtors.length) {
+    return <FileUploadZone onLoad={handleFileLoad} error={parseError} />
+  }
+
+  return (
+    <div style={{ padding: 28 }}>
+      {/* Page header */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24 }}>
+        <div>
+          <h2 style={{ fontSize: 22, fontWeight: 700, color: '#0f172a', margin: 0 }}>Debtor Management</h2>
+          <p style={{ color: '#64748b', fontSize: 13, marginTop: 4 }}>{fileName}</p>
+        </div>
+        <button onClick={() => { setDebtors([]); setFileName(null); setParseError(null) }}
+          style={{ padding: '8px 16px', fontSize: 13, fontWeight: 600, color: '#64748b', border: '1px solid #e2e8f0', borderRadius: 12, background: '#fff', cursor: 'pointer' }}>
+          ↑ Load New File
+        </button>
+      </div>
+      <KPICards  debtors={debtors} reminders={reminders} />
+      <DebtChart debtors={debtors} />
+      <DebtorsTable
+        debtors={debtors} reminders={reminders} plans={plans}
+        search={search} setSearch={setSearch} sortBy={sortBy} onSort={handleSort}
+        onSelectPlan={setPlanDebtor} onSendReminder={setReminderDebtor}
+        onSendAll={handleSendAll} onExport={rows => doExport(rows, reminders)}
+        onSelectTenant={setTenantDebtor}
+      />
+
+      {planDebtor && (
+        <PaymentScheduleModal debtor={planDebtor} existing={plans[planDebtor.id]}
+          onClose={() => setPlanDebtor(null)} onSave={handleSavePlan} />
+      )}
+      {reminderDebtor && (
+        <ReminderModal debtor={reminderDebtor} template={template}
+          onClose={() => { setReminderDebtor(null); setBulkQueue(null) }}
+          onSend={handleReminderSent} onTemplateChange={t => { setTemplate(t); try { localStorage.setItem(LS_TEMPLATE, t) } catch (_) {} }} />
+      )}
+      {tenantDebtor && (
+        <TenantDetailModal debtor={tenantDebtor} notes={notes}
+          onClose={() => setTenantDebtor(null)} onSaveNote={handleSaveNote} />
+      )}
+    </div>
+  )
 }
