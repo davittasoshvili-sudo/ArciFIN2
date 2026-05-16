@@ -1,0 +1,5772 @@
+{
+  "debtors": [
+    {
+      "project": "Samgori",
+      "code": "S-12-52",
+      "amountDue": 85653,
+      "amountPaid": 85653.0368185321,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-51",
+      "amountDue": 56160,
+      "amountPaid": 56159.99293756781,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-50",
+      "amountDue": 60564,
+      "amountPaid": 60564.29088541242,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-47",
+      "amountDue": 56453,
+      "amountPaid": 56452.99836572894,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-46",
+      "amountDue": 60873,
+      "amountPaid": 60873.023479163145,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-44",
+      "amountDue": 45934,
+      "amountPaid": 45934.00710571601,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-43",
+      "amountDue": 56160,
+      "amountPaid": 56159.99293756781,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-42",
+      "amountDue": 60564.2,
+      "amountPaid": 60564.11104696861,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-40",
+      "amountDue": 45696,
+      "amountPaid": 45695.993002535455,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-39",
+      "amountDue": 55868,
+      "amountPaid": 55867.98541932131,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-38",
+      "amountDue": 60255,
+      "amountPaid": 60255.16978126744,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-36",
+      "amountDue": 45458,
+      "amountPaid": 45458.057978907644,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-34",
+      "amountDue": 60140,
+      "amountPaid": 60140.00827251986,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-28",
+      "amountDue": 45171,
+      "amountPaid": 45171.01336363604,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-25",
+      "amountDue": 46872,
+      "amountPaid": 46890.02796301678,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-24",
+      "amountDue": 46172,
+      "amountPaid": 46172.0460664203,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-19",
+      "amountDue": 60775,
+      "amountPaid": 60775.002478265014,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-16",
+      "amountDue": 45696,
+      "amountPaid": 45696.00212151588,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-11",
+      "amountDue": 59849,
+      "amountPaid": 59848.99669103719,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-8",
+      "amountDue": 45315,
+      "amountPaid": 45315.03713192364,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-4",
+      "amountDue": 45171,
+      "amountPaid": 45170.709912924445,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-50",
+      "amountDue": 57514,
+      "amountPaid": 57514.28712647673,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-47",
+      "amountDue": 56602,
+      "amountPaid": 56602.20356310875,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-33",
+      "amountDue": 41410.99752050352,
+      "amountPaid": 41410.99752050352,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-25",
+      "amountDue": 53952.00000000001,
+      "amountPaid": 53952.03272558312,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-22",
+      "amountDue": 60255,
+      "amountPaid": 60254.772655173096,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-5",
+      "amountDue": 52740,
+      "amountPaid": 52740.000965671,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-7-17",
+      "amountDue": 40539,
+      "amountPaid": 40547.48052119238,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-1",
+      "amountDue": 35530,
+      "amountPaid": 35529.99716318239,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-4",
+      "amountDue": 35627,
+      "amountPaid": 35627.2009157195,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-6",
+      "amountDue": 60858,
+      "amountPaid": 60857.99936788463,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-8",
+      "amountDue": 46985,
+      "amountPaid": 46983.991542533346,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-10",
+      "amountDue": 58311,
+      "amountPaid": 58311.00824988466,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-12",
+      "amountDue": 47362,
+      "amountPaid": 47361.99796558962,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-14",
+      "amountDue": 80121,
+      "amountPaid": 80120.69265296322,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-15",
+      "amountDue": 44290,
+      "amountPaid": 44290.128236713186,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-20",
+      "amountDue": 48213,
+      "amountPaid": 48213.13876366352,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-23",
+      "amountDue": 60676,
+      "amountPaid": 60676.06662911633,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-24",
+      "amountDue": 47738,
+      "amountPaid": 47737.95802931891,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-26",
+      "amountDue": 61182,
+      "amountPaid": 61182.00751236566,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-27",
+      "amountDue": 60060,
+      "amountPaid": 60059.99252196672,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-35",
+      "amountDue": 43584,
+      "amountPaid": 43584.002839128596,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-38",
+      "amountDue": 60352.899999999994,
+      "amountPaid": 60353.01486667033,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-39",
+      "amountDue": 60840,
+      "amountPaid": 60840.02293577774,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-41",
+      "amountDue": 47362,
+      "amountPaid": 47362.21024451197,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-42",
+      "amountDue": 60775,
+      "amountPaid": 60775.25646336377,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-43",
+      "amountDue": 61366,
+      "amountPaid": 61365.609988612574,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-45",
+      "amountDue": 47738,
+      "amountPaid": 47738.70125611017,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-58",
+      "amountDue": 60675.99999999997,
+      "amountPaid": 60676.03727058934,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-46",
+      "amountDue": 61292,
+      "amountPaid": 61292.3543418409,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-47",
+      "amountDue": 61888.5,
+      "amountPaid": 61889.54707303537,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-49",
+      "amountDue": 48213,
+      "amountPaid": 48213.70176796535,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-50",
+      "amountDue": 61908,
+      "amountPaid": 62105.512435228484,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-51",
+      "amountDue": 60636,
+      "amountPaid": 60636.00061730777,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-53",
+      "amountDue": 47738,
+      "amountPaid": 47738.00816048631,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-54",
+      "amountDue": 61292,
+      "amountPaid": 61294.01885257402,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-55",
+      "amountDue": 61888.600000000006,
+      "amountPaid": 61888.99532176287,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-57",
+      "amountDue": 47263,
+      "amountPaid": 47263.024735269435,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-59",
+      "amountDue": 61267,
+      "amountPaid": 61266.98520167374,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-31",
+      "amountDue": 55472,
+      "amountPaid": 55472.640084720835,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-23",
+      "amountDue": 119676,
+      "amountPaid": 119676.0727012822,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-61",
+      "amountDue": 46938,
+      "amountPaid": 46938.31403016829,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-58",
+      "amountDue": 64082,
+      "amountPaid": 64081.83234187094,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-57",
+      "amountDue": 49904,
+      "amountPaid": 49904.00783201729,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-55",
+      "amountDue": 64066,
+      "amountPaid": 65014.7086484317,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-51",
+      "amountDue": 64386,
+      "amountPaid": 64386.347853686486,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-50",
+      "amountDue": 64717,
+      "amountPaid": 64716.99284175705,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-47",
+      "amountDue": 64707,
+      "amountPaid": 64707.07666962337,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-20",
+      "amountDue": 50148,
+      "amountPaid": 50148.261488963624,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-15",
+      "amountDue": 45600,
+      "amountPaid": 45600.06147786461,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-16",
+      "amountDue": 47400,
+      "amountPaid": 47400.008205587255,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-12",
+      "amountDue": 49763,
+      "amountPaid": 49763.130819817714,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-11",
+      "amountDue": 63869,
+      "amountPaid": 63868.99854044341,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-29",
+      "amountDue": 59434,
+      "amountPaid": 59483.458518085325,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-49",
+      "amountDue": 52293,
+      "amountPaid": 52293.036671354246,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-37",
+      "amountDue": 51285,
+      "amountPaid": 51284.81356491811,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-41",
+      "amountDue": 51913,
+      "amountPaid": 51913,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-45",
+      "amountDue": 121365,
+      "amountPaid": 121365.00125101887,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-32",
+      "amountDue": 47618,
+      "amountPaid": 47621.38171539708,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-28",
+      "amountDue": 51559,
+      "amountPaid": 51532.79196776802,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-26",
+      "amountDue": 66234,
+      "amountPaid": 66233.99566228579,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-19",
+      "amountDue": 66864,
+      "amountPaid": 66864.07063247522,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-12",
+      "amountDue": 51667,
+      "amountPaid": 51666.99332344213,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-8",
+      "amountDue": 51039.00000000001,
+      "amountPaid": 51040.9661405886,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-62",
+      "amountDue": 58805,
+      "amountPaid": 58804.999815232244,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-56",
+      "amountDue": 56646,
+      "amountPaid": 56646.93762408824,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-33",
+      "amountDue": 35627,
+      "amountPaid": 35627.021969448535,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-17",
+      "amountDue": 58300,
+      "amountPaid": 58299.9926101108,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-40",
+      "amountDue": 55755,
+      "amountPaid": 55755.96920093233,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-54",
+      "amountDue": 64400,
+      "amountPaid": 64399.95561195329,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-59",
+      "amountDue": 63746,
+      "amountPaid": 63746,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-44",
+      "amountDue": 59353,
+      "amountPaid": 59373.9023248821,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-41",
+      "amountDue": 50008.8,
+      "amountPaid": 50009.23396604877,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-32",
+      "amountDue": 46702,
+      "amountPaid": 46702.00281773586,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-24",
+      "amountDue": 49904,
+      "amountPaid": 49906.961019879425,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-18",
+      "amountDue": 64386,
+      "amountPaid": 64386.01173362658,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-7",
+      "amountDue": 94330,
+      "amountPaid": 94330.00243088447,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-6",
+      "amountDue": 82065,
+      "amountPaid": 82066.00889441864,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-5",
+      "amountDue": 58339,
+      "amountPaid": 58339.97028948011,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-2",
+      "amountDue": 43875,
+      "amountPaid": 43875.00463288981,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-29",
+      "amountDue": 55539,
+      "amountPaid": 55538.99896008235,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-36",
+      "amountDue": 36477,
+      "amountPaid": 36477.00108120663,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-52",
+      "amountDue": 58407,
+      "amountPaid": 58407.47203779845,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-43",
+      "amountDue": 63848,
+      "amountPaid": 63848.063134888675,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-46",
+      "amountDue": 65034,
+      "amountPaid": 65034.15886974464,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-14",
+      "amountDue": 67195,
+      "amountPaid": 67195.00331820187,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-16",
+      "amountDue": 54673,
+      "amountPaid": 54673.406190992784,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-18",
+      "amountDue": 66874,
+      "amountPaid": 66874.12271413385,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-20",
+      "amountDue": 52048,
+      "amountPaid": 62433.00131509379,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-22",
+      "amountDue": 66553.8,
+      "amountPaid": 66554.0029841981,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-50",
+      "amountDue": 67181,
+      "amountPaid": 67181.64111636215,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-53",
+      "amountDue": 52048,
+      "amountPaid": 52047.990431163686,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-54",
+      "amountDue": 66546,
+      "amountPaid": 66863.62287897989,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-57",
+      "amountDue": 51804,
+      "amountPaid": 51804.209643172566,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-58",
+      "amountDue": 66546,
+      "amountPaid": 66546.33287416694,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-59",
+      "amountDue": 65808,
+      "amountPaid": 65787.56681866714,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-54",
+      "amountDue": 67671,
+      "amountPaid": 67671.5807354996,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-47",
+      "amountDue": 69834,
+      "amountPaid": 69840.00603750802,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-61",
+      "amountDue": 47854,
+      "amountPaid": 47854.09994786624,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-12",
+      "amountDue": 64058,
+      "amountPaid": 64058.00993949598,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-29",
+      "amountDue": 49235,
+      "amountPaid": 49234.835216965046,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-48",
+      "amountDue": 52250,
+      "amountPaid": 52254.99509452473,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-52",
+      "amountDue": 52963,
+      "amountPaid": 52963.00229787388,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-48",
+      "amountDue": 57820,
+      "amountPaid": 57820.06659526655,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-5",
+      "amountDue": 58014,
+      "amountPaid": 58014.024937069946,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-60",
+      "amountDue": 60989,
+      "amountPaid": 60994.99423127023,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-38",
+      "amountDue": 65305,
+      "amountPaid": 65310.438662244036,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-3",
+      "amountDue": 58748,
+      "amountPaid": 58748.149807994654,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-5",
+      "amountDue": 50562,
+      "amountPaid": 50579.42542584967,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-9",
+      "amountDue": 51646,
+      "amountPaid": 51645.534248115204,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-50",
+      "amountDue": 68289,
+      "amountPaid": 68289,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-58",
+      "amountDue": 67053,
+      "amountPaid": 67052.06801916049,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-56",
+      "amountDue": 52488,
+      "amountPaid": 52488.00336980715,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-21",
+      "amountDue": 50913,
+      "amountPaid": 50913.035671673926,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-25",
+      "amountDue": 50452.00000000001,
+      "amountPaid": 50452,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-60",
+      "amountDue": 52013,
+      "amountPaid": 52012.558201950575,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-44",
+      "amountDue": 51646,
+      "amountPaid": 51646.31380514098,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-46",
+      "amountDue": 67362,
+      "amountPaid": 67350.92561436625,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-41",
+      "amountDue": 52598,
+      "amountPaid": 52599.07425642236,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-12",
+      "amountDue": 52360,
+      "amountPaid": 52372.46293783492,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-16",
+      "amountDue": 51604.00000000001,
+      "amountPaid": 51604,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-20",
+      "amountDue": 52986,
+      "amountPaid": 52986,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-24",
+      "amountDue": 52526,
+      "amountPaid": 52526,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-8",
+      "amountDue": 51516.4,
+      "amountPaid": 51516.683248199915,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-11",
+      "amountDue": 69104.2,
+      "amountPaid": 69104.05429516998,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-28",
+      "amountDue": 53675,
+      "amountPaid": 53675.054040953764,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-35",
+      "amountDue": 48150,
+      "amountPaid": 48151.058756371225,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-36",
+      "amountDue": 39644,
+      "amountPaid": 39644,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-42",
+      "amountDue": 68487,
+      "amountPaid": 68486.91622070104,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-50",
+      "amountDue": 71456,
+      "amountPaid": 71456.01352858098,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-53",
+      "amountDue": 54388,
+      "amountPaid": 54388.00740758034,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-54",
+      "amountDue": 70840,
+      "amountPaid": 70840.02983842927,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-38",
+      "amountDue": 65205,
+      "amountPaid": 65205.00442197114,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-40",
+      "amountDue": 50562,
+      "amountPaid": 50562.00608564581,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-43",
+      "amountDue": 67820,
+      "amountPaid": 67820.03201285,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-49",
+      "amountDue": 54863,
+      "amountPaid": 54863.02156640167,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-61",
+      "amountDue": 51067,
+      "amountPaid": 51066.989265852695,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-10",
+      "amountDue": 69440,
+      "amountPaid": 69441.3692139159,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-19",
+      "amountDue": 72072,
+      "amountPaid": 72072.01666924948,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-37",
+      "amountDue": 51755,
+      "amountPaid": 51870.196914593565,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-39",
+      "amountDue": 65658,
+      "amountPaid": 65658.03942296148,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-47",
+      "amountDue": 67739,
+      "amountPaid": 67739.27760152589,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-8",
+      "amountDue": 53662.520000000004,
+      "amountPaid": 53662.85979809128,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-33",
+      "amountDue": 52053,
+      "amountPaid": 52053.31513727346,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-1",
+      "amountDue": 40180.8,
+      "amountPaid": 40187.73373330036,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-3-OP15",
+      "amountDue": 5700,
+      "amountPaid": 5700.031569149032,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-3-OP19",
+      "amountDue": 5700,
+      "amountPaid": 5692.194120880373,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-OP1",
+      "amountDue": 6000,
+      "amountPaid": 5999.029888109065,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-OP7",
+      "amountDue": 5700,
+      "amountPaid": 5700.045519503856,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-OP8",
+      "amountDue": 5700,
+      "amountPaid": 5700.014470329627,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-OP12",
+      "amountDue": 5700,
+      "amountPaid": 5706.671207067162,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-OP13",
+      "amountDue": 5700,
+      "amountPaid": 5700.003629264783,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-OP14",
+      "amountDue": 5700,
+      "amountPaid": 5700.00178373943,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-OP15",
+      "amountDue": 5700,
+      "amountPaid": 5700.014528373125,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-OP16",
+      "amountDue": 5700,
+      "amountPaid": 5700.003526466128,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-OP1",
+      "amountDue": 5700,
+      "amountPaid": 5699.982747406294,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-OP4",
+      "amountDue": 5700,
+      "amountPaid": 5716.357908312946,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-OP5",
+      "amountDue": 5700,
+      "amountPaid": 5700.123709201001,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-OP6",
+      "amountDue": 5700,
+      "amountPaid": 5708.358655371958,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-OP8",
+      "amountDue": 5700,
+      "amountPaid": 5699.999876097482,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-OP10",
+      "amountDue": 5700,
+      "amountPaid": 5700.84304162067,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-OP15",
+      "amountDue": 5700,
+      "amountPaid": 5701.797599221376,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-OP16",
+      "amountDue": 5700,
+      "amountPaid": 5705.944491528333,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-12-OP17",
+      "amountDue": 5700,
+      "amountPaid": 5701.834123147999,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-59",
+      "amountDue": 66836,
+      "amountPaid": 66780.63203431462,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-23",
+      "amountDue": 69312,
+      "amountPaid": 69311.99258572752,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-4",
+      "amountDue": 52580,
+      "amountPaid": 52579.07355964173,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-8",
+      "amountDue": 55332,
+      "amountPaid": 55335.6721033975,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-33",
+      "amountDue": 52747,
+      "amountPaid": 52747,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-29",
+      "amountDue": 52580,
+      "amountPaid": 52581.02939230751,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-1",
+      "amountDue": 63946.6,
+      "amountPaid": 63946.565737509176,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-7",
+      "amountDue": 68750,
+      "amountPaid": 68750.73447405531,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-16",
+      "amountDue": 55869.200000000004,
+      "amountPaid": 55866.84058444827,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-24",
+      "amountDue": 56644.2,
+      "amountPaid": 56644.598101595424,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-37",
+      "amountDue": 53673,
+      "amountPaid": 53669.82588385388,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-37",
+      "amountDue": 54502,
+      "amountPaid": 54502.306217524114,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-41",
+      "amountDue": 54252,
+      "amountPaid": 54251.995154624485,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-9",
+      "amountDue": 67427,
+      "amountPaid": 67426.53834540138,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-12",
+      "amountDue": 54598.3,
+      "amountPaid": 54598.055152770525,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-18",
+      "amountDue": 73851,
+      "amountPaid": 73851.00707407991,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-45",
+      "amountDue": 56168,
+      "amountPaid": 56126.86008712682,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-49",
+      "amountDue": 54021.979999999996,
+      "amountPaid": 54022.99268302707,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-3",
+      "amountDue": 59623,
+      "amountPaid": 59209.318294632656,
+      "overdue": 413.68170536734397,
+      "status": "Outstanding"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-31",
+      "amountDue": 59732,
+      "amountPaid": 59328.20065801454,
+      "overdue": 403.79934198546107,
+      "status": "Outstanding"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-34",
+      "amountDue": 69019,
+      "amountPaid": 67608.25598824455,
+      "overdue": 1410.7440117554506,
+      "status": "Outstanding"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-35",
+      "amountDue": 69130,
+      "amountPaid": 68662.66844385832,
+      "overdue": 467.3315561416821,
+      "status": "Outstanding"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-2",
+      "amountDue": 58363,
+      "amountPaid": 58288.70965869763,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-30",
+      "amountDue": 57834.00000000001,
+      "amountPaid": 57502.047721439965,
+      "overdue": 331.95227856004203,
+      "status": "Outstanding"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-53",
+      "amountDue": 50756,
+      "amountPaid": 50777.369384026715,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-3",
+      "amountDue": 59426,
+      "amountPaid": 59426.061778291,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-31",
+      "amountDue": 59166,
+      "amountPaid": 59166,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-5",
+      "amountDue": 65369,
+      "amountPaid": 65369.227444897006,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-21",
+      "amountDue": 66960,
+      "amountPaid": 66959.97788183176,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-10",
+      "amountDue": 70437,
+      "amountPaid": 70436.98848328168,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-20",
+      "amountDue": 55406,
+      "amountPaid": 55406.01934610244,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-22",
+      "amountDue": 71036,
+      "amountPaid": 71035.99697245713,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-30",
+      "amountDue": 60444,
+      "amountPaid": 60450.00532802899,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-34",
+      "amountDue": 69834,
+      "amountPaid": 69833.99819981998,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-41",
+      "amountDue": 56644.00000000001,
+      "amountPaid": 56644.19783419782,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-42",
+      "amountDue": 70622,
+      "amountPaid": 70621.99410364791,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-2",
+      "amountDue": 60066,
+      "amountPaid": 60066.261718844675,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-13",
+      "amountDue": 68094,
+      "amountPaid": 68093.99488239767,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-17",
+      "amountDue": 67527,
+      "amountPaid": 67526.93928673296,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-47",
+      "amountDue": 70591,
+      "amountPaid": 70591.24223026814,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-39",
+      "amountDue": 73088,
+      "amountPaid": 73087.50652996599,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-19",
+      "amountDue": 76770,
+      "amountPaid": 76769.99931202299,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-51",
+      "amountDue": 73487,
+      "amountPaid": 73486.99802501645,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-38",
+      "amountDue": 74624.03,
+      "amountPaid": 74624.01623469542,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-17-20",
+      "amountDue": 25300,
+      "amountPaid": 25300,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-17-19",
+      "amountDue": 32780,
+      "amountPaid": 32780.00145496872,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-17-17",
+      "amountDue": 68321,
+      "amountPaid": 68321.08928362594,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-17-16",
+      "amountDue": 62140,
+      "amountPaid": 62140.73221437847,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-17-15",
+      "amountDue": 77330,
+      "amountPaid": 77330,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-17-14",
+      "amountDue": 79722,
+      "amountPaid": 79727.65603693837,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-17-12",
+      "amountDue": 62618,
+      "amountPaid": 62617.99977832785,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-17-7",
+      "amountDue": 76979,
+      "amountPaid": 76979.04444547821,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-17-6",
+      "amountDue": 79488,
+      "amountPaid": 79488.5106510191,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-OP20",
+      "amountDue": 7000,
+      "amountPaid": 7000.41431862435,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-OP3",
+      "amountDue": 7000,
+      "amountPaid": 7002.014535700958,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-OP4",
+      "amountDue": 7000,
+      "amountPaid": 6999.85689843395,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-OP6",
+      "amountDue": 7000,
+      "amountPaid": 7000,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-OP7",
+      "amountDue": 7000,
+      "amountPaid": 7001.157674774416,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-OP8",
+      "amountDue": 7000,
+      "amountPaid": 7011.000357154699,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-OP9",
+      "amountDue": 7000,
+      "amountPaid": 7000.354995197417,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-OP11",
+      "amountDue": 7000,
+      "amountPaid": 7001.485839408326,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-OP13",
+      "amountDue": 7000,
+      "amountPaid": 7000.042230566102,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-OP17",
+      "amountDue": 7000,
+      "amountPaid": 7002.035960619753,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-OP20",
+      "amountDue": 7000,
+      "amountPaid": 7002.155811117821,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-OP23",
+      "amountDue": 7000,
+      "amountPaid": 7000.0093770304975,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-8-OP24",
+      "amountDue": 7000,
+      "amountPaid": 7001.914592882204,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-OP7",
+      "amountDue": 7000,
+      "amountPaid": 7001.254445734596,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-OP8",
+      "amountDue": 7000,
+      "amountPaid": 7002.155811117821,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-OP10",
+      "amountDue": 7000,
+      "amountPaid": 7000.274814667352,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-OP11",
+      "amountDue": 7000,
+      "amountPaid": 7000.047449438614,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-OP12",
+      "amountDue": 7000,
+      "amountPaid": 7004.868526422913,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-OP13",
+      "amountDue": 7000,
+      "amountPaid": 7336.540672675498,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-OP14",
+      "amountDue": 7000,
+      "amountPaid": 7000.34845761655,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-OP15",
+      "amountDue": 7000.000000000001,
+      "amountPaid": 7000.0041719917745,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-OP16",
+      "amountDue": 7000,
+      "amountPaid": 7000.961393895401,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-OP19",
+      "amountDue": 7000,
+      "amountPaid": 7000.000333203199,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-OP20",
+      "amountDue": 7000,
+      "amountPaid": 7001.004095755462,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-OP2",
+      "amountDue": 7000,
+      "amountPaid": 6999.9878579581255,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-OP4",
+      "amountDue": 10000,
+      "amountPaid": 10003.10312488969,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-OP5",
+      "amountDue": 7000,
+      "amountPaid": 7002.442436904809,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-OP6",
+      "amountDue": 7000.000000000001,
+      "amountPaid": 7000.508569029336,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-OP6",
+      "amountDue": 7000.000000000001,
+      "amountPaid": 7000.508569029336,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-OP7",
+      "amountDue": 7000,
+      "amountPaid": 7007.924747159792,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-OP8",
+      "amountDue": 7000,
+      "amountPaid": 6999.871256305567,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-OP10",
+      "amountDue": 7000,
+      "amountPaid": 6999.871256305567,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-OP9",
+      "amountDue": 7000,
+      "amountPaid": 6999.9997973225745,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-OP11",
+      "amountDue": 7000,
+      "amountPaid": 7000.000185238971,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-OP23",
+      "amountDue": 7000,
+      "amountPaid": 7002.437438768877,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-OP2",
+      "amountDue": 7000,
+      "amountPaid": 7000.644388241926,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-OP7",
+      "amountDue": 10000,
+      "amountPaid": 10002.931857947982,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-OP9",
+      "amountDue": 7000.000000000001,
+      "amountPaid": 6999.703507049385,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-OP10",
+      "amountDue": 7000.000000000001,
+      "amountPaid": 6999.703507049385,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-OP21",
+      "amountDue": 7000,
+      "amountPaid": 7001.017644193125,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-OP22",
+      "amountDue": 7000,
+      "amountPaid": 6999.008585163318,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-OP2",
+      "amountDue": 7000.000000000001,
+      "amountPaid": 7002.033851977405,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-OP5",
+      "amountDue": 7000,
+      "amountPaid": 7000,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-OP9",
+      "amountDue": 7000,
+      "amountPaid": 7000.396425213189,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-OP10",
+      "amountDue": 10000,
+      "amountPaid": 9999.994979919207,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-OP11",
+      "amountDue": 7000,
+      "amountPaid": 7002.617047783047,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-OP5",
+      "amountDue": 7000,
+      "amountPaid": 6999.996373562528,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-OP3",
+      "amountDue": 7000,
+      "amountPaid": 7000.309141964987,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-9-OP17",
+      "amountDue": 7000,
+      "amountPaid": 7000.253200769149,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-OP4",
+      "amountDue": 7000,
+      "amountPaid": 7004.924240184151,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-OP12",
+      "amountDue": 7000,
+      "amountPaid": 7000.138914357816,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-37",
+      "amountDue": 63265,
+      "amountPaid": 63277.2924982,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-OP7",
+      "amountDue": 7000,
+      "amountPaid": 7000.258747949465,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-OP19",
+      "amountDue": 7000,
+      "amountPaid": 6999.991871601404,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-17-1",
+      "amountDue": 45347,
+      "amountPaid": 45346.9926199262,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-OP1",
+      "amountDue": 7000.333333333334,
+      "amountPaid": 7000.015421666274,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-10-OP1",
+      "amountDue": 7000,
+      "amountPaid": 7000.009999115769,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-16-OP13",
+      "amountDue": 7000.333333333334,
+      "amountPaid": 7000.5233479952985,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-OP23",
+      "amountDue": 7000,
+      "amountPaid": 7002.748277560917,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-15-OP20",
+      "amountDue": 7000,
+      "amountPaid": 7000,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-OP17",
+      "amountDue": 8000.000000000001,
+      "amountPaid": 8001.003269537208,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-11-OP18",
+      "amountDue": 8000,
+      "amountPaid": 8000.482268177841,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-OP8",
+      "amountDue": 8000.000000000001,
+      "amountPaid": 8010.104251889824,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-OP19",
+      "amountDue": 8000.000000000001,
+      "amountPaid": 1107.951397865347,
+      "overdue": 6892.048602134654,
+      "status": "Outstanding"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-OP2",
+      "amountDue": 11000,
+      "amountPaid": 11000,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-OP15",
+      "amountDue": 8000,
+      "amountPaid": 7998.443230707682,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-13-OP11",
+      "amountDue": 8000.000000000001,
+      "amountPaid": 8001.08956016025,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-17-OP3",
+      "amountDue": 8000.000000000001,
+      "amountPaid": 7999.691858087454,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Samgori",
+      "code": "S-14-OP6",
+      "amountDue": 8000,
+      "amountPaid": 8000.585034459815,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-7",
+      "amountDue": 65664,
+      "amountPaid": 65664,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-10",
+      "amountDue": 68750,
+      "amountPaid": 68750.09198616528,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-12",
+      "amountDue": 47088,
+      "amountPaid": 47088.9684005797,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-23",
+      "amountDue": 65945,
+      "amountPaid": 65945,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-13",
+      "amountDue": 47852,
+      "amountPaid": 47866.61941903881,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-15",
+      "amountDue": 66853,
+      "amountPaid": 66853.964689019,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-16",
+      "amountDue": 47195,
+      "amountPaid": 47194.5,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-17",
+      "amountDue": 98120,
+      "amountPaid": 98120.0078213341,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-19",
+      "amountDue": 88886,
+      "amountPaid": 88886.01957219126,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-20",
+      "amountDue": 45361,
+      "amountPaid": 45361.15176566299,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-21",
+      "amountDue": 45780,
+      "amountPaid": 45784.18582834734,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-22",
+      "amountDue": 65976,
+      "amountPaid": 65943.62027324236,
+      "overdue": 32.379726757644676,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-9-24",
+      "amountDue": 46548,
+      "amountPaid": 46548.139244010774,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-25",
+      "amountDue": 46978,
+      "amountPaid": 46977.598290650436,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-27",
+      "amountDue": 77630,
+      "amountPaid": 77589.81727755147,
+      "overdue": 40.18272244853142,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-9-30",
+      "amountDue": 128265,
+      "amountPaid": 128282.93072943672,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-34",
+      "amountDue": 39594,
+      "amountPaid": 39593.9947347438,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-35",
+      "amountDue": 46331,
+      "amountPaid": 46330.99982967126,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-39",
+      "amountDue": 47088,
+      "amountPaid": 47088.00982176782,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-40",
+      "amountDue": 46750,
+      "amountPaid": 46750.01159153985,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-42",
+      "amountDue": 48174,
+      "amountPaid": 48174.26850127719,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-44",
+      "amountDue": 66853,
+      "amountPaid": 66854.00707841164,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-45",
+      "amountDue": 69750,
+      "amountPaid": 69749.99889253941,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-47",
+      "amountDue": 46764,
+      "amountPaid": 46764.19442658729,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-48",
+      "amountDue": 66248,
+      "amountPaid": 66247.99935114091,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-51",
+      "amountDue": 46548,
+      "amountPaid": 46548.00970350402,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-53",
+      "amountDue": 64691,
+      "amountPaid": 64691.787961734844,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-55",
+      "amountDue": 44943.3,
+      "amountPaid": 44934.87292533366,
+      "overdue": 8.427074666346016,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-9-56",
+      "amountDue": 65643,
+      "amountPaid": 65643.39171702687,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-57",
+      "amountDue": 68510,
+      "amountPaid": 68509.9915204986,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-58",
+      "amountDue": 47414,
+      "amountPaid": 47413.99943263719,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-9-59",
+      "amountDue": 125136,
+      "amountPaid": 125136.32560653458,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-3",
+      "amountDue": 51200,
+      "amountPaid": 51199.908938878114,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-8",
+      "amountDue": 51000,
+      "amountPaid": 51000.34003548196,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-9",
+      "amountDue": 54008,
+      "amountPaid": 54007.697799999994,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-21",
+      "amountDue": 53437,
+      "amountPaid": 53435.29730259938,
+      "overdue": 1.702697400622128,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-10-11",
+      "amountDue": 56658,
+      "amountPaid": 56658.09518367464,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-12",
+      "amountDue": 50281.99999999999,
+      "amountPaid": 50282.23023797288,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-13",
+      "amountDue": 54106,
+      "amountPaid": 54088.6685038799,
+      "overdue": 17.33149612010311,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-10-16",
+      "amountDue": 52968.4,
+      "amountPaid": 52967.99830604178,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-14",
+      "amountDue": 78113,
+      "amountPaid": 78113.25536029573,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-18",
+      "amountDue": 75149,
+      "amountPaid": 75150.02540023346,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-19",
+      "amountDue": 78106,
+      "amountPaid": 78106.01767981522,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-20",
+      "amountDue": 50948,
+      "amountPaid": 50947.99627300734,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-22",
+      "amountDue": 104682,
+      "amountPaid": 104682.98808260025,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-25",
+      "amountDue": 110500,
+      "amountPaid": 110499.99999999997,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-26",
+      "amountDue": 95000,
+      "amountPaid": 95000,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-28",
+      "amountDue": 51750,
+      "amountPaid": 51750.23944659107,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-32",
+      "amountDue": 48762,
+      "amountPaid": 48762.32047357039,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-34",
+      "amountDue": 46318,
+      "amountPaid": 46318.00210859251,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-35",
+      "amountDue": 52098.4,
+      "amountPaid": 52098.00172123773,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-38",
+      "amountDue": 53612,
+      "amountPaid": 53636.38941277283,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-39",
+      "amountDue": 51282,
+      "amountPaid": 51315.12912258868,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-40",
+      "amountDue": 76034,
+      "amountPaid": 76034.00430131471,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-41",
+      "amountDue": 81810,
+      "amountPaid": 81810.03322505136,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-42",
+      "amountDue": 53601.6,
+      "amountPaid": 53591.796665342925,
+      "overdue": 9.80333465707372,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-10-43",
+      "amountDue": 51379,
+      "amountPaid": 51379.31690210974,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-45",
+      "amountDue": 82057,
+      "amountPaid": 82057.0023826633,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-46",
+      "amountDue": 53705,
+      "amountPaid": 53705.3681574819,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-48",
+      "amountDue": 74352,
+      "amountPaid": 74351.99949643758,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-50",
+      "amountDue": 51657.1,
+      "amountPaid": 51657.0353369377,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-54",
+      "amountDue": 51438.7,
+      "amountPaid": 51439.0353369377,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-52",
+      "amountDue": 75150,
+      "amountPaid": 75149.99276934202,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-53",
+      "amountDue": 76365,
+      "amountPaid": 76355.83871513623,
+      "overdue": 9.161284863774199,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-10-55",
+      "amountDue": 48954,
+      "amountPaid": 48944.701901261564,
+      "overdue": 9.298098738436238,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-10-56",
+      "amountDue": 73728,
+      "amountPaid": 73727.18422877195,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-10-58",
+      "amountDue": 53596,
+      "amountPaid": 53575.32662401939,
+      "overdue": 20.673375980608398,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-8-22",
+      "amountDue": 76350,
+      "amountPaid": 76350.08144749401,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-23",
+      "amountDue": 81150,
+      "amountPaid": 81123.30908629773,
+      "overdue": 26.690913702273974,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-8-29",
+      "amountDue": 74623,
+      "amountPaid": 74623,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-30",
+      "amountDue": 86014,
+      "amountPaid": 86013.97845448834,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-31",
+      "amountDue": 74543,
+      "amountPaid": 74543.41913981241,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-39",
+      "amountDue": 91808,
+      "amountPaid": 91805.73460029633,
+      "overdue": 2.2653997036686633,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-8-40",
+      "amountDue": 76708,
+      "amountPaid": 76710.26460029634,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-50",
+      "amountDue": 116888,
+      "amountPaid": 116888.01740190663,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-55",
+      "amountDue": 95381,
+      "amountPaid": 95380.99488443433,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-56",
+      "amountDue": 79496,
+      "amountPaid": 79498.00110947297,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-64",
+      "amountDue": 95381.1875,
+      "amountPaid": 95381.00062631248,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-65",
+      "amountDue": 79495.8,
+      "amountPaid": 79495.5355508128,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-66",
+      "amountDue": 91657.35,
+      "amountPaid": 91657,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-67",
+      "amountDue": 76708,
+      "amountPaid": 76708.00196177867,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-68",
+      "amountDue": 81389,
+      "amountPaid": 81389.11228142558,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-76",
+      "amountDue": 76454,
+      "amountPaid": 76454.02221539621,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-77",
+      "amountDue": 81120,
+      "amountPaid": 81120.11930776818,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-84",
+      "amountDue": 91354,
+      "amountPaid": 91354.03791838605,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-85",
+      "amountDue": 76454,
+      "amountPaid": 76454.5764060131,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-86",
+      "amountDue": 81120,
+      "amountPaid": 81120.13092350404,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-95",
+      "amountDue": 78176,
+      "amountPaid": 78176.02592453189,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-21",
+      "amountDue": 88610,
+      "amountPaid": 88610.38851313171,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-58",
+      "amountDue": 74407,
+      "amountPaid": 74407.00132586919,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-73",
+      "amountDue": 95062,
+      "amountPaid": 95062.00325974218,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-74",
+      "amountDue": 76857,
+      "amountPaid": 76852.47529086078,
+      "overdue": 4.524709139222978,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-8-2",
+      "amountDue": 65564,
+      "amountPaid": 65576.80540624715,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-75",
+      "amountDue": 91353.7,
+      "amountPaid": 91323.73209208943,
+      "overdue": 29.96790791056992,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-8-60",
+      "amountDue": 53900,
+      "amountPaid": 53900.002950710536,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-70",
+      "amountDue": 75059,
+      "amountPaid": 75058.9992978907,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-82",
+      "amountDue": 95062,
+      "amountPaid": 95061.99970434976,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-19",
+      "amountDue": 93024,
+      "amountPaid": 93024.21504739336,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-47",
+      "amountDue": 80019,
+      "amountPaid": 80019.99283355569,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-10",
+      "amountDue": 95455.34553758886,
+      "amountPaid": 95455.34553758886,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-20",
+      "amountDue": 79275,
+      "amountPaid": 79275,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-24",
+      "amountDue": 79405,
+      "amountPaid": 79405.00744601639,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-27",
+      "amountDue": 95138,
+      "amountPaid": 95138,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-48",
+      "amountDue": 137408,
+      "amountPaid": 137409,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-63",
+      "amountDue": 95317,
+      "amountPaid": 95317,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-79",
+      "amountDue": 74810,
+      "amountPaid": 74809.99888653825,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-91",
+      "amountDue": 94424,
+      "amountPaid": 94869.00325519996,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-78",
+      "amountDue": 83464,
+      "amountPaid": 83463.87392025445,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-83",
+      "amountDue": 78999,
+      "amountPaid": 78996.39558766954,
+      "overdue": 2.604412330460036,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-8-94",
+      "amountDue": 75768,
+      "amountPaid": 75768.0338503441,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-69",
+      "amountDue": 83720,
+      "amountPaid": 83720,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-8",
+      "amountDue": 68001,
+      "amountPaid": 68000.88350494481,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-18",
+      "amountDue": 99680,
+      "amountPaid": 99680.36454260825,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-90",
+      "amountDue": 99659,
+      "amountPaid": 99660.01838630193,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-1",
+      "amountDue": 67568,
+      "amountPaid": 67568.3388141619,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-43",
+      "amountDue": 246241,
+      "amountPaid": 246240.99914507676,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-14",
+      "amountDue": 85094,
+      "amountPaid": 85093.79795259898,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-25",
+      "amountDue": 82458,
+      "amountPaid": 82458.00174551122,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-34",
+      "amountDue": 71867,
+      "amountPaid": 71867.07700578167,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-35",
+      "amountDue": 170463,
+      "amountPaid": 170463,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-72",
+      "amountDue": 99969,
+      "amountPaid": 99969.03030693113,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-88",
+      "amountDue": 78664,
+      "amountPaid": 78664.00105370111,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-36",
+      "amountDue": 99981,
+      "amountPaid": 99990.99148087727,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-45",
+      "amountDue": 100130,
+      "amountPaid": 100130.99995275306,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-44",
+      "amountDue": 84923.00000000001,
+      "amountPaid": 84922.99967265356,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-48",
+      "amountDue": 94097,
+      "amountPaid": 94096.99836867863,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-50",
+      "amountDue": 80600,
+      "amountPaid": 80598.46188630373,
+      "overdue": 1.5381136962678283,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-7-59",
+      "amountDue": 80600,
+      "amountPaid": 80600.10916469977,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-113",
+      "amountDue": 122681.65000000001,
+      "amountPaid": 122681.85635730845,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-26",
+      "amountDue": 79431,
+      "amountPaid": 79431.09426698362,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-97",
+      "amountDue": 102078,
+      "amountPaid": 102078.00126879873,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-54",
+      "amountDue": 100897,
+      "amountPaid": 100897.00016588985,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-81",
+      "amountDue": 99659.00000000001,
+      "amountPaid": 99659.00163059591,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-9",
+      "amountDue": 66861,
+      "amountPaid": 66862.12447771155,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-26",
+      "amountDue": 186503,
+      "amountPaid": 186503.63298597527,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-16",
+      "amountDue": 82000,
+      "amountPaid": 81999.99618386311,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-55",
+      "amountDue": 180232.4,
+      "amountPaid": 180231.9995836244,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-107",
+      "amountDue": 79373,
+      "amountPaid": 79372.52910161148,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-13",
+      "amountDue": 97929,
+      "amountPaid": 97928.94187747614,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-14",
+      "amountDue": 76477,
+      "amountPaid": 76477.36284889767,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-35",
+      "amountDue": 77047.92,
+      "amountPaid": 77049.59084190703,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-38",
+      "amountDue": 77616,
+      "amountPaid": 77629.49459731906,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-73",
+      "amountDue": 99633.32,
+      "amountPaid": 99621,
+      "overdue": 12.320000000006985,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-7-85",
+      "amountDue": 99323.95999999999,
+      "amountPaid": 99336,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-121",
+      "amountDue": 98398.95999999999,
+      "amountPaid": 98399.05295229686,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-12",
+      "amountDue": 92897,
+      "amountPaid": 92897.51762157441,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-109",
+      "amountDue": 96672,
+      "amountPaid": 96672.00088453175,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-2",
+      "amountDue": 62446,
+      "amountPaid": 62446.034745871744,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-23",
+      "amountDue": 76477,
+      "amountPaid": 76477.12828477546,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-60",
+      "amountDue": 99820,
+      "amountPaid": 99820.02160887212,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-71",
+      "amountDue": 77867,
+      "amountPaid": 77866.84230950178,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-108",
+      "amountDue": 95614,
+      "amountPaid": 95614.00700742958,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-93",
+      "amountDue": 98031,
+      "amountPaid": 98031.00634808931,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-96",
+      "amountDue": 84437,
+      "amountPaid": 84436.9933430693,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-8-99",
+      "amountDue": 96069,
+      "amountPaid": 96069.00118641554,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-31",
+      "amountDue": 89078,
+      "amountPaid": 89078.05627359933,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-33",
+      "amountDue": 89763,
+      "amountPaid": 89769.13962070843,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-98",
+      "amountDue": 79372.6,
+      "amountPaid": 79373.13797002526,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-110",
+      "amountDue": 76753,
+      "amountPaid": 76750.99219483764,
+      "overdue": 2.007805162356817,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-7-20",
+      "amountDue": 81014,
+      "amountPaid": 81014,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-72",
+      "amountDue": 96513,
+      "amountPaid": 96511.9986890632,
+      "overdue": 1.0013109368010191,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-7-24",
+      "amountDue": 94423,
+      "amountPaid": 94423,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-36",
+      "amountDue": 95328,
+      "amountPaid": 95328,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-62",
+      "amountDue": 77867,
+      "amountPaid": 77867,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-74",
+      "amountDue": 77470,
+      "amountPaid": 77470,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-80",
+      "amountDue": 82722,
+      "amountPaid": 82721.99922440769,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-86",
+      "amountDue": 77231,
+      "amountPaid": 77231.00206481945,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-96",
+      "amountDue": 95914,
+      "amountPaid": 95914.00083235069,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-115",
+      "amountDue": 89148,
+      "amountPaid": 89148.96106862352,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-128",
+      "amountDue": 84240,
+      "amountPaid": 84240.48084304135,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-131",
+      "amountDue": 78880,
+      "amountPaid": 78879.67317960999,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-120",
+      "amountDue": 95314.2,
+      "amountPaid": 95314.2636019046,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-32",
+      "amountDue": 81617,
+      "amountPaid": 81616.92175560906,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-105",
+      "amountDue": 89965,
+      "amountPaid": 89965.00942740812,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-104",
+      "amountDue": 84760,
+      "amountPaid": 84760.01298372306,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-26",
+      "amountDue": 82989,
+      "amountPaid": 82989.52951169896,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-62",
+      "amountDue": 84652,
+      "amountPaid": 84655.18796055693,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-29",
+      "amountDue": 85646,
+      "amountPaid": 85646,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-38",
+      "amountDue": 86142.00000000003,
+      "amountPaid": 86142,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-55",
+      "amountDue": 124498,
+      "amountPaid": 124500.35233837417,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-122",
+      "amountDue": 74936,
+      "amountPaid": 74936.00154679042,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-132",
+      "amountDue": 97953,
+      "amountPaid": 97709.32546733954,
+      "overdue": 243.67453266045777,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-6-57",
+      "amountDue": 149648,
+      "amountPaid": 149648.00014731882,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-83",
+      "amountDue": 84366,
+      "amountPaid": 84366.04639638143,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-20",
+      "amountDue": 82989,
+      "amountPaid": 82988.99691912658,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-35",
+      "amountDue": 85646,
+      "amountPaid": 85646.65618114956,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-75",
+      "amountDue": 102039,
+      "amountPaid": 102039.00201519187,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-19",
+      "amountDue": 85752,
+      "amountPaid": 85752.20150450995,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-43",
+      "amountDue": 87213,
+      "amountPaid": 87213.0000000003,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-68",
+      "amountDue": 82974,
+      "amountPaid": 82974.3047429707,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-11",
+      "amountDue": 82489.99999999997,
+      "amountPaid": 82490,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-17",
+      "amountDue": 82650.99999999996,
+      "amountPaid": 82651,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-52",
+      "amountDue": 201108,
+      "amountPaid": 201108.33640995348,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-65",
+      "amountDue": 87782,
+      "amountPaid": 87800.37770822144,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-64",
+      "amountDue": 88768,
+      "amountPaid": 88767.99956770777,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-27",
+      "amountDue": 96844,
+      "amountPaid": 96844.00286686973,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-63",
+      "amountDue": 98031,
+      "amountPaid": 98030.99895529376,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-67",
+      "amountDue": 87544,
+      "amountPaid": 87541.07291744502,
+      "overdue": 2.927082554975641,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-7-103",
+      "amountDue": 89424,
+      "amountPaid": 89421.30514221566,
+      "overdue": 2.694857784343185,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-7-18",
+      "amountDue": 85752,
+      "amountPaid": 85752,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-21",
+      "amountDue": 88930,
+      "amountPaid": 88930,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-30",
+      "amountDue": 86405,
+      "amountPaid": 86405,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-41",
+      "amountDue": 119841,
+      "amountPaid": 119840.99978390837,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-42",
+      "amountDue": 87056,
+      "amountPaid": 87055.99909991003,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-74",
+      "amountDue": 88154,
+      "amountPaid": 88154.25268208634,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-89",
+      "amountDue": 88650,
+      "amountPaid": 88599.92265492481,
+      "overdue": 50.07734507518762,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-6-34",
+      "amountDue": 198644,
+      "amountPaid": 198644.0004419564,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-47",
+      "amountDue": 86390,
+      "amountPaid": 86389.99745015518,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-80",
+      "amountDue": 88153.8,
+      "amountPaid": 88170.44375955751,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-15",
+      "amountDue": 95716,
+      "amountPaid": 95716.0010184781,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-81",
+      "amountDue": 93276,
+      "amountPaid": 93276.00378236835,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-19",
+      "amountDue": 93811,
+      "amountPaid": 93811.25634448422,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-44",
+      "amountDue": 88650,
+      "amountPaid": 88543.80036329883,
+      "overdue": 106.19963670117431,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-16-21",
+      "amountDue": 84070,
+      "amountPaid": 84070.00338084012,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-28",
+      "amountDue": 86752.6,
+      "amountPaid": 86753.00184280684,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-61",
+      "amountDue": 88402,
+      "amountPaid": 88402.00055655082,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-68",
+      "amountDue": 88402,
+      "amountPaid": 88399.99606888017,
+      "overdue": 2.0039311198343057,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-16-71",
+      "amountDue": 208505.80000000002,
+      "amountPaid": 208506.29467114666,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-80",
+      "amountDue": 95157,
+      "amountPaid": 95157.6505148215,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-89",
+      "amountDue": 98100,
+      "amountPaid": 98100.0033354944,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-92",
+      "amountDue": 174148,
+      "amountPaid": 174138.02970163117,
+      "overdue": 9.970298368833028,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-7-46",
+      "amountDue": 189083,
+      "amountPaid": 189082.99985341541,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-53",
+      "amountDue": 124501.14633789421,
+      "amountPaid": 124501.37718469325,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-87",
+      "amountDue": 97150,
+      "amountPaid": 97149.9304182231,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-89",
+      "amountDue": 127254,
+      "amountPaid": 127254.00102496523,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-99",
+      "amountDue": 97150,
+      "amountPaid": 97150.0036528346,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-114",
+      "amountDue": 89151,
+      "amountPaid": 89150.41541143812,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-11",
+      "amountDue": 86254,
+      "amountPaid": 86254.10976652762,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-18",
+      "amountDue": 86422,
+      "amountPaid": 86422.00762239812,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-81",
+      "amountDue": 89395,
+      "amountPaid": 89394.99442978599,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-10",
+      "amountDue": 93350,
+      "amountPaid": 93349.11259882386,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-18",
+      "amountDue": 93520,
+      "amountPaid": 93520.10982976387,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-27",
+      "amountDue": 93897,
+      "amountPaid": 93897.10982976387,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-91",
+      "amountDue": 135042,
+      "amountPaid": 135043.22333284456,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-62",
+      "amountDue": 121634,
+      "amountPaid": 121633.64774564064,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-90",
+      "amountDue": 140568.40000000002,
+      "amountPaid": 140568.4290242415,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-22",
+      "amountDue": 118754.00000000001,
+      "amountPaid": 118753.0035603026,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-82",
+      "amountDue": 122928.00000000001,
+      "amountPaid": 122928,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-107",
+      "amountDue": 116510,
+      "amountPaid": 116509.98960344572,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-1",
+      "amountDue": 74310,
+      "amountPaid": 74318.60889806329,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-100",
+      "amountDue": 98373,
+      "amountPaid": 98400,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-111",
+      "amountDue": 106571,
+      "amountPaid": 106571,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-130",
+      "amountDue": 206744,
+      "amountPaid": 206744.00074294204,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-37",
+      "amountDue": 100363,
+      "amountPaid": 100363.60000061241,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-53",
+      "amountDue": 94610,
+      "amountPaid": 94609.99863819094,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-108",
+      "amountDue": 94858,
+      "amountPaid": 94856.67036479116,
+      "overdue": 1.3296352088364074,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-6-46",
+      "amountDue": 103822.54000000001,
+      "amountPaid": 103824.84,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-58",
+      "amountDue": 94858,
+      "amountPaid": 94857.87471688422,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-98",
+      "amountDue": 94362,
+      "amountPaid": 94362.00058482654,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-101",
+      "amountDue": 94858,
+      "amountPaid": 94857.99801929353,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-12",
+      "amountDue": 70490,
+      "amountPaid": 70490.35660286905,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-73",
+      "amountDue": 99386,
+      "amountPaid": 99385.9991774851,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-66",
+      "amountDue": 93548,
+      "amountPaid": 93548.00745841867,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-69",
+      "amountDue": 98858,
+      "amountPaid": 98858.00323972832,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-79",
+      "amountDue": 99386,
+      "amountPaid": 99386.71470683288,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-99",
+      "amountDue": 100444,
+      "amountPaid": 100444.00362802413,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-99",
+      "amountDue": 103823,
+      "amountPaid": 103822.93822051433,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-39",
+      "amountDue": 109051,
+      "amountPaid": 109051.00077694327,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-41",
+      "amountDue": 114050.96300270081,
+      "amountPaid": 1000.0369972991971,
+      "overdue": 113050.92600540162,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-6-60",
+      "amountDue": 108309,
+      "amountPaid": 108309.00074019245,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-66",
+      "amountDue": 110647.96301638373,
+      "amountPaid": 110648.03816809953,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-84",
+      "amountDue": 115595,
+      "amountPaid": 115595.06959571718,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-52",
+      "amountDue": 124222,
+      "amountPaid": 124222.00258841767,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-109",
+      "amountDue": 100972,
+      "amountPaid": 100972.67755453341,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-32",
+      "amountDue": 123296.99999999999,
+      "amountPaid": 123541.63595853087,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-45",
+      "amountDue": 100363,
+      "amountPaid": 100363,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-54",
+      "amountDue": 100708,
+      "amountPaid": 100708,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-66",
+      "amountDue": 102672,
+      "amountPaid": 102672.00119318394,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-29",
+      "amountDue": 97098,
+      "amountPaid": 97098,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-41",
+      "amountDue": 94362,
+      "amountPaid": 94362,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-5",
+      "amountDue": 80001.8516650597,
+      "amountPaid": 80003.61975874328,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-90",
+      "amountDue": 100179,
+      "amountPaid": 100180.60324067192,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-19",
+      "amountDue": 96743.9256726624,
+      "amountPaid": 96743.5865913483,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-50",
+      "amountDue": 100972,
+      "amountPaid": 100972.14531713564,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-67",
+      "amountDue": 114090,
+      "amountPaid": 114070.00598309776,
+      "overdue": 19.994016902244766,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-6-25",
+      "amountDue": 210054,
+      "amountPaid": 210053.99867812297,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-5",
+      "amountDue": 10239.333333333334,
+      "amountPaid": 10240.287747973869,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-10",
+      "amountDue": 15360.400000000001,
+      "amountPaid": 15359.99925711314,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-15",
+      "amountDue": 10241.066666666668,
+      "amountPaid": 15362.606818946788,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-19",
+      "amountDue": 23644,
+      "amountPaid": 74849.99257113141,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-20",
+      "amountDue": 15401,
+      "amountPaid": 999.9999999999999,
+      "overdue": 14401,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-1-21",
+      "amountDue": 59539,
+      "amountPaid": 19511.000561971305,
+      "overdue": 40027.999438028695,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-1-24",
+      "amountDue": 23765,
+      "amountPaid": 999.9999999999999,
+      "overdue": 22765,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-1-25",
+      "amountDue": 15479.2,
+      "amountPaid": 15478.998444329209,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-26",
+      "amountDue": 8910,
+      "amountPaid": 8909.997743796876,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-30",
+      "amountDue": 15039.992571131414,
+      "amountPaid": 999.9999999999999,
+      "overdue": 14039.992571131414,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-1-35",
+      "amountDue": 18432.600000000002,
+      "amountPaid": 18433.028749721416,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-39",
+      "amountDue": 19051,
+      "amountPaid": 21200,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-43",
+      "amountDue": 18527,
+      "amountPaid": 11700,
+      "overdue": 6827,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-1-47",
+      "amountDue": 18621,
+      "amountPaid": 18621.06877080139,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-50",
+      "amountDue": 33000,
+      "amountPaid": 46000,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-54",
+      "amountDue": 33000,
+      "amountPaid": 33969.997777613156,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-27",
+      "amountDue": 112179,
+      "amountPaid": 112179.0934320074,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-37",
+      "amountDue": 169764,
+      "amountPaid": 169764.00116950515,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-1",
+      "amountDue": 11795.2,
+      "amountPaid": 11799.193843898864,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-6",
+      "amountDue": 1000,
+      "amountPaid": 5710.999257057949,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-11",
+      "amountDue": 30457.5,
+      "amountPaid": 30458.000074126237,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-16",
+      "amountDue": 7108.5599999999995,
+      "amountPaid": 7237.768673002969,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-23",
+      "amountDue": 1000,
+      "amountPaid": 28023.09828065129,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-31",
+      "amountDue": 86589.04,
+      "amountPaid": 11054.406931559985,
+      "overdue": 75534.63306844002,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-1-38",
+      "amountDue": 18763.600000000002,
+      "amountPaid": 18763.649688530597,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-42",
+      "amountDue": 9405.9,
+      "amountPaid": 9406.107689163404,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-46",
+      "amountDue": 18860,
+      "amountPaid": 18860.021986075484,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-4",
+      "amountDue": 1000,
+      "amountPaid": 75755.00647788266,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-16-14",
+      "amountDue": 1000,
+      "amountPaid": 108691.96505617704,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-7-70",
+      "amountDue": 1000,
+      "amountPaid": 999.9999999999999,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-6-33",
+      "amountDue": 1000,
+      "amountPaid": 999.9999999999999,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-1-51",
+      "amountDue": 1000,
+      "amountPaid": 1000,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-5",
+      "amountDue": 2000,
+      "amountPaid": 2000,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-8",
+      "amountDue": 18998.2,
+      "amountPaid": 1000,
+      "overdue": 17998.2,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-2-9",
+      "amountDue": 4154.828571428571,
+      "amountPaid": 4155,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-10",
+      "amountDue": 5819.4,
+      "amountPaid": 5819,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-11",
+      "amountDue": 5778.257142857142,
+      "amountPaid": 5778,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-13",
+      "amountDue": 4165.114285714286,
+      "amountPaid": 4165,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-12",
+      "amountDue": 14725.8,
+      "amountPaid": 14725.998663498662,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-15",
+      "amountDue": 10366.542857142858,
+      "amountPaid": 10367.002079310856,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-17",
+      "amountDue": 10000,
+      "amountPaid": 10000,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-20",
+      "amountDue": 14390.1,
+      "amountPaid": 14390.03564003564,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-25",
+      "amountDue": 4069.285714285714,
+      "amountPaid": 0,
+      "overdue": 4069.285714285714,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-2-28",
+      "amountDue": 4281.3,
+      "amountPaid": 4281.30014858841,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-29",
+      "amountDue": 18998.2,
+      "amountPaid": 19998,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-32",
+      "amountDue": 3877.84,
+      "amountPaid": 3877.998514667657,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-33",
+      "amountDue": 4293.942857142857,
+      "amountPaid": 4081.0033047417473,
+      "overdue": 212.93955240110972,
+      "status": "Outstanding"
+    },
+    {
+      "project": "University",
+      "code": "U-2-36",
+      "amountDue": 4293.942857142857,
+      "amountPaid": 4294.001857010214,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-37",
+      "amountDue": 19092.600000000002,
+      "amountPaid": 20093,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-39",
+      "amountDue": 9483.720000000001,
+      "amountPaid": 9484,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "University",
+      "code": "U-2-43",
+      "amountDue": 5000,
+      "amountPaid": 5000,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-2-22",
+      "amountDue": 77311,
+      "amountPaid": 77311.2169177788,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-2-27",
+      "amountDue": 134748,
+      "amountPaid": 134747.997633698,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-7",
+      "amountDue": 101655,
+      "amountPaid": 101655.00126223694,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-16",
+      "amountDue": 99800,
+      "amountPaid": 99799.99923593033,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-24",
+      "amountDue": 74802,
+      "amountPaid": 74801.99589414721,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-27",
+      "amountDue": 75344,
+      "amountPaid": 75344.00546039286,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-39",
+      "amountDue": 99336,
+      "amountPaid": 99336.00292916098,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-40",
+      "amountDue": 66368,
+      "amountPaid": 66368.1092402382,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-43",
+      "amountDue": 103400,
+      "amountPaid": 103400.002338427,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-44",
+      "amountDue": 66963,
+      "amountPaid": 66963.0022624717,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-46",
+      "amountDue": 102887,
+      "amountPaid": 102886.71831937994,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-47",
+      "amountDue": 104388.8,
+      "amountPaid": 104389.05078042232,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-48",
+      "amountDue": 67415,
+      "amountPaid": 67415.61259024129,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-11",
+      "amountDue": 101392,
+      "amountPaid": 101391.9985141159,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-26A",
+      "amountDue": 76453,
+      "amountPaid": 76453.28326600506,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-2-S8",
+      "amountDue": 7770,
+      "amountPaid": 7780.486064870276,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-2-S6",
+      "amountDue": 7770,
+      "amountPaid": 7754.453638979921,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-2-S11",
+      "amountDue": 9768,
+      "amountPaid": 9769.423222661471,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-3-S6",
+      "amountDue": 11100,
+      "amountPaid": 11101.28263347251,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-2-S10",
+      "amountDue": 11200.181818181818,
+      "amountPaid": 11200.631997191364,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-3-S12",
+      "amountDue": 13350,
+      "amountPaid": 13350,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-11",
+      "amountDue": 82928,
+      "amountPaid": 82928.0403775241,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-14",
+      "amountDue": 98623,
+      "amountPaid": 98623.17887466609,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-19",
+      "amountDue": 99862,
+      "amountPaid": 99862,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-15",
+      "amountDue": 111111,
+      "amountPaid": 111109.06016668768,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-16",
+      "amountDue": 168208,
+      "amountPaid": 168208.29768139066,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-20",
+      "amountDue": 112665,
+      "amountPaid": 112664.9979084121,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-25",
+      "amountDue": 109698,
+      "amountPaid": 109698.00149620605,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-30",
+      "amountDue": 131110,
+      "amountPaid": 131108.0030700867,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-31",
+      "amountDue": 81673.8,
+      "amountPaid": 81669.87852636789,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-35",
+      "amountDue": 212764,
+      "amountPaid": 212763.7009305221,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-39",
+      "amountDue": 83952,
+      "amountPaid": 83952.9153337157,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-6",
+      "amountDue": 79579,
+      "amountPaid": 79578.99584611767,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-9",
+      "amountDue": 100392,
+      "amountPaid": 100392.0038570051,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-6-29",
+      "amountDue": 103429.16,
+      "amountPaid": 103426.71429772566,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-33",
+      "amountDue": 57094,
+      "amountPaid": 57093.998819240864,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-32",
+      "amountDue": 77824,
+      "amountPaid": 77823.9985182441,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-33",
+      "amountDue": 74941,
+      "amountPaid": 74940.9999999999,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-6-30",
+      "amountDue": 113631,
+      "amountPaid": 113587.73795095595,
+      "overdue": 43.26204904404585,
+      "status": "Outstanding"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-4-34",
+      "amountDue": 57780,
+      "amountPaid": 57780.00059595139,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-5-13",
+      "amountDue": 77824,
+      "amountPaid": 77823.99922046108,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-6-24",
+      "amountDue": 102162,
+      "amountPaid": 102161.99926777478,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-6-12",
+      "amountDue": 102697,
+      "amountPaid": 102697.25568168575,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-6-20",
+      "amountDue": 107184.00000000001,
+      "amountPaid": 107183.95530245238,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-2-S5",
+      "amountDue": 11450,
+      "amountPaid": 11450.001842095568,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-8-7",
+      "amountDue": 210184,
+      "amountPaid": 210184,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-8-22",
+      "amountDue": 183887,
+      "amountPaid": 183886.99887701357,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-8-21",
+      "amountDue": 99081,
+      "amountPaid": 98942.40558452425,
+      "overdue": 138.59441547574534,
+      "status": "Outstanding"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-8-18",
+      "amountDue": 100827,
+      "amountPaid": 100824.11319548573,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-8-15",
+      "amountDue": 99509.2,
+      "amountPaid": 99510.16815737952,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-8-S7",
+      "amountDue": 6960,
+      "amountPaid": 6960.332472739108,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-10",
+      "amountDue": 108146,
+      "amountPaid": 108145.54483452578,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-14-9",
+      "amountDue": 68246,
+      "amountPaid": 68217.07683282965,
+      "overdue": 28.92316717034555,
+      "status": "Outstanding"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-9-8",
+      "amountDue": 182798,
+      "amountPaid": 182798.00029461592,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-21",
+      "amountDue": 119922,
+      "amountPaid": 119922.22588357216,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-24",
+      "amountDue": 120681,
+      "amountPaid": 120680.99846844032,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-28",
+      "amountDue": 147105,
+      "amountPaid": 147105.48948327336,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-16",
+      "amountDue": 113359,
+      "amountPaid": 113680.0261469201,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-41",
+      "amountDue": 116130,
+      "amountPaid": 116130.49794624576,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-6",
+      "amountDue": 107468,
+      "amountPaid": 107468.94539078654,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-11",
+      "amountDue": 79332,
+      "amountPaid": 79331.77429356243,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-14-10",
+      "amountDue": 206514,
+      "amountPaid": 206536.12725576304,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-14",
+      "amountDue": 108824,
+      "amountPaid": 108823.47746721838,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-30",
+      "amountDue": 69664,
+      "amountPaid": 69663.56985956784,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-13",
+      "amountDue": 95603,
+      "amountPaid": 95603.53593568361,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-43",
+      "amountDue": 111141,
+      "amountPaid": 111141.0011840127,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-25",
+      "amountDue": 146171,
+      "amountPaid": 146171.99508842506,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-23",
+      "amountDue": 108968.00000000001,
+      "amountPaid": 108968.00170976785,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-14-6",
+      "amountDue": 67399,
+      "amountPaid": 67399.00115883519,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-14-7",
+      "amountDue": 204069,
+      "amountPaid": 204069.00114666414,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-9-3",
+      "amountDue": 189726,
+      "amountPaid": 189726.13012964066,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-14-11",
+      "amountDue": 178133.6,
+      "amountPaid": 178135.45215398763,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-9",
+      "amountDue": 95006,
+      "amountPaid": 95005.99996368113,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-39",
+      "amountDue": 115964,
+      "amountPaid": 115963.99850523169,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-14-4",
+      "amountDue": 211700,
+      "amountPaid": 211700.00299154888,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-26",
+      "amountDue": 115140,
+      "amountPaid": 115140.09768278801,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-44",
+      "amountDue": 51259,
+      "amountPaid": 102518.00076996535,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-11-5",
+      "amountDue": 99129.00000000001,
+      "amountPaid": 99128.99902798697,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-9-OP8",
+      "amountDue": 6667.666666666667,
+      "amountPaid": 6688.924633393636,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-9-OP4",
+      "amountDue": 5000.666666666667,
+      "amountPaid": 6686.66689325491,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-8-OP12",
+      "amountDue": 10000,
+      "amountPaid": 10000,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-6-OP16",
+      "amountDue": 6000,
+      "amountPaid": 5986.183998182702,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-6-OP17",
+      "amountDue": 8333.333333333334,
+      "amountPaid": 8334.996661877889,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-9-OP5",
+      "amountDue": 6666.666666666667,
+      "amountPaid": 6667.999871878275,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-3-OP7",
+      "amountDue": 8500,
+      "amountPaid": 8500.17546400722,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-6-OP1",
+      "amountDue": 5000,
+      "amountPaid": 5000,
+      "overdue": 0,
+      "status": "Paid"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-9-OP2",
+      "amountDue": 5000,
+      "amountPaid": 3999.9999999999995,
+      "overdue": 1000.0000000000005,
+      "status": "Outstanding"
+    },
+    {
+      "project": "Lisi",
+      "code": "L-9-S13",
+      "amountDue": 2632.5,
+      "amountPaid": 2632.0019279391545,
+      "overdue": 0,
+      "status": "Paid"
+    }
+  ]
+}

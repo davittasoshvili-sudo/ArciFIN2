@@ -1,0 +1,309 @@
+{
+  "reportDate": "April 30, 2026",
+  "projects": [
+    {
+      "name": "Jikia",
+      "revenues": {
+        "total": 79145601.71460983,
+        "completed": 77545621.71460983
+      },
+      "commercial": {
+        "total": 1155384,
+        "completed": 302244
+      },
+      "mansarda": {
+        "total": 6832001.653808135,
+        "completed": 6832001.653808135
+      },
+      "residential": {
+        "total": 54096660.26241654,
+        "completed": 54096660.26241654
+      },
+      "firstFloor": {
+        "total": 3032707.5780576784,
+        "completed": 3032707.5780576784
+      },
+      "office": {
+        "total": 7626194.317495125,
+        "completed": 7547474.317495125
+      },
+      "parking": {
+        "total": 1726031.9627475517,
+        "completed": 1391031.9627475517
+      },
+      "storerooms": {
+        "total": 229151.95773257356,
+        "completed": 229151.95773257356
+      },
+      "otherRevenues": {
+        "total": 722881.8678744144,
+        "completed": 722881.8678744144
+      },
+      "opex": {
+        "total": 46758053.4839247,
+        "completed": 46357197.47184739
+      },
+      "land": {
+        "total": 6772151.004988726,
+        "completed": 6772151.004988726
+      },
+      "construction": {
+        "total": 25523343.663486883,
+        "completed": 25523343.663486883
+      },
+      "marketing": {
+        "total": 466888.7420617525,
+        "completed": 466888.7420617525
+      },
+      "management": {
+        "total": 2081223.4511791475,
+        "completed": 2085510.8207910461
+      },
+      "interestExpenses": {
+        "total": 2292.9158288495382,
+        "completed": 2292.9158288495382
+      },
+      "vat": {
+        "total": 6543262.509605813,
+        "completed": 6271608.54791596
+      },
+      "ebt": {
+        "total": 32387548.23068513,
+        "completed": 31188424.24276244
+      },
+      "netIncome": {
+        "total": null,
+        "completed": 27239606.445245635
+      },
+      "grossMarginPct": 40.92147577255272
+    },
+    {
+      "name": "Samgori",
+      "revenues": {
+        "total": 55670303.45571625,
+        "completed": 55074638.83905045
+      },
+      "mansarda": {
+        "total": 6342979.9552489165,
+        "completed": 6201786.811492284
+      },
+      "residential": {
+        "total": 39891618.898391455,
+        "completed": 39886974.35787476
+      },
+      "commercial": {
+        "total": 3772853.501179413,
+        "completed": 3458721.501179413
+      },
+      "firstFloor": {
+        "total": 2980347.4813222587,
+        "completed": 2920067.4813222587
+      },
+      "parking": {
+        "total": 2020229.2571600983,
+        "completed": 1944814.3247676273
+      },
+      "otherRevenues": {
+        "total": 523575.91742850596,
+        "completed": 523575.91742850596
+      },
+      "opex": {
+        "total": 40987250.36694988,
+        "completed": 40315457.19628202
+      },
+      "land": {
+        "total": 5621920.130074133,
+        "completed": 5621920.130074133
+      },
+      "construction": {
+        "total": 23500258.239784546,
+        "completed": 23372760.119800176
+      },
+      "marketing": {
+        "total": 484135.4225007915,
+        "completed": 484121.64407346136
+      },
+      "management": {
+        "total": 1552662.971788253,
+        "completed": 1478732.768356617
+      },
+      "interestExpenses": {
+        "total": 0,
+        "completed": 0
+      },
+      "vat": {
+        "total": 3821561.1564679192,
+        "completed": 3720233.136601965
+      },
+      "ebt": {
+        "total": 14683053.088766376,
+        "completed": 14759181.642768428
+      },
+      "netIncome": {
+        "total": 12776188.906250365,
+        "completed": 12941847.709816646
+      },
+      "grossMarginPct": 26.37501895502729
+    },
+    {
+      "name": "University",
+      "revenues": {
+        "total": 44474339.778274305,
+        "completed": 44474339.778274305
+      },
+      "firstFloor": {
+        "total": 1909413.5047651543,
+        "completed": 1909413.5047651543
+      },
+      "residential": {
+        "total": 39359683.83585618,
+        "completed": 39359683.83585618
+      },
+      "commercial": {
+        "total": 0,
+        "completed": 0
+      },
+      "office": {
+        "total": 0,
+        "completed": 0
+      },
+      "parking": {
+        "total": 244489.96794140688,
+        "completed": 244489.96794140688
+      },
+      "otherRevenues": {
+        "total": 194940.81833565407,
+        "completed": 194940.81833565407
+      },
+      "opex": {
+        "total": 47741700.08283205,
+        "completed": 47741700.08283205
+      },
+      "land": {
+        "total": 12736240.280149624,
+        "completed": 12736240.280149624
+      },
+      "construction": {
+        "total": 27237127.599811222,
+        "completed": 27237127.599811222
+      },
+      "marketing": {
+        "total": 377370.3724396735,
+        "completed": 377370.3724396735
+      },
+      "management": {
+        "total": 1075944.386529246,
+        "completed": 1075944.386529246
+      },
+      "interestExpenses": {
+        "total": 0,
+        "completed": 0
+      },
+      "vat": {
+        "total": 1866959.7798073723,
+        "completed": 1866959.7798073723
+      },
+      "ebt": {
+        "total": -3267360.304557748,
+        "completed": -3267360.304557748
+      },
+      "grossMarginPct": -7.346619018623077
+    },
+    {
+      "name": "Lisi",
+      "revenues": {
+        "total": 27162309.4665909,
+        "completed": 27162309.4665909
+      },
+      "firstFloor": {
+        "total": 1428744.6379728587,
+        "completed": 1428744.6379728587
+      },
+      "residential": {
+        "total": 23292136.26628923,
+        "completed": 23292136.26628923
+      },
+      "commercial": {
+        "total": 1096219.56973533,
+        "completed": 1096219.56973533
+      },
+      "storerooms": {
+        "total": 204947.78188970633,
+        "completed": 204947.78188970633
+      },
+      "parking": {
+        "total": 861923.0983480049,
+        "completed": 861923.0983480049
+      },
+      "otherRevenues": {
+        "total": 252076.55136240472,
+        "completed": 252076.55136240472
+      },
+      "opex": {
+        "total": 26841946.85686105,
+        "completed": 26841946.85686105
+      },
+      "land": {
+        "total": 3267237.474504398,
+        "completed": 3267237.474504398
+      },
+      "construction": {
+        "total": 16882316.463905223,
+        "completed": 16882316.463905223
+      },
+      "marketing": {
+        "total": 246400.3208600278,
+        "completed": 246400.3208600278
+      },
+      "management": {
+        "total": 660659.302653095,
+        "completed": 660659.302653095
+      },
+      "interestExpenses": {
+        "total": 0,
+        "completed": 0
+      },
+      "vat": {
+        "total": 854505.6462211509,
+        "completed": 854505.6462211509
+      },
+      "ebt": {
+        "total": 320362.6097298488,
+        "completed": 320362.6097298488
+      },
+      "grossMarginPct": 1.179438037564105
+    }
+  ],
+  "salesByProject": {
+    "Samgori": {
+      "units": 1349,
+      "value": 54549834.870000005,
+      "units2026": 26,
+      "value2026": 1184823
+    },
+    "Lisi": {
+      "units": 392,
+      "value": 27173919.060000002,
+      "units2026": 32,
+      "value2026": 2407708
+    },
+    "University": {
+      "units": 546,
+      "value": 49260832.463199995,
+      "units2026": 99,
+      "value2026": 11156145.46
+    },
+    "Kikvidze": {
+      "units": 18,
+      "value": 88280,
+      "units2026": 0,
+      "value2026": 0
+    },
+    "Jikia": {
+      "units": 42,
+      "value": 5303400,
+      "units2026": 4,
+      "value2026": 358835
+    }
+  }
+}
